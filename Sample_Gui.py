@@ -20,4 +20,5 @@ with open('CourseList2.FA18.09.06.18.csv', "rb") as file:
          c += 1
       r += 1
 
+root.title("Tutor Time")
 root.mainloop()
