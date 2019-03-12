@@ -1,0 +1,642 @@
+Busy students by time slot:
+M AM 07:45: 
+
+M AM 08:00: 
+
+M AM 08:15: 
+
+M AM 08:30: 
+
+M AM 08:45: 
+
+M AM 09:00: 
+
+M AM 09:15: 
+
+M AM 09:30: 
+
+M AM 09:45: 
+
+M AM 10:00: 
+
+M AM 10:15: 
+                          Dillan Comtois    PHYS111
+
+M AM 10:30: 
+                          Dillan Comtois    PHYS111
+
+M AM 10:45: 
+                          Dillan Comtois    PHYS111
+
+M AM 11:00: 
+                          Dillan Comtois    PHYS111
+
+M AM 11:15: 
+                          Dillan Comtois    PHYS111
+
+M AM 11:30: 
+                          Dillan Comtois    PHYS111
+
+M AM 11:45: 
+
+M NN 12:00: 
+
+M NN 12:15: 
+
+M NN 12:30: 
+
+M NN 12:45: 
+
+M PM 01:00: 
+
+M PM 01:15: 
+
+M PM 01:30: 
+
+M PM 01:45: 
+
+M PM 02:00: 
+
+M PM 02:15: 
+
+M PM 02:30: 
+
+M PM 02:45: 
+
+M PM 03:00: 
+
+M PM 03:15: 
+
+M PM 03:30: 
+
+M PM 03:45: 
+
+M PM 04:00: 
+
+M PM 04:15: 
+
+M PM 04:30: 
+
+M PM 04:45: 
+
+M PM 05:00: 
+
+M PM 05:15: 
+
+M PM 05:30: 
+
+M PM 05:45: 
+
+M PM 06:00: 
+
+M PM 06:15: 
+
+M PM 06:30: 
+
+M PM 06:45: 
+
+M PM 07:00: 
+
+M PM 07:15: 
+
+M PM 07:30: 
+
+M PM 07:45: 
+
+M PM 08:00: 
+
+M PM 08:15: 
+
+M PM 08:30: 
+
+M PM 08:45: 
+
+M PM 09:00: 
+
+M PM 09:15: 
+
+M PM 09:30: 
+
+T AM 07:45: 
+
+T AM 08:00: 
+
+T AM 08:15: 
+
+T AM 08:30: 
+
+T AM 08:45: 
+
+T AM 09:00: 
+
+T AM 09:15: 
+
+T AM 09:30: 
+
+T AM 09:45: 
+
+T AM 10:00: 
+
+T AM 10:15: 
+                          Dillan Comtois    BIOL256
+
+T AM 10:30: 
+                          Dillan Comtois    BIOL256
+
+T AM 10:45: 
+                          Dillan Comtois    BIOL256
+
+T AM 11:00: 
+                          Dillan Comtois    BIOL256
+
+T AM 11:15: 
+                          Dillan Comtois    BIOL256
+
+T AM 11:30: 
+                          Dillan Comtois    BIOL256
+
+T AM 11:45: 
+                          Dillan Comtois    CHEM360
+
+T NN 12:00: 
+                          Dillan Comtois    CHEM360
+
+T NN 12:15: 
+                          Dillan Comtois    CHEM360
+
+T NN 12:30: 
+                          Dillan Comtois    CHEM360
+
+T NN 12:45: 
+                          Dillan Comtois    CHEM360
+
+T PM 01:00: 
+                          Dillan Comtois    CHEM360
+
+T PM 01:15: 
+                          Dillan Comtois   BIOL256L
+
+T PM 01:30: 
+                          Dillan Comtois   BIOL256L
+
+T PM 01:45: 
+                          Dillan Comtois   BIOL256L
+
+T PM 02:00: 
+                          Dillan Comtois   BIOL256L
+
+T PM 02:15: 
+                          Dillan Comtois   BIOL256L
+
+T PM 02:30: 
+                          Dillan Comtois   BIOL256L
+
+T PM 02:45: 
+                          Dillan Comtois   BIOL256L
+
+T PM 03:00: 
+                          Dillan Comtois   BIOL256L
+
+T PM 03:15: 
+                          Dillan Comtois   BIOL256L
+
+T PM 03:30: 
+                          Dillan Comtois   BIOL256L
+
+T PM 03:45: 
+                          Dillan Comtois   BIOL256L
+
+T PM 04:00: 
+                          Dillan Comtois   BIOL256L
+
+T PM 04:15: 
+                          Dillan Comtois   BIOL256L
+
+T PM 04:30: 
+
+T PM 04:45: 
+
+T PM 05:00: 
+
+T PM 05:15: 
+
+T PM 05:30: 
+
+T PM 05:45: 
+
+T PM 06:00: 
+                          Dillan Comtois    PHYS113
+
+T PM 06:15: 
+                          Dillan Comtois    PHYS113
+
+T PM 06:30: 
+                          Dillan Comtois    PHYS113
+
+T PM 06:45: 
+                          Dillan Comtois    PHYS113
+
+T PM 07:00: 
+                          Dillan Comtois    PHYS113
+
+T PM 07:15: 
+                          Dillan Comtois    PHYS113
+
+T PM 07:30: 
+                          Dillan Comtois    PHYS113
+
+T PM 07:45: 
+                          Dillan Comtois    PHYS113
+
+T PM 08:00: 
+                          Dillan Comtois    PHYS113
+
+T PM 08:15: 
+                          Dillan Comtois    PHYS113
+
+T PM 08:30: 
+                          Dillan Comtois    PHYS113
+
+T PM 08:45: 
+                          Dillan Comtois    PHYS113
+
+T PM 09:00: 
+                          Dillan Comtois    PHYS113
+
+T PM 09:15: 
+
+T PM 09:30: 
+
+W AM 07:45: 
+
+W AM 08:00: 
+
+W AM 08:15: 
+
+W AM 08:30: 
+
+W AM 08:45: 
+
+W AM 09:00: 
+
+W AM 09:15: 
+
+W AM 09:30: 
+
+W AM 09:45: 
+
+W AM 10:00: 
+
+W AM 10:15: 
+                          Dillan Comtois    PHYS111
+
+W AM 10:30: 
+                          Dillan Comtois    PHYS111
+
+W AM 10:45: 
+                          Dillan Comtois    PHYS111
+
+W AM 11:00: 
+                          Dillan Comtois    PHYS111
+
+W AM 11:15: 
+                          Dillan Comtois    PHYS111
+
+W AM 11:30: 
+                          Dillan Comtois    PHYS111
+
+W AM 11:45: 
+
+W NN 12:00: 
+
+W NN 12:15: 
+
+W NN 12:30: 
+
+W NN 12:45: 
+
+W PM 01:00: 
+
+W PM 01:15: 
+                          Dillan Comtois   CHEM360L
+
+W PM 01:30: 
+                          Dillan Comtois   CHEM360L
+
+W PM 01:45: 
+                          Dillan Comtois   CHEM360L
+
+W PM 02:00: 
+                          Dillan Comtois   CHEM360L
+
+W PM 02:15: 
+                          Dillan Comtois   CHEM360L
+
+W PM 02:30: 
+                          Dillan Comtois   CHEM360L
+
+W PM 02:45: 
+                          Dillan Comtois   CHEM360L
+
+W PM 03:00: 
+                          Dillan Comtois   CHEM360L
+
+W PM 03:15: 
+                          Dillan Comtois   CHEM360L
+
+W PM 03:30: 
+                          Dillan Comtois   CHEM360L
+
+W PM 03:45: 
+                          Dillan Comtois   CHEM360L
+
+W PM 04:00: 
+                          Dillan Comtois   CHEM360L
+
+W PM 04:15: 
+                          Dillan Comtois   CHEM360L
+
+W PM 04:30: 
+
+W PM 04:45: 
+
+W PM 05:00: 
+
+W PM 05:15: 
+
+W PM 05:30: 
+
+W PM 05:45: 
+
+W PM 06:00: 
+
+W PM 06:15: 
+
+W PM 06:30: 
+
+W PM 06:45: 
+
+W PM 07:00: 
+
+W PM 07:15: 
+
+W PM 07:30: 
+
+W PM 07:45: 
+
+W PM 08:00: 
+
+W PM 08:15: 
+
+W PM 08:30: 
+
+W PM 08:45: 
+
+W PM 09:00: 
+
+W PM 09:15: 
+
+W PM 09:30: 
+
+R AM 07:45: 
+
+R AM 08:00: 
+
+R AM 08:15: 
+
+R AM 08:30: 
+
+R AM 08:45: 
+
+R AM 09:00: 
+
+R AM 09:15: 
+
+R AM 09:30: 
+
+R AM 09:45: 
+
+R AM 10:00: 
+
+R AM 10:15: 
+                          Dillan Comtois    BIOL256
+
+R AM 10:30: 
+                          Dillan Comtois    BIOL256
+
+R AM 10:45: 
+                          Dillan Comtois    BIOL256
+
+R AM 11:00: 
+                          Dillan Comtois    BIOL256
+
+R AM 11:15: 
+                          Dillan Comtois    BIOL256
+
+R AM 11:30: 
+                          Dillan Comtois    BIOL256
+
+R AM 11:45: 
+                          Dillan Comtois    CHEM360
+
+R NN 12:00: 
+                          Dillan Comtois    CHEM360
+
+R NN 12:15: 
+                          Dillan Comtois    CHEM360
+
+R NN 12:30: 
+                          Dillan Comtois    CHEM360
+
+R NN 12:45: 
+                          Dillan Comtois    CHEM360
+
+R PM 01:00: 
+                          Dillan Comtois    CHEM360
+
+R PM 01:15: 
+
+R PM 01:30: 
+
+R PM 01:45: 
+
+R PM 02:00: 
+
+R PM 02:15: 
+
+R PM 02:30: 
+
+R PM 02:45: 
+
+R PM 03:00: 
+
+R PM 03:15: 
+
+R PM 03:30: 
+
+R PM 03:45: 
+
+R PM 04:00: 
+
+R PM 04:15: 
+
+R PM 04:30: 
+
+R PM 04:45: 
+
+R PM 05:00: 
+
+R PM 05:15: 
+
+R PM 05:30: 
+
+R PM 05:45: 
+
+R PM 06:00: 
+
+R PM 06:15: 
+
+R PM 06:30: 
+
+R PM 06:45: 
+
+R PM 07:00: 
+
+R PM 07:15: 
+
+R PM 07:30: 
+
+R PM 07:45: 
+
+R PM 08:00: 
+
+R PM 08:15: 
+
+R PM 08:30: 
+
+R PM 08:45: 
+
+R PM 09:00: 
+
+R PM 09:15: 
+
+R PM 09:30: 
+
+F AM 07:45: 
+
+F AM 08:00: 
+
+F AM 08:15: 
+
+F AM 08:30: 
+
+F AM 08:45: 
+
+F AM 09:00: 
+
+F AM 09:15: 
+
+F AM 09:30: 
+
+F AM 09:45: 
+
+F AM 10:00: 
+
+F AM 10:15: 
+                          Dillan Comtois    PHYS111
+
+F AM 10:30: 
+                          Dillan Comtois    PHYS111
+
+F AM 10:45: 
+                          Dillan Comtois    PHYS111
+
+F AM 11:00: 
+                          Dillan Comtois    PHYS111
+
+F AM 11:15: 
+                          Dillan Comtois    PHYS111
+
+F AM 11:30: 
+                          Dillan Comtois    PHYS111
+
+F AM 11:45: 
+
+F NN 12:00: 
+
+F NN 12:15: 
+
+F NN 12:30: 
+
+F NN 12:45: 
+
+F PM 01:00: 
+
+F PM 01:15: 
+
+F PM 01:30: 
+
+F PM 01:45: 
+
+F PM 02:00: 
+
+F PM 02:15: 
+
+F PM 02:30: 
+
+F PM 02:45: 
+
+F PM 03:00: 
+
+F PM 03:15: 
+
+F PM 03:30: 
+
+F PM 03:45: 
+
+F PM 04:00: 
+
+F PM 04:15: 
+
+F PM 04:30: 
+
+F PM 04:45: 
+
+F PM 05:00: 
+
+F PM 05:15: 
+
+F PM 05:30: 
+
+F PM 05:45: 
+
+F PM 06:00: 
+
+F PM 06:15: 
+
+F PM 06:30: 
+
+F PM 06:45: 
+
+F PM 07:00: 
+
+F PM 07:15: 
+
+F PM 07:30: 
+
+F PM 07:45: 
+
+F PM 08:00: 
+
+F PM 08:15: 
+
+F PM 08:30: 
+
+F PM 08:45: 
+
+F PM 09:00: 
+
+F PM 09:15: 
+
+F PM 09:30: 
+

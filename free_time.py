@@ -1,4 +1,3 @@
-
 import Tkinter as tkinter
 import csv
 
@@ -17,6 +16,13 @@ with open('CourseList2.FA18.09.06.18.csv', "rb") as file:
         label = tkinter.Label(root, width = 10, height = 2, \
                                text = row, relief = tkinter.RIDGE)
         label.grid(row = r, column = c)
+        if c == 2:
+           ClassLabel = ""
+        if c == 3:
+           ClassLabel += row
+        if c == 4:
+           ClassLabel += row
+           print (ClassLabel)
         c += 1
       r += 1
 
