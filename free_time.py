@@ -1,5 +1,6 @@
-from Tkinter import *
 import Tkinter as tkinter
+from Tkinter import *
+import Tkinter as tkinter 
 import csv
 
 root = Tk()
