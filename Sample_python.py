@@ -6,7 +6,8 @@ root = Tk()
 
 X=[]
 list_need = []
-keyword = "MATH 325"
+keyword = "MATH 340"
+temp_list = []
 marker = 0
 
 with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:    
@@ -17,8 +18,14 @@ with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:
          else:
             marker = 0
       if keyword in line:
-          list_need.append(line)
-          marker = 1
+         for i in range (len(temp_list)):
+            list_need.append(temp_list[i])
+         list_need.append(line)
+         marker = 1
+      if "Course Subj/Number" in line:
+         temp_list[:] = []
+      if "Course Subj/Number" not in line:
+         temp_list.append(line)
           
       
       # Split on comma first
@@ -36,7 +43,6 @@ with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:
 #for w in X:
 #  print w
 
-print(list_need)
 msg = tkinter.Message(root, text=list_need)
 msg.config(bg='lightgreen', font=('times', 12, 'italic'))
 msg.pack()
