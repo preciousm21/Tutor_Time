@@ -1,34 +1,40 @@
 from Tkinter import *
 import Tkinter as tkinter 
 import csv
+import sys
 
 root = Tk()
 
+
+
 X=[]
+word_list = []
 list_need = []
-keyword = "MUS 326"
+keyword = "MATH 340"
 
 with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:    
-   for line in infile:
-      if keyword in line:
-          list_need.append(line)
+    for line in infile:
+        word_list.append(line.split())
+        if keyword in line:
+            list_need.append(line)
       
       # Split on comma first
-      cols = [x.strip() for x in line.split(',')]
+        cols = [x.strip() for x in line.split(',')]
 
       # Grab 2nd "column"
-      col2 = cols[0]
+        col2 = cols[0]
 
       # Split on spaces
-      words = [x.strip() for x in col2.split(' ')]
-      for word in words:     
-         if word not in X:
-            X.append(word)
+        words = [x.strip() for x in col2.split(' ')]
+        for word in words:     
+            if word not in X:
+                X.append(word)
 
 #for w in X:
 #  print w
 
-print(list_need)
+#print(list_need)
+print(word_list)
 msg = tkinter.Message(root, text=list_need)
 msg.config(bg='lightgreen', font=('times', 24, 'italic'))
 msg.pack()
