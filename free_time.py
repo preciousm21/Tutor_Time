@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 import Tkinter as tkinter
-=======
 from Tkinter import *
 import Tkinter as tkinter 
->>>>>>> 2d1f2ff4f2a49961c5bdb424395ac02ec3cde4df
 import csv
 import ttk
 
