@@ -1,10 +1,14 @@
 from Tkinter import *
 import Tkinter as tkinter 
 import csv
+import sys
 
 root = Tk()
 
+
+
 X=[]
+word_list = []
 list_need = []
 keyword = "MATH 340"
 temp_list = []
@@ -38,7 +42,7 @@ with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:
       words = [x.strip() for x in col2.split(' ')]
       for word in words:     
          if word not in X:
-            X.append(word)
+             X.append(word)
 
 #for w in X:
 #  print w
