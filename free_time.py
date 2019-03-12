@@ -44,7 +44,7 @@ with open('StudentsandCourses2.FA18.09.06.18.csv', "rb") as file:
                                text = row, relief = tkinter.RIDGE,)
         label.grid(row = r, column = c)
         if c == 0:
-           if row == ClassLabel:
+           if ClassLabel in row:
               ImportantClasses += row
         c += 1
       r += 1
