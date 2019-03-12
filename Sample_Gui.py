@@ -5,7 +5,7 @@ import csv
 root = tkinter.Tk()
 
 # open file
-with open('CourseList.FA18.09.06.18.csv', "rb") as file:
+with open('CourseList2.FA18.09.06.18.csv', "rb") as file:
    reader = csv.reader(file)
 
    # r and c tell us where to grid the labels
