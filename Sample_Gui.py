@@ -14,10 +14,10 @@ with open('CourseList2.FA18.09.06.18.csv', "rb") as file:
       c = 0
       for row in col:
          # i've added some styling
-         label = tkinter.Label(root, width = 10, height = 2, \
+        label = tkinter.Label(root, width = 10, height = 2, \
                                text = row, relief = tkinter.RIDGE)
-         label.grid(row = r, column = c)
-         c += 1
+        label.grid(row = r, column = c)
+        c += 1
       r += 1
 
 root.title("Tutor Time")
