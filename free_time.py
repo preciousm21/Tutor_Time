@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import Tkinter as tkinter
+=======
+from Tkinter import *
+import Tkinter as tkinter 
+>>>>>>> 2d1f2ff4f2a49961c5bdb424395ac02ec3cde4df
 import csv
 
-root = tkinter.Tk()
+root = Tk()
+
 
 # open file
 with open('CourseList2.FA18.09.06.18.csv', "rb") as file:
@@ -14,7 +20,7 @@ with open('CourseList2.FA18.09.06.18.csv', "rb") as file:
       for row in col:
          # i've added some styling
         label = tkinter.Label(root, width = 10, height = 2, \
-                               text = row, relief = tkinter.RIDGE)
+                               text = row, relief = tkinter.RIDGE,)
         label.grid(row = r, column = c)
         if c == 2:
            ClassLabel = ""
@@ -25,6 +31,8 @@ with open('CourseList2.FA18.09.06.18.csv', "rb") as file:
            print (ClassLabel)
         c += 1
       r += 1
+
+
 
 root.title("Tutor Time")
 root.mainloop()
