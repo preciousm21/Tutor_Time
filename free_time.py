@@ -30,13 +30,14 @@ with open('CourseList2.FA18.09.06.18.csv', "rb") as file:
 
 
 with open('StudentsandCourses2.FA18.09.06.18.csv', "rb") as file:
-   reader = csv.reader(file)
-   ClassLabel = "ITAL 201"
-   ImportantClasses = ""
+    reader = csv.reader(file)
+    ClassLabel = "MUS 326"
+    ImportantClasses = ""
+    class_dict = {}
 
    # r and c tell us where to grid the labels
-   r = 0
-   for col in reader:
+    r = 0
+    for col in reader:
       c = 0
       for row in col:
          # i've added some styling
