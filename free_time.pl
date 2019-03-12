@@ -18,6 +18,7 @@
 use Text::CSV;
 my $csv = Text::CSV->new({ binary => 1, sep_char => ',' });
 
+
 sub remove_trailing_newline {
     $_[0] =~ s/[\r\n]+\Z//;
   }
