@@ -1,6 +1,12 @@
 
 import Tkinter as tkinter
 import csv
+import ttk
+
+from ttk import *
+
+
+
 
 root = tkinter.Tk()
 
