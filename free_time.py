@@ -5,7 +5,7 @@ import ttk
 
 from ttk import *
 
-#class App(Tk.frame):
+#class App(rame):
  #  def __init__(self, master):
   #    self.master=master
    #   frame = Frame(master)

@@ -19,23 +19,6 @@ class MainApplication(tk.Frame):
   
 
     #widgets for top toolbar 
-<<<<<<< HEAD
-    def createWidgets(self):
-        top = self.winfo_toplevel()
-        self.menuBar = Menu(top)
-        top["menu"] = self.menuBar
-        self.subMenu = Menu(self.menuBar)
-        self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
-    
-        #find_course_name()
-        #print("Test")
-        #msg = tk.Message(root, text=list_need2)
-        #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-        #msg.pack()
-
-        #find_course_times()
-       
-=======
 def createWidgets(self):
     top = self.winfo_toplevel()
     self.menuBar = Menu(top)
@@ -51,7 +34,6 @@ def createWidgets(self):
 
     #find_course_times()
     #<create the rest of your GUI here>
->>>>>>> 7bb32ab307e72e32bddf5cd598e7795f479cb4eb
 
 def find_csv_number1():
     global filename
