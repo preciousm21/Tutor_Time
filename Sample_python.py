@@ -69,8 +69,20 @@ with open('CourseList.FA18.09.06.18.csv') as f:
         for (k,v) in row.items(): # go over each column name and value 
             columns[k].append(v) # append the value into the appropriate list
                                  # based on column name k
+subjects = []
+course_number = []
+meeting_times = []
+for i in columns['Subject']:
+   subjects.append(i)
+for i in columns['Course Number']:
+   course_number.append(i)
+for i in columns['Meeting Times']:
+   meeting_times.append(i)
 
-print(columns['Subject'])
+for i in list_need2:
+   for j in range(0,len(subjects)):
+      if subjects[j] in i and course_number[j] in i:
+         print (meeting_times[j])
 
 #msg = tkinter.Message(root, text=list_need2)
 #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
