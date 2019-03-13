@@ -5,6 +5,7 @@ import sys
 from collections import defaultdict
 import re
 from array import *
+from main import *
 
 
 
@@ -105,7 +106,8 @@ def find_course_name():
             temp_string = ""
             break
 
-   #msg = tk.Message(root, text=list_need2)
+   
+   # msg = tk.Message(root, text=list_need2)
    #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
    #msg.pack()
           
@@ -285,8 +287,8 @@ def find_course_times():
 
 
    #print (dict_time)
-find_course_name()
-find_course_times()
+#find_course_name()
+#find_course_times()
 
 #class Application(Frame):
 #  def __init__(self, master= None):
