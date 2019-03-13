@@ -184,9 +184,70 @@ def find_course_times():
 
 
 
-   print (days_array)
+   #print (days_array)
+   #print (start_array)
+   #print (end_array)
+
+   start_conversion = []
+   end_conversion = []
+   temp_conversion = 0
+
+   for i in start_array:
+      if "12:" in i:
+         temp_conversion += 720
+      elif "11:" in i:
+         temp_conversion += 660
+      elif "10:" in i:
+         temp_conversion += 600
+      elif "9:" in i:
+         temp_conversion += 540
+      elif "8:" in i:
+         temp_conversion += 480
+      elif "7:" in i:
+         temp_conversion += 420
+      elif "6:" in i:
+         temp_conversion += 360
+      elif "5:" in i:
+         temp_conversion += 300
+      elif "4:" in i:
+         temp_conversion += 240
+      elif "3:" in i:
+         temp_conversion += 180
+      elif "2:" in i:
+         temp_conversion += 120
+      elif "1:" in i:
+         temp_conversion += 60
+      if ":05" in i:
+         temp_conversion += 5
+      if ":10" in i:
+         temp_conversion += 10
+      if ":15" in i:
+         temp_conversion += 15
+      if ":20" in i:
+         temp_conversion += 20
+      if ":25" in i:
+         temp_conversion += 25
+      if ":30" in i:
+         temp_conversion += 30
+      if ":35" in i:
+         temp_conversion += 35
+      if ":40" in i:
+         temp_conversion += 40
+      if ":45" in i:
+         temp_conversion += 45
+      if ":50" in i:
+         temp_conversion += 50
+      if ":55" in i:
+         temp_conversion += 55
+      if "PM" in i and "12:" not in i:
+         temp_conversion += 720
+      start_conversion.append(temp_conversion)
+      temp_conversion = 0
    print (start_array)
-   print (end_array)
+   print (start_conversion)
+      
+      
+
 
 
    #print (dict_time)
