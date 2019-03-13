@@ -14,8 +14,17 @@ from Sample_python import *
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
-        self.parent = parent
+        #self.parent = parent
+        self.grid()
+        self.createWidgets()
 
+    #widgets for top toolbar 
+    def createWidgets(self):
+        top = self.winfo_toplevel()
+        self.menuBar = Menu(top)
+        top["menu"] = self.menuBar
+        self.subMenu = Menu(self.menuBar)
+        self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
         
         #find_course_name()
 
