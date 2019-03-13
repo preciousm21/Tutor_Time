@@ -1,11 +1,9 @@
 from Tkinter import *
 import Tkinter as tk 
-from Tkinter import tkFileDialog
 import csv
 import sys
 from collections import defaultdict
 import re
-root = Tk()
 from array import *
 
 
@@ -314,12 +312,9 @@ find_course_times()
 #root.title("Tutor Time")
 #find_course_name()
 #find_course_times()
-<<<<<<< HEAD
-=======
 #tk.mainloop()
 
 
->>>>>>> b9a50035cca8282ad1e36b82f82e90b74a7a8541
 
 
 #def main(): 
