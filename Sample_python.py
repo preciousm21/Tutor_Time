@@ -2,6 +2,9 @@ from Tkinter import *
 import Tkinter as tkinter 
 import csv
 import sys
+from collections import defaultdict
+
+
 
 root = Tk()
 
@@ -58,8 +61,18 @@ for i in list_need:
          temp_string = ""
          break
 
+columns = defaultdict(list) # each value in each column is appended to a list
 
-msg = tkinter.Message(root, text=list_need2)
-msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-msg.pack()
-tkinter.mainloop()
+with open('CourseList.FA18.09.06.18.csv') as f:
+    reader = csv.DictReader(f) # read rows into a dictionary format
+    for row in reader: # read a row as {column1: value1, column2: value2,...}
+        for (k,v) in row.items(): # go over each column name and value 
+            columns[k].append(v) # append the value into the appropriate list
+                                 # based on column name k
+
+print(columns['Subject'])
+
+#msg = tkinter.Message(root, text=list_need2)
+#msg.config(bg='lightgreen', font=('times', 12, 'italic'))
+#msg.pack()
+#tkinter.mainloop()
