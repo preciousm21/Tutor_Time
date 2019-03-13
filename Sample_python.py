@@ -285,7 +285,7 @@ def find_course_times():
    
    for i in range(0,len(start_array)):
       if "M" in days_array[i]:
-         for j in range((start_conversion[i] - 435) / 15, (end_conversion[i] - 435) / 15):
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
             big_array[1][j] += 1
       if "T" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
