@@ -15,8 +15,6 @@ class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         #self.parent = parent
-        self.grid()
-        self.createWidgets()
 
     #widgets for top toolbar 
     def createWidgets(self):
@@ -64,6 +62,8 @@ def find_csv_number2():
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Tutor Time")
+    scrollbar = Scrollbar(root)
+    scrollbar.pack( side = RIGHT, fill = Y )
     root2 = tk.Tk()
     root2.title("TT2")
     find_csv_number1()
