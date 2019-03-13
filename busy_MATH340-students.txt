@@ -1,0 +1,903 @@
+Busy students by time slot:
+M AM 07:45: 
+
+M AM 08:00: 
+
+M AM 08:15: 
+
+M AM 08:30: 
+
+M AM 08:45: 
+
+M AM 09:00: 
+
+M AM 09:15: 
+
+M AM 09:30: 
+
+M AM 09:45: 
+
+M AM 10:00: 
+
+M AM 10:15: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+M AM 10:30: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+M AM 10:45: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+M AM 11:00: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+M AM 11:15: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+M AM 11:30: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+M AM 11:45: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+M NN 12:00: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+M NN 12:15: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+M NN 12:30: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+M NN 12:45: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+M PM 01:00: 
+
+M PM 01:15: 
+                               Yixiao He    ECON315
+
+M PM 01:30: 
+                               Yixiao He    ECON315
+
+M PM 01:45: 
+                               Yixiao He    ECON315
+
+M PM 02:00: 
+                               Yixiao He    ECON315
+
+M PM 02:15: 
+                               Yixiao He    ECON315
+
+M PM 02:30: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+                               Yixiao He    ECON315
+
+M PM 02:45: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+M PM 03:00: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+M PM 03:15: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+M PM 03:30: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+M PM 03:45: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+M PM 04:00: 
+
+M PM 04:15: 
+
+M PM 04:30: 
+                          Mary McCormack    SPAN102
+
+M PM 04:45: 
+                          Mary McCormack    SPAN102
+
+M PM 05:00: 
+                          Mary McCormack    SPAN102
+
+M PM 05:15: 
+                          Mary McCormack    SPAN102
+
+M PM 05:30: 
+                          Mary McCormack    SPAN102
+
+M PM 05:45: 
+                          Mary McCormack    SPAN102
+
+M PM 06:00: 
+                          Mary McCormack    SPAN102
+
+M PM 06:15: 
+
+M PM 06:30: 
+
+M PM 06:45: 
+
+M PM 07:00: 
+                          Mary McCormack    FREN368
+
+M PM 07:15: 
+                          Mary McCormack    FREN368
+
+M PM 07:30: 
+                          Mary McCormack    FREN368
+
+M PM 07:45: 
+                          Mary McCormack    FREN368
+
+M PM 08:00: 
+                          Mary McCormack    FREN368
+
+M PM 08:15: 
+                          Mary McCormack    FREN368
+
+M PM 08:30: 
+                          Mary McCormack    FREN368
+
+M PM 08:45: 
+                          Mary McCormack    FREN368
+
+M PM 09:00: 
+                          Mary McCormack    FREN368
+
+M PM 09:15: 
+                          Mary McCormack    FREN368
+
+M PM 09:30: 
+                          Mary McCormack    FREN368
+
+T AM 07:45: 
+
+T AM 08:00: 
+
+T AM 08:15: 
+
+T AM 08:30: 
+
+T AM 08:45: 
+
+T AM 09:00: 
+
+T AM 09:15: 
+
+T AM 09:30: 
+
+T AM 09:45: 
+
+T AM 10:00: 
+
+T AM 10:15: 
+                        Charlotte Rogers      PE232
+
+T AM 10:30: 
+                        Charlotte Rogers      PE232
+
+T AM 10:45: 
+                        Charlotte Rogers      PE232
+
+T AM 11:00: 
+                        Charlotte Rogers      PE232
+
+T AM 11:15: 
+                        Charlotte Rogers      PE232
+
+T AM 11:30: 
+
+T AM 11:45: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+T NN 12:00: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+T NN 12:15: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+T NN 12:30: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+T NN 12:45: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+T PM 01:00: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+T PM 01:15: 
+                              Aylin Unel    PSYC372
+
+T PM 01:30: 
+                              Aylin Unel    PSYC372
+
+T PM 01:45: 
+                              Aylin Unel    PSYC372
+
+T PM 02:00: 
+                              Aylin Unel    PSYC372
+
+T PM 02:15: 
+                              Aylin Unel    PSYC372
+
+T PM 02:30: 
+                              Aylin Unel    PSYC372
+                               Peiyu Guo    ECON241
+
+T PM 02:45: 
+                               Peiyu Guo    ECON241
+
+T PM 03:00: 
+                               Peiyu Guo    ECON241
+
+T PM 03:15: 
+                               Peiyu Guo    ECON241
+
+T PM 03:30: 
+                               Peiyu Guo    ECON241
+
+T PM 03:45: 
+                               Peiyu Guo    ECON241
+
+T PM 04:00: 
+                        Charlotte Rogers    ENGH330
+
+T PM 04:15: 
+                        Charlotte Rogers    ENGH330
+
+T PM 04:30: 
+                        Charlotte Rogers    ENGH330
+
+T PM 04:45: 
+                        Charlotte Rogers    ENGH330
+
+T PM 05:00: 
+                        Charlotte Rogers    ENGH330
+
+T PM 05:15: 
+                        Charlotte Rogers    ENGH330
+
+T PM 05:30: 
+                        Charlotte Rogers    ENGH330
+
+T PM 05:45: 
+                        Charlotte Rogers    ENGH330
+
+T PM 06:00: 
+                        Charlotte Rogers    ENGH330
+                               Peiyu Guo    CSCI390
+
+T PM 06:15: 
+                        Charlotte Rogers    ENGH330
+                               Peiyu Guo    CSCI390
+
+T PM 06:30: 
+                        Charlotte Rogers    ENGH330
+                               Peiyu Guo    CSCI390
+
+T PM 06:45: 
+                               Peiyu Guo    CSCI390
+
+T PM 07:00: 
+                               Peiyu Guo    CSCI390
+
+T PM 07:15: 
+                               Peiyu Guo    CSCI390
+
+T PM 07:30: 
+                               Peiyu Guo    CSCI390
+
+T PM 07:45: 
+                               Peiyu Guo    CSCI390
+
+T PM 08:00: 
+                               Peiyu Guo    CSCI390
+
+T PM 08:15: 
+                               Peiyu Guo    CSCI390
+
+T PM 08:30: 
+                               Peiyu Guo    CSCI390
+
+T PM 08:45: 
+                               Peiyu Guo    CSCI390
+
+T PM 09:00: 
+                               Peiyu Guo    CSCI390
+
+T PM 09:15: 
+
+T PM 09:30: 
+
+W AM 07:45: 
+
+W AM 08:00: 
+
+W AM 08:15: 
+
+W AM 08:30: 
+
+W AM 08:45: 
+
+W AM 09:00: 
+
+W AM 09:15: 
+
+W AM 09:30: 
+
+W AM 09:45: 
+
+W AM 10:00: 
+
+W AM 10:15: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+W AM 10:30: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+W AM 10:45: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+W AM 11:00: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+W AM 11:15: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+W AM 11:30: 
+                              Aylin Unel    PSYC211
+                               Supeng He    MATH227
+                               Yixiao He    ECON301
+
+W AM 11:45: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+W NN 12:00: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+W NN 12:15: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+W NN 12:30: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+W NN 12:45: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+W PM 01:00: 
+
+W PM 01:15: 
+                               Supeng He    DATA251
+                               Yixiao He    ECON315
+
+W PM 01:30: 
+                               Supeng He    DATA251
+                               Yixiao He    ECON315
+
+W PM 01:45: 
+                               Supeng He    DATA251
+                               Yixiao He    ECON315
+
+W PM 02:00: 
+                               Supeng He    DATA251
+                               Yixiao He    ECON315
+
+W PM 02:15: 
+                               Supeng He    DATA251
+                               Yixiao He    ECON315
+
+W PM 02:30: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+                               Supeng He    DATA251
+                               Yixiao He    ECON315
+
+W PM 02:45: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+W PM 03:00: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+W PM 03:15: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+W PM 03:30: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+W PM 03:45: 
+                              Aylin Unel    ECON303
+                        Charlotte Rogers    MATH325
+
+W PM 04:00: 
+
+W PM 04:15: 
+
+W PM 04:30: 
+                          Mary McCormack    SPAN102
+
+W PM 04:45: 
+                          Mary McCormack    SPAN102
+
+W PM 05:00: 
+                          Mary McCormack    SPAN102
+
+W PM 05:15: 
+                          Mary McCormack    SPAN102
+
+W PM 05:30: 
+                          Mary McCormack    SPAN102
+
+W PM 05:45: 
+                          Mary McCormack    SPAN102
+
+W PM 06:00: 
+                          Mary McCormack    SPAN102
+
+W PM 06:15: 
+
+W PM 06:30: 
+
+W PM 06:45: 
+
+W PM 07:00: 
+                               Peiyu Guo    ECON321
+
+W PM 07:15: 
+                               Peiyu Guo    ECON321
+
+W PM 07:30: 
+                               Peiyu Guo    ECON321
+
+W PM 07:45: 
+                               Peiyu Guo    ECON321
+
+W PM 08:00: 
+                               Peiyu Guo    ECON321
+
+W PM 08:15: 
+                               Peiyu Guo    ECON321
+
+W PM 08:30: 
+                               Peiyu Guo    ECON321
+
+W PM 08:45: 
+                               Peiyu Guo    ECON321
+
+W PM 09:00: 
+                               Peiyu Guo    ECON321
+
+W PM 09:15: 
+                               Peiyu Guo    ECON321
+
+W PM 09:30: 
+                               Peiyu Guo    ECON321
+
+R AM 07:45: 
+
+R AM 08:00: 
+
+R AM 08:15: 
+
+R AM 08:30: 
+
+R AM 08:45: 
+
+R AM 09:00: 
+
+R AM 09:15: 
+
+R AM 09:30: 
+
+R AM 09:45: 
+
+R AM 10:00: 
+
+R AM 10:15: 
+                        Charlotte Rogers      PE232
+
+R AM 10:30: 
+                        Charlotte Rogers      PE232
+
+R AM 10:45: 
+                        Charlotte Rogers      PE232
+
+R AM 11:00: 
+                        Charlotte Rogers      PE232
+
+R AM 11:15: 
+                        Charlotte Rogers      PE232
+
+R AM 11:30: 
+
+R AM 11:45: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+R NN 12:00: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+R NN 12:15: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+R NN 12:30: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+R NN 12:45: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+R PM 01:00: 
+                              Aylin Unel    PSYC345
+                               Supeng He     BST305
+                               Yixiao He    ECON320
+
+R PM 01:15: 
+                              Aylin Unel    PSYC372
+
+R PM 01:30: 
+                              Aylin Unel    PSYC372
+
+R PM 01:45: 
+                              Aylin Unel    PSYC372
+
+R PM 02:00: 
+                              Aylin Unel    PSYC372
+
+R PM 02:15: 
+                              Aylin Unel    PSYC372
+
+R PM 02:30: 
+                              Aylin Unel    PSYC372
+                               Peiyu Guo    ECON241
+
+R PM 02:45: 
+                               Peiyu Guo    ECON241
+
+R PM 03:00: 
+                               Peiyu Guo    ECON241
+
+R PM 03:15: 
+                               Peiyu Guo    ECON241
+
+R PM 03:30: 
+                               Peiyu Guo    ECON241
+
+R PM 03:45: 
+                               Peiyu Guo    ECON241
+
+R PM 04:00: 
+
+R PM 04:15: 
+
+R PM 04:30: 
+                        Charlotte Rogers    EDUC300
+
+R PM 04:45: 
+                        Charlotte Rogers    EDUC300
+
+R PM 05:00: 
+                        Charlotte Rogers    EDUC300
+
+R PM 05:15: 
+                        Charlotte Rogers    EDUC300
+
+R PM 05:30: 
+                        Charlotte Rogers    EDUC300
+
+R PM 05:45: 
+                        Charlotte Rogers    EDUC300
+
+R PM 06:00: 
+                        Charlotte Rogers    EDUC300
+
+R PM 06:15: 
+                        Charlotte Rogers    EDUC300
+
+R PM 06:30: 
+                        Charlotte Rogers    EDUC300
+
+R PM 06:45: 
+                        Charlotte Rogers    EDUC300
+
+R PM 07:00: 
+                        Charlotte Rogers    EDUC300
+
+R PM 07:15: 
+
+R PM 07:30: 
+
+R PM 07:45: 
+
+R PM 08:00: 
+
+R PM 08:15: 
+
+R PM 08:30: 
+
+R PM 08:45: 
+
+R PM 09:00: 
+
+R PM 09:15: 
+
+R PM 09:30: 
+
+F AM 07:45: 
+
+F AM 08:00: 
+
+F AM 08:15: 
+
+F AM 08:30: 
+
+F AM 08:45: 
+
+F AM 09:00: 
+
+F AM 09:15: 
+
+F AM 09:30: 
+
+F AM 09:45: 
+
+F AM 10:00: 
+
+F AM 10:15: 
+                               Supeng He    MATH227
+
+F AM 10:30: 
+                               Supeng He    MATH227
+
+F AM 10:45: 
+                               Supeng He    MATH227
+
+F AM 11:00: 
+                               Supeng He    MATH227
+
+F AM 11:15: 
+                               Supeng He    MATH227
+
+F AM 11:30: 
+                               Supeng He    MATH227
+
+F AM 11:45: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+F NN 12:00: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+F NN 12:15: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+F NN 12:30: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+F NN 12:45: 
+                              Aylin Unel    MATH340
+                        Charlotte Rogers    MATH340
+                     Jean-Philippe Suter    MATH340
+                          Mary McCormack    MATH340
+                               Peiyu Guo    MATH340
+                               Supeng He    MATH340
+                               Yixiao He    MATH340
+
+F PM 01:00: 
+
+F PM 01:15: 
+                               Supeng He    DATA251
+
+F PM 01:30: 
+                               Supeng He    DATA251
+
+F PM 01:45: 
+                               Supeng He    DATA251
+
+F PM 02:00: 
+                               Supeng He    DATA251
+
+F PM 02:15: 
+                               Supeng He    DATA251
+
+F PM 02:30: 
+                        Charlotte Rogers    MATH325
+                               Supeng He    DATA251
+
+F PM 02:45: 
+                        Charlotte Rogers    MATH325
+
+F PM 03:00: 
+                        Charlotte Rogers    MATH325
+
+F PM 03:15: 
+                        Charlotte Rogers    MATH325
+
+F PM 03:30: 
+                        Charlotte Rogers    MATH325
+
+F PM 03:45: 
+                        Charlotte Rogers    MATH325
+
+F PM 04:00: 
+
+F PM 04:15: 
+
+F PM 04:30: 
+
+F PM 04:45: 
+
+F PM 05:00: 
+
+F PM 05:15: 
+
+F PM 05:30: 
+
+F PM 05:45: 
+
+F PM 06:00: 
+
+F PM 06:15: 
+
+F PM 06:30: 
+
+F PM 06:45: 
+
+F PM 07:00: 
+
+F PM 07:15: 
+
+F PM 07:30: 
+
+F PM 07:45: 
+
+F PM 08:00: 
+
+F PM 08:15: 
+
+F PM 08:30: 
+
+F PM 08:45: 
+
+F PM 09:00: 
+
+F PM 09:15: 
+
+F PM 09:30: 
+

@@ -5,22 +5,10 @@ import sys
 from collections import defaultdict
 import re
 from array import *
+from main import *
 
 
-"""class MainApplication(tk.Frame):
-    def __init__(self, parent, *args, **kwargs):
-        tk.Frame.__init__(self, parent, *args, **kwargs)
-        self.parent = parent
 
-        
-        find_course_name()
-
-        msg = tk.Message(root, text=list_need2)
-        msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-        msg.pack()
-
-        find_course_times()
-        #<create the rest of your GUI here>"""
 
 
 big_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", "9:15AM", "9:30AM", \
@@ -118,7 +106,8 @@ def find_course_name():
          else:
             temp_string += j
 
-   #msg = tk.Message(root, text=list_need2)
+   
+   # msg = tk.Message(root, text=list_need2)
    #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
    #msg.pack()
           
@@ -324,21 +313,46 @@ def find_course_times():
 
 
    #print (dict_time)
+#find_course_name()
+#find_course_times()
 
-
+#class Application(Frame):
+#  def __init__(self, master= None):
+#     self.master=master
+#       frame = Frame(master)
+#frame.pack()
+# msg = tkinter.Message(root, text=list_need2)
+# msg.config(bg='lightgreen', font=('times', 12, 'italic'))
+# msg.pack()
+   #def open_file():
+   #  result = filedialog.askopenfile(intialdir="/", title="select file", filetypes=("test files", ".csv")
+      #print (result) 
+      #for c in result:
+      #print(c) 
+   #button = Button(root, text= "open file", command=open_file)
+   #root.geometry ("300x300")
+   #root.title("Tutor Time")
+   #app = Application()
+   #app.mainloop
+   
+   #tkinter.mainloop()
+#root = Tk()
+#root.title("Tutor Time")
 #find_course_name()
 #find_course_times()
 #tk.mainloop()
 
 
-"""if __name__ == "__main__":
-    root = tk.Tk()
-    root.title("Tutor Time")
-    MainApplication(root).pack(side="top", fill="both", expand=True)
-    root.mainloop()
 
-"""
 
+#def main(): 
+#app = Application()
+#root.title("Tutor Time")
+#find_course_name()
+#find_course_times()
+#app.mainloop()
+#if __name__ == '__main__':
+#   main()
 
 
 #BUGS:
