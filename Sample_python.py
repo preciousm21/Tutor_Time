@@ -65,81 +65,106 @@ class_time_dict = {
 }
 
 
+def find_course_name():
+   global X
+   global word_list 
+   global list_need 
+   global list_need2 
+   global keyword 
+   global temp_list 
+   global temp_string 
+   global marker  
 
-with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:    
-   for line in infile:
-      if marker == 1:
-         if "Total For" not in line:
+
+
+
+   with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:    
+      for line in infile:
+         if marker == 1:
+            if "Total For" not in line:
+               list_need.append(line)
+            else:
+               marker = 0
+         if keyword in line:
+            for i in range (len(temp_list)):
+               list_need.append(temp_list[i])
             list_need.append(line)
+            marker = 1
+         if "Course Subj/Number" in line:
+            temp_list[:] = []
+         if "Course Subj/Number" not in line:
+            temp_list.append(line)
+            
+         
+         # Split on comma first
+         cols = [x.strip() for x in line.split(',')]
+
+         # Grab 2nd "column"
+         col2 = cols[0]
+
+         # Split on spaces
+         words = [x.strip() for x in col2.split(' ')]
+         for word in words:     
+            if word not in X:
+               X.append(word)
+
+   #for w in X:
+   #  print w
+
+   for i in list_need:
+      for j in i:
+         if j != "-":
+            temp_string += j
          else:
-            marker = 0
-      if keyword in line:
-         for i in range (len(temp_list)):
-            list_need.append(temp_list[i])
-         list_need.append(line)
-         marker = 1
-      if "Course Subj/Number" in line:
-         temp_list[:] = []
-      if "Course Subj/Number" not in line:
-         temp_list.append(line)
-          
-      
-      # Split on comma first
-      cols = [x.strip() for x in line.split(',')]
+            list_need2.append(temp_string)
+            temp_string = ""
+            break
 
-      # Grab 2nd "column"
-      col2 = cols[0]
-
-      # Split on spaces
-      words = [x.strip() for x in col2.split(' ')]
-      for word in words:     
-         if word not in X:
-             X.append(word)
-
-#for w in X:
-#  print w
-
-for i in list_need:
-   for j in i:
-      if j != "-":
-         temp_string += j
-      else:
-         list_need2.append(temp_string)
-         temp_string = ""
-         break
-
-columns = defaultdict(list) # each value in each column is appended to a list
-
-with open('CourseList.FA18.09.06.18.csv') as f:
-    reader = csv.DictReader(f) # read rows into a dictionary format
-    for row in reader: # read a row as {column1: value1, column2: value2,...}
-        for (k,v) in row.items(): # go over each column name and value 
-            columns[k].append(v) # append the value into the appropriate list
-                                 # based on column name k
-subjects = []
-course_number = []
-meeting_times = []
-for i in columns['Subject']:
-   subjects.append(i)
-for i in columns['Course Number']:
-   course_number.append(i)
-for i in columns['Meeting Times']:
-   meeting_times.append(i)
-
-for i in list_need2:
-   for j in range(0,len(subjects)):
-      if subjects[j] in i and course_number[j] in i:
-         dict_time.append(subjects[j] + course_number[j] + meeting_times[j])
-         break
+   msg = tkinter.Message(root, text=list_need2)
+   msg.config(bg='lightgreen', font=('times', 12, 'italic'))
+   msg.pack()
+   
 
 
+def find_course_times():   
+   
+   columns = defaultdict(list) # each value in each column is appended to a list
+
+   with open('CourseList.FA18.09.06.18.csv') as f:
+      reader = csv.DictReader(f) # read rows into a dictionary format
+      for row in reader: # read a row as {column1: value1, column2: value2,...}
+         for (k,v) in row.items(): # go over each column name and value 
+               columns[k].append(v) # append the value into the appropriate list
+                                    # based on column name k
+   subjects = []
+   course_number = []
+   meeting_times = []
+   for i in columns['Subject']:
+      subjects.append(i)
+   for i in columns['Course Number']:
+      course_number.append(i)
+   for i in columns['Meeting Times']:
+      meeting_times.append(i)
+
+   for i in list_need2:
+      for j in range(0,len(subjects)):
+         if subjects[j] in i and course_number[j] in i:
+            dict_time.append(subjects[j] + course_number[j] + meeting_times[j])
+            break
 
 
+   print (dict_time)
 
-msg = tkinter.Message(root, text=list_need2)
-msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-msg.pack()
+
+#msg = tkinter.Message(root, text=list_need2)
+#msg.config(bg='lightgreen', font=('times', 12, 'italic'))
+#msg.pack()
+
+find_course_name()
+find_course_times()
 tkinter.mainloop()
+
+#tkinter.mainloop()
 
 
 
