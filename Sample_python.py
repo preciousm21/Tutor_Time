@@ -8,6 +8,7 @@ import re
 
 
 root = Tk()
+root.title("Tutor Time")
 
 
 
