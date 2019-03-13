@@ -51,7 +51,7 @@ dict_time = []
 
 
 
-def find_course_name():
+def find_course_name(f_n1):
    global X
    global word_list 
    global list_need 
@@ -62,7 +62,7 @@ def find_course_name():
    global marker  
 
 
-   with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:    
+   with open(f_n1, 'r') as infile:    
       for line in infile:
          if marker == 1:
             if "Total For" not in line:
@@ -114,11 +114,11 @@ def find_course_name():
 
 #for w in X:
 #  print w
-def find_course_times():
+def find_course_times(f_n2):
    global marker
    columns = defaultdict(list) # each value in each column is appended to a list
 
-   with open('CourseList.FA18.09.06.18.csv') as f:
+   with open(f_n2) as f:
       reader = csv.DictReader(f) # read rows into a dictionary format
       for row in reader: # read a row as {column1: value1, column2: value2,...}
          for (k,v) in row.items(): # go over each column name and value 

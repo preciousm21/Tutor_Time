@@ -45,6 +45,7 @@ def find_csv_number1():
         #msg.pack()
         #file.close()
         print (filename)#"I got %d bytes from this file." % len(filename)
+        find_course_name(filename)
 
 
 
@@ -60,6 +61,7 @@ def find_csv_number2():
         #msg.pack()
         #file.close()
         print (filename2)#"I got %d bytes from this file." % len(filename)
+        find_course_times(filename2)
 
 
 
@@ -73,8 +75,8 @@ if __name__ == "__main__":
     root2.title("Tutor Time 2")
     find_csv_number1()
     find_csv_number2()
-    find_course_name()
-    find_course_times()
+    #find_course_name()
+    #find_course_times()
     msg = tk.Message(root, text=list_need2)
     msg.config(bg='red', font=('times', 12, 'italic'))
     msg.pack()
