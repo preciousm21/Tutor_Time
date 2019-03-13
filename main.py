@@ -8,7 +8,8 @@ import re
 from array import *
 from Sample_python import *
 
-
+filename = ''
+filename2 = ''
 
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
@@ -33,7 +34,9 @@ def createWidgets(self):
     #<create the rest of your GUI here>
 
 def find_csv_number1():
+    global filename
     filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+    print(type(filename))
     #print(filename)
     if filename != None:
         #data = file.read()
@@ -47,6 +50,7 @@ def find_csv_number1():
 
 
 def find_csv_number2():
+    global filename2
     filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
     #print(filename2)
     if filename2 != None:
