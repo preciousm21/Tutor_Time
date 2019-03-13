@@ -16,44 +16,46 @@ class MainApplication(tk.Frame):
         #self.parent = parent
 
     #widgets for top toolbar 
-    def createWidgets(self):
-        top = self.winfo_toplevel()
-        self.menuBar = Menu(top)
-        top["menu"] = self.menuBar
-        self.subMenu = Menu(self.menuBar)
-        self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
+def createWidgets(self):
+    top = self.winfo_toplevel()
+    self.menuBar = Menu(top)
+    top["menu"] = self.menuBar
+    self.subMenu = Menu(self.menuBar)
+    self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
         
-        #find_course_name()
-        #print("Test")
-        #msg = tk.Message(root, text=list_need2)
-        #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-        #msg.pack()
+    #find_course_name()
+    #print("Test")
+    #msg = tk.Message(root, text=list_need2)
+    #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
+    #msg.pack()
 
-        #find_course_times()
-        #<create the rest of your GUI here>
+    #find_course_times()
+    #<create the rest of your GUI here>
 
 def find_csv_number1():
-    file = tkFileDialog.askopenfile(parent=root,mode='rb',title='Choose a file')
-    if file != None:
-        data = file.read()
+    filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+    #print(filename)
+    if filename != None:
+        #data = file.read()
         #msg = tk.Message(root, text=data)
         #msg.config(bg='red', font=('times', 12, 'italic'))
         #msg.pack()
         #file.close()
-        print "I got %d bytes from this file." % len(data)
+        print (filename)#"I got %d bytes from this file." % len(filename)
 
 
 
 
 def find_csv_number2():
-    file = tkFileDialog.askopenfile(parent=root2,mode='rb',title='Choose a file')
-    if file != None:
-        data2 = file.read()
-        #msg2 = tk.Message(root2, text=data2)
-        #msg2.config(bg='lightgreen', font=('times', 12, 'italic'))
-        #msg2.pack()
+    filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+    #print(filename2)
+    if filename2 != None:
+        #data = file.read()
+        #msg = tk.Message(root, text=data)
+        #msg.config(bg='red', font=('times', 12, 'italic'))
+        #msg.pack()
         #file.close()
-        print "I got %d bytes from this file." % len(data2)
+        print (filename2)#"I got %d bytes from this file." % len(filename)
 
 
 
