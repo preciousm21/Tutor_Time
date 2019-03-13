@@ -6,6 +6,23 @@ from collections import defaultdict
 import re
 from array import *
 
+
+"""class MainApplication(tk.Frame):
+    def __init__(self, parent, *args, **kwargs):
+        tk.Frame.__init__(self, parent, *args, **kwargs)
+        self.parent = parent
+
+        
+        find_course_name()
+
+        msg = tk.Message(root, text=list_need2)
+        msg.config(bg='lightgreen', font=('times', 12, 'italic'))
+        msg.pack()
+
+        find_course_times()
+        #<create the rest of your GUI here>"""
+
+
 big_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", "9:15AM", "9:30AM", \
    "9:45AM", "10:00AM", "10:15AM", "10:30AM", "10:45AM", "11:00AM", "11:15AM", "11:30AM", "11:45AM", \
    "12:00PM", "12:15PM", "12:30PM", "12:45PM", "1:00PM", "1:15PM", "1:30PM", "1:45PM", "2:00PM", \
@@ -27,8 +44,8 @@ big_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", "9
 
 
 
-root = Tk()
-root.title("Tutor Time")
+#root = Tk()
+#root.title("Tutor Time")
 
 
 
@@ -101,9 +118,9 @@ def find_course_name():
             temp_string = ""
             break
 
-   msg = tk.Message(root, text=list_need2)
-   msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-   msg.pack()
+   #msg = tk.Message(root, text=list_need2)
+   #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
+   #msg.pack()
           
       
       
@@ -284,14 +301,18 @@ def find_course_times():
    #print (dict_time)
 
 
-find_course_name()
-find_course_times()
-tk.mainloop()
+#find_course_name()
+#find_course_times()
+#tk.mainloop()
 
 
+"""if __name__ == "__main__":
+    root = tk.Tk()
+    root.title("Tutor Time")
+    MainApplication(root).pack(side="top", fill="both", expand=True)
+    root.mainloop()
 
-
-
+"""
 
 
 
