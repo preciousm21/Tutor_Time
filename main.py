@@ -8,7 +8,8 @@ import re
 from array import *
 from Sample_python import *
 
-
+filename = ''
+filename2 = ''
 
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
@@ -18,6 +19,7 @@ class MainApplication(tk.Frame):
   
 
     #widgets for top toolbar 
+<<<<<<< HEAD
     def createWidgets(self):
         top = self.winfo_toplevel()
         self.menuBar = Menu(top)
@@ -33,29 +35,53 @@ class MainApplication(tk.Frame):
 
         #find_course_times()
        
+=======
+def createWidgets(self):
+    top = self.winfo_toplevel()
+    self.menuBar = Menu(top)
+    top["menu"] = self.menuBar
+    self.subMenu = Menu(self.menuBar)
+    self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
+        
+    #find_course_name()
+    #print("Test")
+    #msg = tk.Message(root, text=list_need2)
+    #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
+    #msg.pack()
+
+    #find_course_times()
+    #<create the rest of your GUI here>
+>>>>>>> 7bb32ab307e72e32bddf5cd598e7795f479cb4eb
 
 def find_csv_number1():
-    file = tkFileDialog.askopenfile(parent=root,mode='rb',title='Choose a file')
-    if file != None:
-        data = file.read()
+    global filename
+    filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+    print(type(filename))
+    #print(filename)
+    if filename != None:
+        #data = file.read()
         #msg = tk.Message(root, text=data)
         #msg.config(bg='red', font=('times', 12, 'italic'))
         #msg.pack()
         #file.close()
-        print "I got %d bytes from this file." % len(data)
+        print (filename)#"I got %d bytes from this file." % len(filename)
+        find_course_name(filename)
 
 
 
 
 def find_csv_number2():
-    file = tkFileDialog.askopenfile(parent=root2,mode='rb',title='Choose a file')
-    if file != None:
-        data2 = file.read()
-        #msg2 = tk.Message(root2, text=data2)
-        #msg2.config(bg='lightgreen', font=('times', 12, 'italic'))
-        #msg2.pack()
+    global filename2
+    filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+    #print(filename2)
+    if filename2 != None:
+        #data = file.read()
+        #msg = tk.Message(root, text=data)
+        #msg.config(bg='red', font=('times', 12, 'italic'))
+        #msg.pack()
         #file.close()
-        print "I got %d bytes from this file." % len(data2)
+        print (filename2)#"I got %d bytes from this file." % len(filename)
+        find_course_times(filename2)
 
 
 
@@ -69,8 +95,8 @@ if __name__ == "__main__":
     root2.title("Tutor Time 2")
     find_csv_number1()
     find_csv_number2()
-    find_course_name()
-    find_course_times()
+    #find_course_name()
+    #find_course_times()
     msg = tk.Message(root, text=list_need2)
     msg.config(bg='red', font=('times', 12, 'italic'))
     msg.pack()

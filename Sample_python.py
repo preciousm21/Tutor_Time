@@ -51,7 +51,7 @@ dict_time = []
 
 
 
-def find_course_name():
+def find_course_name(f_n1):
    global X
    global word_list 
    global list_need 
@@ -62,9 +62,7 @@ def find_course_name():
    global marker  
 
 
-
-
-   with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:    
+   with open(f_n1, 'r') as infile:    
       for line in infile:
          if marker == 1:
             if "Total For" not in line:
@@ -99,12 +97,12 @@ def find_course_name():
 
    for i in list_need:
       for j in i:
-         if j != "-":
-            temp_string += j
+         if j == ",":
+               list_need2.append(temp_string)
+               temp_string = ""
+               break
          else:
-            list_need2.append(temp_string)
-            temp_string = ""
-            break
+            temp_string += j
 
    
    # msg = tk.Message(root, text=list_need2)
@@ -116,11 +114,11 @@ def find_course_name():
 
 #for w in X:
 #  print w
-def find_course_times():
+def find_course_times(f_n2):
    global marker
    columns = defaultdict(list) # each value in each column is appended to a list
 
-   with open('CourseList.FA18.09.06.18.csv') as f:
+   with open(f_n2) as f:
       reader = csv.DictReader(f) # read rows into a dictionary format
       for row in reader: # read a row as {column1: value1, column2: value2,...}
          for (k,v) in row.items(): # go over each column name and value 
@@ -128,17 +126,20 @@ def find_course_times():
                                     # based on column name k
    subjects = []
    course_number = []
+   section_number = []
    meeting_times = []
    for i in columns['Subject']:
       subjects.append(i)
    for i in columns['Course Number']:
       course_number.append(i)
+   for i in columns['Section Number']:
+      section_number.append(i)
    for i in columns['Meeting Times']:
       meeting_times.append(i)
 
    for i in list_need2:
       for j in range(0,len(subjects)):
-         if subjects[j] in i and course_number[j] in i:
+         if subjects[j] in i and course_number[j] in i and section_number[j] in i:
             dict_time.append(meeting_times[j])
             break
 
@@ -281,6 +282,29 @@ def find_course_times():
          temp_conversion += 720
       end_conversion.append(temp_conversion)
       temp_conversion = 0
+   
+   for i in range(0,len(start_array)):
+      if "M" in days_array[i]:
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
+            big_array[1][j] += 1
+      if "T" in days_array[i]:
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
+            big_array[2][j] += 1
+      if "W" in days_array[i]:
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
+            big_array[3][j] += 1
+      if "R" in days_array[i]:
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
+            big_array[4][j] += 1
+      if "F" in days_array[i]:
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
+            big_array[5][j] += 1
+         
+         
+   print (start_array)
+   print (end_array)
+   print (big_array)
+
 
       
 
