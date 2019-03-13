@@ -129,17 +129,49 @@ for i in columns['Meeting Times']:
 for i in list_need2:
    for j in range(0,len(subjects)):
       if subjects[j] in i and course_number[j] in i:
-         dict_time.append(subjects[j] + course_number[j] + meeting_times[j])
+         dict_time.append(meeting_times[j])
          break
 
 
+days_string = ""
+start_string = ""
+end_string = ""
+days_array = []
+start_array = []
+end_array = []
+for i in dict_time:
+   for j in i:
+      if j.isdigit() == False and marker == 0:
+         days_string += j
+      elif j != "-" and marker <= 1:
+         start_string += j
+         marker = 1
+      elif j == "-":
+         marker = 2
+      else:
+         end_string += j   
+   marker = 0
+   days_array.append(days_string)
+   start_array.append(start_string)
+   end_array.append(end_string)
+   days_string = ""
+   start_string = ""
+   end_string = ""
 
+
+
+print (days_array)
+print (start_array)
+print (end_array)
+
+
+#print (dict_time)
 
 
 msg = tkinter.Message(root, text=list_need2)
 msg.config(bg='lightgreen', font=('times', 12, 'italic'))
 msg.pack()
-tkinter.mainloop()
+#tkinter.mainloop()
 
 
 
