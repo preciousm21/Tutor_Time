@@ -123,11 +123,14 @@ def find_course_name():
    msg = tkinter.Message(root, text=list_need2)
    msg.config(bg='lightgreen', font=('times', 12, 'italic'))
    msg.pack()
-   
+          
+      
+      
 
-
-def find_course_times():   
-   
+#for w in X:
+#  print w
+def find_course_times():
+   global marker
    columns = defaultdict(list) # each value in each column is appended to a list
 
    with open('CourseList.FA18.09.06.18.csv') as f:
@@ -149,20 +152,50 @@ def find_course_times():
    for i in list_need2:
       for j in range(0,len(subjects)):
          if subjects[j] in i and course_number[j] in i:
-            dict_time.append(subjects[j] + course_number[j] + meeting_times[j])
+            dict_time.append(meeting_times[j])
             break
 
 
-   print (dict_time)
+   days_string = ""
+   start_string = ""
+   end_string = ""
+   days_array = []
+   start_array = []
+   end_array = []
+   for i in dict_time:
+      for j in i:
+         if j.isdigit() == False and marker == 0:
+            days_string += j
+         elif j != "-" and marker <= 1:
+            start_string += j
+            marker = 1
+         elif j == "-":
+            marker = 2
+         else:
+            end_string += j   
+      marker = 0
+      days_array.append(days_string)
+      start_array.append(start_string)
+      end_array.append(end_string)
+      days_string = ""
+      start_string = ""
+      end_string = ""
 
 
-#msg = tkinter.Message(root, text=list_need2)
-#msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-#msg.pack()
+
+   print (days_array)
+   print (start_array)
+   print (end_array)
+
+
+   #print (dict_time)
+
 
 find_course_name()
 find_course_times()
 tkinter.mainloop()
+
+#tkinter.mainloop()
 
 #tkinter.mainloop()
 
