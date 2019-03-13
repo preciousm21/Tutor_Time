@@ -12,8 +12,10 @@ from Sample_python import *
 
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
-        tk.Frame.__init__(self, parent, *args, **kwargs)
-        #self.parent = parent
+        Frame.__init__(self, parent, *args, **kwargs)
+        self.parent = parent
+    
+  
 
     #widgets for top toolbar 
     def createWidgets(self):
@@ -22,7 +24,7 @@ class MainApplication(tk.Frame):
         top["menu"] = self.menuBar
         self.subMenu = Menu(self.menuBar)
         self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
-        
+    
         #find_course_name()
         #print("Test")
         #msg = tk.Message(root, text=list_need2)
@@ -30,7 +32,7 @@ class MainApplication(tk.Frame):
         #msg.pack()
 
         #find_course_times()
-        #<create the rest of your GUI here>
+       
 
 def find_csv_number1():
     file = tkFileDialog.askopenfile(parent=root,mode='rb',title='Choose a file')
@@ -61,8 +63,8 @@ def find_csv_number2():
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Tutor Time")
-    scrollbar = Scrollbar(root)
-    scrollbar.pack( side = RIGHT, fill = Y )
+    #scrollbar = Scrollbar(root)
+    #scrollbar.pack( side = RIGHT, fill = Y )
     root2 = tk.Tk()
     root2.title("Tutor Time 2")
     find_csv_number1()
