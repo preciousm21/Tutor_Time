@@ -285,7 +285,7 @@ def find_course_times():
 
 find_course_name()
 find_course_times()
-tkinter.mainloop()
+tk.mainloop()
 
 
 
