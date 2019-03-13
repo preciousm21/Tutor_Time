@@ -62,8 +62,6 @@ def find_course_name():
    global marker  
 
 
-
-
    with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:    
       for line in infile:
          if marker == 1:
