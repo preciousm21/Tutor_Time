@@ -1,14 +1,11 @@
 from Tkinter import *
+from Tkinter import tkFileDialog
 import Tkinter as tkinter 
 import csv
 import sys
 from collections import defaultdict
 import re
-
-
-
 root = Tk()
-root.title("Tutor Time")
 
 
 
@@ -121,10 +118,7 @@ def find_course_name():
             temp_string = ""
             break
 
-   msg = tkinter.Message(root, text=list_need2)
-   msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-   msg.pack()
-          
+
       
       
 
@@ -190,16 +184,44 @@ def find_course_times():
 
 
    #print (dict_time)
-
-
 find_course_name()
 find_course_times()
-tkinter.mainloop()
+
+#class Application(Frame):
+#  def __init__(self, master= None):
+#     self.master=master
+#       frame = Frame(master)
+#frame.pack()
+# msg = tkinter.Message(root, text=list_need2)
+# msg.config(bg='lightgreen', font=('times', 12, 'italic'))
+# msg.pack()
+   #def open_file():
+   #  result = filedialog.askopenfile(intialdir="/", title="select file", filetypes=("test files", ".csv")
+      #print (result) 
+      #for c in result:
+      #print(c) 
+   #button = Button(root, text= "open file", command=open_file)
+   #root.geometry ("300x300")
+   #root.title("Tutor Time")
+   #app = Application()
+   #app.mainloop
+   
+   #tkinter.mainloop()
+#root = Tk()
+#root.title("Tutor Time")
+#find_course_name()
+#find_course_times()
 
 #tkinter.mainloop()
 
-#tkinter.mainloop()
-
+#def main(): 
+#app = Application()
+#root.title("Tutor Time")
+#find_course_name()
+#find_course_times()
+#app.mainloop()
+#if __name__ == '__main__':
+#   main()
 
 
 #BUGS:
