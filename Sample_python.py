@@ -1,14 +1,21 @@
 from Tkinter import *
-import Tkinter as tkinter 
+import Tkinter as tk 
 import csv
 import sys
 from collections import defaultdict
 import re
 
+class MainApplication(tk.Frame):
+    def __init__(self, parent, *args, **kwargs):
+        tk.Frame.__init__(self, parent, *args, **kwargs)
+        self.parent = parent
+
+        #<create the rest of your GUI here>
 
 
-root = Tk()
-root.title("Tutor Time")
+
+
+
 
 
 
@@ -121,7 +128,7 @@ def find_course_name():
             temp_string = ""
             break
 
-   msg = tkinter.Message(root, text=list_need2)
+   msg = tk.Message(root, text=list_need2)
    msg.config(bg='lightgreen', font=('times', 12, 'italic'))
    msg.pack()
           
@@ -184,131 +191,26 @@ def find_course_times():
 
 
 
-   #print (days_array)
-   #print (start_array)
-   #print (end_array)
-
-   start_conversion = []
-   end_conversion = []
-   temp_conversion = 0
-
-   for i in start_array:
-      if "12:" in i:
-         temp_conversion += 720
-      elif "11:" in i:
-         temp_conversion += 660
-      elif "10:" in i:
-         temp_conversion += 600
-      elif "9:" in i:
-         temp_conversion += 540
-      elif "8:" in i:
-         temp_conversion += 480
-      elif "7:" in i:
-         temp_conversion += 420
-      elif "6:" in i:
-         temp_conversion += 360
-      elif "5:" in i:
-         temp_conversion += 300
-      elif "4:" in i:
-         temp_conversion += 240
-      elif "3:" in i:
-         temp_conversion += 180
-      elif "2:" in i:
-         temp_conversion += 120
-      elif "1:" in i:
-         temp_conversion += 60
-      if ":05" in i:
-         temp_conversion += 5
-      if ":10" in i:
-         temp_conversion += 10
-      if ":15" in i:
-         temp_conversion += 15
-      if ":20" in i:
-         temp_conversion += 20
-      if ":25" in i:
-         temp_conversion += 25
-      if ":30" in i:
-         temp_conversion += 30
-      if ":35" in i:
-         temp_conversion += 35
-      if ":40" in i:
-         temp_conversion += 40
-      if ":45" in i:
-         temp_conversion += 45
-      if ":50" in i:
-         temp_conversion += 50
-      if ":55" in i:
-         temp_conversion += 55
-      if "PM" in i and "12:" not in i:
-         temp_conversion += 720
-      start_conversion.append(temp_conversion)
-      temp_conversion = 0
-
-   for i in end_array:
-      if "12:" in i:
-         temp_conversion += 720
-      elif "11:" in i:
-         temp_conversion += 660
-      elif "10:" in i:
-         temp_conversion += 600
-      elif "9:" in i:
-         temp_conversion += 540
-      elif "8:" in i:
-         temp_conversion += 480
-      elif "7:" in i:
-         temp_conversion += 420
-      elif "6:" in i:
-         temp_conversion += 360
-      elif "5:" in i:
-         temp_conversion += 300
-      elif "4:" in i:
-         temp_conversion += 240
-      elif "3:" in i:
-         temp_conversion += 180
-      elif "2:" in i:
-         temp_conversion += 120
-      elif "1:" in i:
-         temp_conversion += 60
-      if ":05" in i:
-         temp_conversion += 5
-      if ":10" in i:
-         temp_conversion += 10
-      if ":15" in i:
-         temp_conversion += 15
-      if ":20" in i:
-         temp_conversion += 20
-      if ":25" in i:
-         temp_conversion += 25
-      if ":30" in i:
-         temp_conversion += 30
-      if ":35" in i:
-         temp_conversion += 35
-      if ":40" in i:
-         temp_conversion += 40
-      if ":45" in i:
-         temp_conversion += 45
-      if ":50" in i:
-         temp_conversion += 50
-      if ":55" in i:
-         temp_conversion += 55
-      if "PM" in i and "12:" not in i:
-         temp_conversion += 720
-      end_conversion.append(temp_conversion)
-      temp_conversion = 0
-
+   print (days_array)
+   print (start_array)
    print (end_array)
-   print (end_conversion)
-      
-      
-
 
 
    #print (dict_time)
 
 
-find_course_name()
-find_course_times()
-tkinter.mainloop()
+#find_course_name()
+#find_course_times()
+#tkinter.mainloop()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    MainApplication(root).pack(side="top", fill="both", expand=True)
+    find_course_name()
+    find_course_times()
+    root.mainloop()
+
+
 
 #tkinter.mainloop()
 
