@@ -10,8 +10,10 @@ root = Tk()
 X=[]
 word_list = []
 list_need = []
+list_need2 = []
 keyword = "MATH 340"
 temp_list = []
+temp_string = ""
 marker = 0
 
 with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:    
@@ -47,7 +49,17 @@ with open('StudentsandCourses.FA18.09.06.18.csv', 'r') as infile:
 #for w in X:
 #  print w
 
-msg = tkinter.Message(root, text=list_need)
+for i in list_need:
+   for j in i:
+      if j != "-":
+         temp_string += j
+      else:
+         list_need2.append(temp_string)
+         temp_string = ""
+         break
+
+
+msg = tkinter.Message(root, text=list_need2)
 msg.config(bg='lightgreen', font=('times', 12, 'italic'))
 msg.pack()
 tkinter.mainloop()
