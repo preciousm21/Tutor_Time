@@ -305,7 +305,6 @@ def find_course_times(f_n2):
    for i in range(0,6):
       print(big_array[i])
       print('\n')
-   print (course_number[1] + section_number[1])
 
 
       
