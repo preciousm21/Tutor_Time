@@ -5,7 +5,7 @@ import sys
 from collections import defaultdict
 import re
 from array import *
-from main import *
+
 
 
 
