@@ -15,6 +15,18 @@ class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
+
+        find_csv_number1()
+        find_csv_number2()
+
+        listbox = Listbox(root)
+        listbox.pack(fill=BOTH, expand=TRUE)
+
+        listbox.insert(END, "\n")
+
+        for item in big_array:
+            listbox.insert(END, item)
+            listbox.insert(END, "\n")
     
   
 
@@ -71,33 +83,9 @@ def find_csv_number2():
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Tutor Time")
-    #scrollbar = Scrollbar(root)
-    #scrollbar.pack( side = RIGHT, fill = Y )
-    #root2 = tk.Tk()
-    #root2.title("Tutor Time 2")
-    find_csv_number1()
-    find_csv_number2()
-    #find_course_name()
-    #find_course_times()
     
-    listbox = Listbox(root)
-    listbox.pack(fill=BOTH, expand=TRUE)
 
-    listbox.insert(END, "\n")
-
-    for item in big_array:
-        listbox.insert(END, item)
-        listbox.insert(END, "\n")
-
-
-    #for item in big_array:
-
-    #   msg = tk.Button(root, text=big_array, command = lambda x=big_array:printtext(x))
-    #   msg.config(bg='white', font=('times', 12, 'italic'))
-    #   msg.pack()
-    #msg2 = tk.Message(root2, text=dict_time)
-    #msg2.config(bg='lightgreen', font=('times', 12, 'italic'))
-    #msg2.pack()
+    
     MainApplication(root).pack(side="top", fill="both", expand=True)
     root.mainloop()
     #root2.mainloop
