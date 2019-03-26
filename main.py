@@ -17,33 +17,14 @@ class MainApplication(tk.Frame):
         self.parent = parent
     
   
-    
+
     #widgets for top toolbar 
-#def createWidgets(self):
-    #top = self.winfo_toplevel()
-    #self.menuBar = Menu(top)
-    #top["menu"] = self.menuBar
-    #self.subMenu = Menu(self.menuBar)
-    #self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
-
-    #scrollbar = Scrollbar(root)
-    #scrollbar.pack(side=RIGHT, fill=Y)
-
-    #listbox = Listbox(root)
-    #listbox.pack()
-
-    #for i in range(100):
-    #    listbox.insert(END, i)
-
-# bind listbox to scrollbar
-#listbox.config(yscrollcommand=scrollbar.set)
-#scrollbar.config(command=listbox.yview)
-
-    
-
-
-    
- 
+def createWidgets(self):
+    top = self.winfo_toplevel()
+    self.menuBar = Menu(top)
+    top["menu"] = self.menuBar
+    self.subMenu = Menu(self.menuBar)
+    self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
         
     #find_course_name()
     #print("Test")
