@@ -79,11 +79,22 @@ if __name__ == "__main__":
     find_csv_number2()
     #find_course_name()
     #find_course_times()
-    for item in big_array:
+    
+    listbox = Listbox(root)
+    listbox.pack(fill=BOTH, expand=TRUE)
 
-        msg = tk.Button(root, text=big_array, command = lambda x=big_array:printtext(x))
-        msg.config(bg='white', font=('times', 12, 'italic'))
-        msg.pack()
+    listbox.insert(END, "\n")
+
+    for item in big_array:
+        listbox.insert(END, item)
+        listbox.insert(END, "\n")
+
+
+    #for item in big_array:
+
+    #   msg = tk.Button(root, text=big_array, command = lambda x=big_array:printtext(x))
+    #   msg.config(bg='white', font=('times', 12, 'italic'))
+    #   msg.pack()
     #msg2 = tk.Message(root2, text=dict_time)
     #msg2.config(bg='lightgreen', font=('times', 12, 'italic'))
     #msg2.pack()
