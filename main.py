@@ -23,11 +23,26 @@ class MainApplication(tk.Frame):
         listbox.pack(fill=BOTH, expand=TRUE)
 
         listbox.insert(END, "\n")
-
+        
         for item in big_array:
             listbox.insert(END, item)
             listbox.insert(END, "\n")
+
+    #scrollbar = Scrollbar(root)
+    #scrollbar.pack(side=RIGHT, fill=Y)
+
+    #listbox = Listbox(root)
+    #listbox.pack()
+
+    #for i in range(100):
+    #    listbox.insert(END, i)
+
+# bind listbox to scrollbar
+#listbox.config(yscrollcommand=scrollbar.set)
+#scrollbar.config(command=listbox.yview)
+
     
+<<<<<<< HEAD
   
 
     #widgets for top toolbar 
@@ -37,6 +52,12 @@ class MainApplication(tk.Frame):
   #  top["menu"] = self.menuBar
    # self.subMenu = Menu(self.menuBar)
     #self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
+=======
+
+
+    
+ 
+>>>>>>> 152b267922bf3309f179ef5ac9b3aa1317631aed
         
     #find_course_name()
     #print("Test")
@@ -83,9 +104,9 @@ def find_csv_number2():
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Tutor Time")
-    
+   
 
-    
+
     MainApplication(root).pack(side="top", fill="both", expand=True)
     root.mainloop()
     #root2.mainloop
