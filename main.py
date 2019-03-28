@@ -40,26 +40,7 @@ class MainApplication(tk.Frame):
 # bind listbox to scrollbar
 #listbox.config(yscrollcommand=scrollbar.set)
 #scrollbar.config(command=listbox.yview)
-
-    
-<<<<<<< HEAD
-  
-
-    #widgets for top toolbar 
-#def createWidgets(self):
- #   top = self.winfo_toplevel()
- #   self.menuBar = Menu(top)
-  #  top["menu"] = self.menuBar
-   # self.subMenu = Menu(self.menuBar)
-    #self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
-=======
-
-
-    
- 
->>>>>>> 152b267922bf3309f179ef5ac9b3aa1317631aed
-        
-    #find_course_name()
+#     #find_course_name()
     #print("Test")
     #msg = tk.Message(root, text=list_need2)
     #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
