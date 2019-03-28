@@ -31,12 +31,12 @@ class MainApplication(tk.Frame):
   
 
     #widgets for top toolbar 
-def createWidgets(self):
-    top = self.winfo_toplevel()
-    self.menuBar = Menu(top)
-    top["menu"] = self.menuBar
-    self.subMenu = Menu(self.menuBar)
-    self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
+#def createWidgets(self):
+ #   top = self.winfo_toplevel()
+ #   self.menuBar = Menu(top)
+  #  top["menu"] = self.menuBar
+   # self.subMenu = Menu(self.menuBar)
+    #self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
         
     #find_course_name()
     #print("Test")
