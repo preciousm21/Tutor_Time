@@ -286,23 +286,23 @@ def find_course_times(f_n2):
    
    for i in range(0,len(start_array)):
       if "M" in days_array[i]:
-         for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
             big_array[1][j] += 1
       if "T" in days_array[i]:
-         for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
             big_array[2][j] += 1
       if "W" in days_array[i]:
-         for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
             big_array[3][j] += 1
       if "R" in days_array[i]:
-         for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
             big_array[4][j] += 1
       if "F" in days_array[i]:
-         for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
+         for j in range((start_conversion[i] - 450) / 15, (end_conversion[i] - 450) / 15):
             big_array[5][j] += 1
          
          
-   for i in range(0,6):
+   for item in range(0,6):
       print(big_array[i])
       print('\n')
 
