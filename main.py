@@ -15,7 +15,19 @@ class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-    
+        #tframe=tk.Frame(self)
+        #yscrollcommand=tk.Scrollbar(tframe, orient=VERTICAL)
+        #tree.tk.Treeview(tframe)
+        #yScrollbar.config(command=tree.yview)
+        #tree.config(yscrollcommand=yscrollbar.set)
+
+        #buildtree(tree, colHeadings, itemList)
+
+        #tree.pack(side="left", fill="y")
+        #yscrollbar.pack(side="right", fill="y")
+        #tframe.pack(side="top", fill="y", expand=1, padx=10, pady=10)
+        
+
   
     
     #widgets for top toolbar 
@@ -107,5 +119,6 @@ if __name__ == "__main__":
     #msg2.config(bg='lightgreen', font=('times', 12, 'italic'))
     #msg2.pack()
     MainApplication(root).pack(side="top", fill="both", expand=True)
+    root.geometry("800x500")
     root.mainloop()
     #root2.mainloop
