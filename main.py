@@ -16,11 +16,22 @@ class MainApplication(tk.Frame):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
+
+        scrollbar = Scrollbar(root, orient=VERTICAL)
+        scrollbar2 = Scrollbar(root, orient=HORIZONTAL)
+
+
         find_csv_number1()
         find_csv_number2()
 
-        listbox = Listbox(root)
-        listbox.pack(fill=BOTH, expand=TRUE)
+        listbox = Listbox(root, yscrollcommand=scrollbar.set, xscrollcommand=scrollbar2.set)
+        scrollbar.config(command=listbox.yview)
+        scrollbar2.config(command=listbox.xview)
+
+        scrollbar.pack(side=RIGHT, fill=Y)
+        scrollbar2.pack(side=RIGHT, fill=Y)
+
+        listbox.pack(fill=BOTH, expand=1)
 
         listbox.insert(END, "\n")
         
