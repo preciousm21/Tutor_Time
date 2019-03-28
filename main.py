@@ -15,31 +15,6 @@ class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
-<<<<<<< HEAD
-        #tframe=tk.Frame(self)
-        #yscrollcommand=tk.Scrollbar(tframe, orient=VERTICAL)
-        #tree.tk.Treeview(tframe)
-        #yScrollbar.config(command=tree.yview)
-        #tree.config(yscrollcommand=yscrollbar.set)
-
-        #buildtree(tree, colHeadings, itemList)
-
-        #tree.pack(side="left", fill="y")
-        #yscrollbar.pack(side="right", fill="y")
-        #tframe.pack(side="top", fill="y", expand=1, padx=10, pady=10)
-        
-
-  
-    
-    #widgets for top toolbar 
-#def createWidgets(self):
-    #top = self.winfo_toplevel()
-    #self.menuBar = Menu(top)
-    #top["menu"] = self.menuBar
-    #self.subMenu = Menu(self.menuBar)
-    #self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
-=======
->>>>>>> a52ded2be9870b1d7675d13e4fb3071ef1ce919b
 
         find_csv_number1()
         find_csv_number2()
@@ -112,6 +87,5 @@ if __name__ == "__main__":
 
     
     MainApplication(root).pack(side="top", fill="both", expand=True)
-    root.geometry("800x500")
     root.mainloop()
     #root2.mainloop
