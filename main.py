@@ -16,37 +16,35 @@ class MainApplication(tk.Frame):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
-
-        scrollbar = Scrollbar(root, orient=VERTICAL)
-        scrollbar2 = Scrollbar(root, orient=HORIZONTAL)
-
-
-        find_csv_number1()
-        find_csv_number2()
-
-        listbox = Listbox(root, yscrollcommand=scrollbar.set, xscrollcommand=scrollbar2.set)
-        scrollbar.config(command=listbox.yview)
-        scrollbar2.config(command=listbox.xview)
-
-        scrollbar.pack(side=RIGHT, fill=Y)
-        scrollbar2.pack(side=RIGHT, fill=Y)
-
-        listbox.pack(fill=BOTH, expand=1)
-
-        listbox.insert(END, "\n")
         
-        for item in big_array:
-            listbox.insert(END, item)
-            listbox.insert(END, "\n")
 
-    #scrollbar = Scrollbar(root)
-    #scrollbar.pack(side=RIGHT, fill=Y)
+        #scrollbar = Scrollbar(root, orient=VERTICAL)
+        #crollbar2 = Scrollbar(root, orient=HORIZONTAL)
 
-    #listbox = Listbox(root)
-    #listbox.pack()
 
-    #for i in range(100):
-    #    listbox.insert(END, i)
+        
+
+
+
+
+        #listbox = Listbox(root, yscrollcommand=scrollbar.set, xscrollcommand=scrollbar2.set)
+        #scrollbar.config(command=listbox.yview)
+        #scrollbar2.config(command=listbox.xview)
+
+        #scrollbar.pack(side=RIGHT, fill=Y)
+        #scrollbar2.pack(side=RIGHT, fill=Y)
+
+        #listbox.pack(fill=BOTH, expand=1)
+
+        #listbox.insert(END, "\n")
+
+            
+        
+        #for item in big_array:
+        #    listbox.insert(END, item)
+         #   listbox.insert(END, "\n")
+
+    
 
 # bind listbox to scrollbar
 #listbox.config(yscrollcommand=scrollbar.set)
@@ -96,9 +94,27 @@ def find_csv_number2():
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Tutor Time")
+
+
+    
+    
    
+    find_csv_number1()
+    find_csv_number2()
+ 
+    
+
+    rows = 6
+
+    columns = 57
 
 
-    MainApplication(root).pack(side="top", fill="both", expand=True)
+    for j in range(columns):
+        for i in range(rows):
+            var = big_array[i][j]
+            #sprint(var)
+            Label(root, text=var).grid(row=j,column=i)
+
+
     root.mainloop()
     #root2.mainloop
