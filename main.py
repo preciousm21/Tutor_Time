@@ -31,6 +31,7 @@ class MainApplication(tk.Frame):
         #scrollbar.config(command=listbox.yview)
         #scrollbar2.config(command=listbox.xview)
 
+    
         #scrollbar.pack(side=RIGHT, fill=Y)
         #scrollbar2.pack(side=RIGHT, fill=Y)
 
@@ -38,7 +39,8 @@ class MainApplication(tk.Frame):
 
         #listbox.insert(END, "\n")
 
-            
+    
+ 
         
         #for item in big_array:
         #    listbox.insert(END, item)
