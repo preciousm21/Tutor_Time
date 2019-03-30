@@ -42,22 +42,10 @@ class MainApplication(tk.Frame):
 #scrollbar.config(command=listbox.yview)
 
     
-<<<<<<< HEAD
-  
-
-    #widgets for top toolbar 
-#def createWidgets(self):
- #   top = self.winfo_toplevel()
- #   self.menuBar = Menu(top)
-  #  top["menu"] = self.menuBar
-   # self.subMenu = Menu(self.menuBar)
-    #self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
-=======
 
 
     
  
->>>>>>> 152b267922bf3309f179ef5ac9b3aa1317631aed
         
     #find_course_name()
     #print("Test")
