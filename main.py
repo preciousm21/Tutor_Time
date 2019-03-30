@@ -31,6 +31,10 @@ class MainApplication(tk.Frame):
         #scrollbar.config(command=listbox.yview)
         #scrollbar2.config(command=listbox.xview)
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> c5331c531cabe76686f22fe691789ef7dd3a2e0f
         #scrollbar.pack(side=RIGHT, fill=Y)
         #scrollbar2.pack(side=RIGHT, fill=Y)
 
