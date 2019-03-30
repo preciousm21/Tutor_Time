@@ -15,37 +15,41 @@ class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
+
+        
+
+        #scrollbar = Scrollbar(root, orient=VERTICAL)
+        #crollbar2 = Scrollbar(root, orient=HORIZONTAL)
+
+
+        
+
+
+
+
+        #listbox = Listbox(root, yscrollcommand=scrollbar.set, xscrollcommand=scrollbar2.set)
+        #scrollbar.config(command=listbox.yview)
+        #scrollbar2.config(command=listbox.xview)
+
+        #scrollbar.pack(side=RIGHT, fill=Y)
+        #scrollbar2.pack(side=RIGHT, fill=Y)
+
+        #listbox.pack(fill=BOTH, expand=1)
+
+        #listbox.insert(END, "\n")
+
+            
+        
+        #for item in big_array:
+        #    listbox.insert(END, item)
+         #   listbox.insert(END, "\n")
+
     
-  
-    
-    #widgets for top toolbar 
-#def createWidgets(self):
-    #top = self.winfo_toplevel()
-    #self.menuBar = Menu(top)
-    #top["menu"] = self.menuBar
-    #self.subMenu = Menu(self.menuBar)
-    #self.menuBar.add_cascade(label = "File", menu = self.subMenu)   
-
-    #scrollbar = Scrollbar(root)
-    #scrollbar.pack(side=RIGHT, fill=Y)
-
-    #listbox = Listbox(root)
-    #listbox.pack()
-
-    #for i in range(100):
-    #    listbox.insert(END, i)
 
 # bind listbox to scrollbar
 #listbox.config(yscrollcommand=scrollbar.set)
 #scrollbar.config(command=listbox.yview)
-
-    
-
-
-    
- 
-        
-    #find_course_name()
+#     #find_course_name()
     #print("Test")
     #msg = tk.Message(root, text=list_need2)
     #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
@@ -90,20 +94,27 @@ def find_csv_number2():
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Tutor Time")
-    #scrollbar = Scrollbar(root)
-    #scrollbar.pack( side = RIGHT, fill = Y )
-    #root2 = tk.Tk()
-    #root2.title("Tutor Time 2")
+
+
+    
+    
+   
     find_csv_number1()
     find_csv_number2()
-    #find_course_name()
-    #find_course_times()
-    msg = tk.Message(root, text=big_array)
-    msg.config(bg='white', font=('times', 12, 'italic'))
-    msg.pack()
-    #msg2 = tk.Message(root2, text=dict_time)
-    #msg2.config(bg='lightgreen', font=('times', 12, 'italic'))
-    #msg2.pack()
-    MainApplication(root).pack(side="top", fill="both", expand=True)
+ 
+    
+
+    rows = 6
+
+    columns = 57
+
+
+    for j in range(columns):
+        for i in range(rows):
+            var = big_array[i][j]
+            #sprint(var)
+            Label(root, text=var).grid(row=j,column=i)
+
+
     root.mainloop()
     #root2.mainloop
