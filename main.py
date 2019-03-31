@@ -113,7 +113,7 @@ if __name__ == "__main__":
 
     for j in range(columns):
         for i in range(rows):
-            var = big_array[i][j]
+            var = total_array[i][j]
             #sprint(var)
             Label(root, text=var).grid(row=j,column=i)
         for i in range(rows):
