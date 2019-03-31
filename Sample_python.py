@@ -48,6 +48,9 @@ temp_list = []
 temp_string = ""
 marker = 0
 dict_time = []
+num_students = 0
+total_array = big_array[:]
+
 
 
 
@@ -61,6 +64,8 @@ def find_course_name(f_n1):
    global temp_list 
    global temp_string 
    global marker  
+   global num_students
+   global total_array
 
 
    with open(f_n1, 'r') as infile:    
@@ -75,6 +80,7 @@ def find_course_name(f_n1):
                list_need.append(temp_list[i])
             list_need.append(line)
             marker = 1
+            num_students += 1
          if "Course Subj/Number" in line:
             temp_list[:] = []
          if "Course Subj/Number" not in line:
@@ -301,10 +307,16 @@ def find_course_times(f_n2):
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[5][j] += 1
          
-         
+   
+
    for i in range(0,6):
-      print(big_array[i])
-      print('\n')
+      for j in range(0, len(big_array[i])):
+         if isinstance(big_array[i][j], int):
+            total_array[i][j] = (str(big_array[i][j]) + " (" + str(big_array[i][j] * 100 / num_students) + "%) ")
+         else:
+            total_array[i][j] = (big_array[i][j])
+
+   print total_array
 
 
       
