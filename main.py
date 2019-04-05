@@ -132,6 +132,25 @@ if __name__ == "__main__":
             Label(frame, text=var).grid(row=j,column=i)
         for i in range(rows):
             var = big_array[i][j]
+
+
+    #myvar = StringVar()
+
+    #def callback():
+    #    print(myvar)
+    #    find_csv_number1()
+    #    find_csv_number2()
+
+
+    #text_entry = Entry(frame, textvariable=myvar)
+    #text_entry.grid(row = 1, column = 8)
+    
+    #button = Button(frame, text="Enter", command=callback)
+    #button.grid(row=3, column = 8)
+
+    
+
+
             
     global keyword
     def search():
