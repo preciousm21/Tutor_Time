@@ -42,8 +42,8 @@ X=[]
 word_list = []
 list_need = []
 list_need2 = []
-argumentList = sys.argv 
-keyword = sys.argv[1] + " " + sys.argv[2]
+#argumentList = sys.argv 
+keyword = "MATH 340"  #sys.argv[1] + " " + sys.argv[2]
 temp_list = []
 temp_string = ""
 marker = 0
@@ -60,12 +60,13 @@ def find_course_name(f_n1):
    global word_list 
    global list_need 
    global list_need2 
-   global keyword 
+   global keyword
    global temp_list 
    global temp_string 
    global marker  
    global num_students
    global total_array
+
 
 
    with open(f_n1, 'r') as infile:    

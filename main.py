@@ -16,7 +16,6 @@ class MainApplication(tk.Frame):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
-        
 
         #scrollbar = Scrollbar(root, orient=VERTICAL)
         #crollbar2 = Scrollbar(root, orient=HORIZONTAL)
@@ -97,14 +96,29 @@ if __name__ == "__main__":
     root = tk.Tk()
     root.title("Tutor Time")
 
-
-    
-    
-   
     find_csv_number1()
     find_csv_number2()
  
+    canvas = Canvas(root, height=200) # a canvas in the parent object
+    frame = Frame(canvas) # a frame in the canvas
+    scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
     
+    
+    canvas.configure(yscrollcommand=scrollbar.set)
+    scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
+    canvas.pack(side="left", fill="both", expand=True) # pack the canvas
+    # make the frame a window in the canvas
+    
+    
+    canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
+    # bind the frame to the scrollbar
+    
+    
+    frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
+    root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
+    root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
+    # bind the mousewheel to scroll up/down
+    root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
 
     rows = 6
 
@@ -115,9 +129,48 @@ if __name__ == "__main__":
         for i in range(rows):
             var = total_array[i][j]
             #sprint(var)
-            Label(root, text=var).grid(row=j,column=i)
+            Label(frame, text=var).grid(row=j,column=i)
         for i in range(rows):
             var = big_array[i][j]
+
+
+    #myvar = StringVar()
+
+    #def callback():
+    #    print(myvar)
+    #    find_csv_number1()
+    #    find_csv_number2()
+
+
+    #text_entry = Entry(frame, textvariable=myvar)
+    #text_entry.grid(row = 1, column = 8)
+    
+    #button = Button(frame, text="Enter", command=callback)
+    #button.grid(row=3, column = 8)
+
+    
+
+
+            
+    global keyword
+    def search():
+        keyword = e1.get()
+        print (keyword)
+
+
+
+    master = Tk()
+    Label(master, text="Class Name").grid(row=0)
+    
+    e1 = Entry(master)
+    
+    e1.grid(row=0, column=1)
+    Button(master, text='Quit', command=master.quit).grid(row=3, column=0, sticky=W, pady=4)
+    Button(master, text='Search', command=search).grid(row=3, column=1, sticky=W, pady=4)
+
+
+
+    mainloop( )
 
     root.mainloop()
     #root2.mainloop
