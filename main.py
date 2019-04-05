@@ -16,7 +16,6 @@ class MainApplication(tk.Frame):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
-        
 
         #scrollbar = Scrollbar(root, orient=VERTICAL)
         #crollbar2 = Scrollbar(root, orient=HORIZONTAL)
@@ -134,6 +133,25 @@ if __name__ == "__main__":
         for i in range(rows):
             var = big_array[i][j]
             
+    global keyword
+    def search():
+        keyword = e1.get()
+        print (keyword)
+
+
+
+    master = Tk()
+    Label(master, text="Class Name").grid(row=0)
+    
+    e1 = Entry(master)
+    
+    e1.grid(row=0, column=1)
+    Button(master, text='Quit', command=master.quit).grid(row=3, column=0, sticky=W, pady=4)
+    Button(master, text='Search', command=search).grid(row=3, column=1, sticky=W, pady=4)
+
+
+
+    mainloop( )
 
     root.mainloop()
     #root2.mainloop
