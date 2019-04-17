@@ -11,6 +11,9 @@ from Sample_python import *
 filename = ''
 filename2 = ''
 
+global keyword
+keyword = "MATH 340"
+
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
@@ -127,37 +130,90 @@ if __name__ == "__main__":
 
     for j in range(columns):
         for i in range(rows):
-            var = total_array[i][j]
+            var = big_array[i][j]
             #sprint(var)
             Label(frame, text=var).grid(row=j,column=i)
         for i in range(rows):
             var = big_array[i][j]
-
-
-    #myvar = StringVar()
-
-    #def callback():
-    #    print(myvar)
-    #    find_csv_number1()
-    #    find_csv_number2()
-
-
-    #text_entry = Entry(frame, textvariable=myvar)
-    #text_entry.grid(row = 1, column = 8)
-    
-    #button = Button(frame, text="Enter", command=callback)
-    #button.grid(row=3, column = 8)
-
-    
-
-
             
-    global keyword
     def search():
-        keyword = e1.get()
+        keyword = str(e1.get())
         print (keyword)
 
+        X=[]
+        word_list = []
+        list_need = []
+        list_need2 = []
+        #argumentList = sys.argv 
+        #keyword = ""  #sys.argv[1] + " " + sys.argv[2]
+        temp_list = []
+        temp_string = ""
+        marker = 0
+        dict_time = []
+        num_students = 0
+        total_array = big_array[:]
 
+        subjects = []
+        course_number = []
+        section_number = []
+        meeting_times = []
+
+        days_string = ""
+        start_string = ""
+        end_string = ""
+        days_array = []
+        start_array = []
+        end_array = []
+
+        start_conversion = []
+        end_conversion = []
+        temp_conversion = 0
+
+
+        find_course_name(filename)
+        find_course_times(filename2)
+
+        
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# STARTING HERE REPLACE EVERYTHING WITH A WAY TO UPDATE THE WINDOW WE ALREADY HAVE
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        root = tk.Tk()
+        root.title("Tutor Time")
+
+ 
+        canvas = Canvas(root, height=200) # a canvas in the parent object
+        frame = Frame(canvas) # a frame in the canvas
+        scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
+    
+    
+        canvas.configure(yscrollcommand=scrollbar.set)
+        scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
+        canvas.pack(side="left", fill="both", expand=True) # pack the canvas
+        # make the frame a window in the canvas
+    
+    
+        canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
+        # bind the frame to the scrollbar
+    
+    
+        frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
+        root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
+        root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
+        # bind the mousewheel to scroll up/down
+        root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
+
+        rows = 6
+
+        columns = 57
+
+
+        for j in range(columns):
+            for i in range(rows):
+                var = big_array[i][j]
+                #sprint(var)
+                Label(frame, text=var).grid(row=j,column=i)
+            for i in range(rows):
+                var = big_array[i][j]
 
     master = Tk()
     Label(master, text="Class Name").grid(row=0)

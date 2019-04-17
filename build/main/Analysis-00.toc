@@ -507,6 +507,7 @@
   ('Sample_python',
    'C:\\Users\\Greg\\Github\\Tutor_Time\\Sample_python.py',
    'PYMODULE'),
+  ('main', 'C:\\Users\\Greg\\Github\\Tutor_Time\\main.py', 'PYMODULE'),
   ('re',
    'c:\\users\\greg\\pycharmprojects\\helloworld\\venv\\lib\\re.py',
    'PYMODULE'),
