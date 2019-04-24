@@ -5,6 +5,7 @@ import sys
 from collections import defaultdict
 import re
 from array import *
+#from main import *
 
 
 
@@ -42,8 +43,8 @@ X=[]
 word_list = []
 list_need = []
 list_need2 = []
-argumentList = sys.argv 
-keyword = sys.argv[1] + " " + sys.argv[2]
+#argumentList = sys.argv 
+#keyword = sys.argv[1] + " " + sys.argv[2]
 temp_list = []
 temp_string = ""
 marker = 0
@@ -53,14 +54,29 @@ total_array = big_array[:]
 
 
 
+#def callback():
+    #    global keyword
+#   keyword = text_entry.get()
+ #  print keyword
+    #    find_csv_number1()
+    #    find_csv_number2()
+    #    for j in range(columns):
+    #        for i in range(rows):
+    #            var = total_array[i][j]
+    #            #sprint(var)
+    #            Label(frame, text=var).grid(row=j,column=i)
+    #        for i in range(rows):
+    #            var = big_array[i][j]
 
 
-def find_course_name(f_n1):
+
+def find_course_name(f_n1, ky22):
+   
    global X
    global word_list 
    global list_need 
    global list_need2 
-   global keyword
+   #global keyword
    global temp_list 
    global temp_string 
    global marker  
@@ -76,7 +92,7 @@ def find_course_name(f_n1):
                list_need.append(line)
             else:
                marker = 0
-         if keyword in line:
+         if ky22 in line:
             for i in range (len(temp_list)):
                list_need.append(temp_list[i])
             list_need.append(line)
@@ -320,7 +336,9 @@ def find_course_times(f_n2):
    print total_array
 
 
-      
+
+
+   #print keyword2  
 
 
 

@@ -10,6 +10,10 @@ from Sample_python import *
 
 filename = ''
 filename2 = ''
+keyword2 = 'MATH 340'
+#int num = 1
+
+#keyword = "MATH 340"
 
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
@@ -62,17 +66,24 @@ class MainApplication(tk.Frame):
 
 def find_csv_number1():
     global filename
-    filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
-    print(type(filename))
+    global keyword2
+    keyword2 = text_entry.get()
+    if keyword2 != '':
+        
+        print(keyword2)
+        filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+        #keyword2 = text_entry.get()
+        print(type(filename))
     #print(filename)
-    if filename != None:
+        if filename != None:
         #data = file.read()
         #msg = tk.Message(root, text=data)
         #msg.config(bg='red', font=('times', 12, 'italic'))
         #msg.pack()
         #file.close()
-        print (filename)#"I got %d bytes from this file." % len(filename)
-        find_course_name(filename)
+            print (filename)#"I got %d bytes from this file." % len(filename)
+            find_course_name(filename, keyword2)
+            find_csv_number2()
 
 
 
@@ -89,16 +100,48 @@ def find_csv_number2():
         #file.close()
         print (filename2)#"I got %d bytes from this file." % len(filename)
         find_course_times(filename2)
+        create_table()
 
 
+
+def create_table():
+    for j in range(columns):
+        for i in range(rows):
+            var = total_array[i][j]
+            #sprint(var)
+            this_label = Label(frame, text=var)
+            this_label.grid(row=j,column=i)
+        #for i in range(rows):
+        #    var = big_array[i][j]
+
+    button2 = Button(frame, text="Clear", command=callback2)
+    button2.grid(row=3, column = 9)
+
+    
+
+def callback2():
+    for widget in frame.winfo_children():
+        widget.destroy()
+    
+
+    
+
+
+#def callback():
+#    global keyword2
+ #   keyword2 = text_entry.get()
+ #   find_csv_number1()
+ #   find_csv_number2()
 
 
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Tutor Time")
 
-    find_csv_number1()
-    find_csv_number2()
+    
+
+    #find_csv_number1()
+    #find_csv_number2()
  
     canvas = Canvas(root, height=200) # a canvas in the parent object
     frame = Frame(canvas) # a frame in the canvas
@@ -126,28 +169,34 @@ if __name__ == "__main__":
     columns = 57
 
 
-    for j in range(columns):
-        for i in range(rows):
-            var = total_array[i][j]
-            #sprint(var)
-            Label(frame, text=var).grid(row=j,column=i)
-        for i in range(rows):
-            var = big_array[i][j]
+    #for j in range(columns):
+    #    for i in range(rows):
+     #       var = total_array[i][j]
+     #       #sprint(var)
+     #       Label(frame, text=var).grid(row=j,column=i)
+     #   for i in range(rows):
+     #       var = big_array[i][j]
 
 
     #myvar = StringVar()
 
-    #def callback():
-    #    print(myvar)
-    #    find_csv_number1()
-    #    find_csv_number2()
-
-
-    #text_entry = Entry(frame, textvariable=myvar)
-    #text_entry.grid(row = 1, column = 8)
+    def callback():
+        find_csv_number1()
     
-    #button = Button(frame, text="Enter", command=callback)
-    #button.grid(row=3, column = 8)
+  
+
+
+    
+    global text_entry
+    text_entry = Entry(frame)
+    text_entry.grid(row = 1, column = 8)
+
+    text_entry.focus_set()
+
+    
+    
+    button = Button(frame, text="Enter", command=callback)
+    button.grid(row=3, column = 8)
 
     
 
