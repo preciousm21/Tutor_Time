@@ -15,12 +15,14 @@ keyword2 = 'MATH 340'
 
 #keyword = "MATH 340"
 
+global keyword
+keyword = "MATH 340"
+
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
-        
 
         #scrollbar = Scrollbar(root, orient=VERTICAL)
         #crollbar2 = Scrollbar(root, orient=HORIZONTAL)
@@ -185,6 +187,12 @@ if __name__ == "__main__":
     
   
 
+        
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# STARTING HERE REPLACE EVERYTHING WITH A WAY TO UPDATE THE WINDOW WE ALREADY HAVE
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        root = tk.Tk()
+        root.title("Tutor Time")
 
     
     global text_entry
@@ -199,10 +207,47 @@ if __name__ == "__main__":
     button.grid(row=3, column = 8)
 
     
-
-
-            
+        canvas.configure(yscrollcommand=scrollbar.set)
+        scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
+        canvas.pack(side="left", fill="both", expand=True) # pack the canvas
+        # make the frame a window in the canvas
     
+    
+        canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
+        # bind the frame to the scrollbar
+    
+    
+        frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
+        root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
+        root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
+        # bind the mousewheel to scroll up/down
+        root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
+
+        rows = 6
+
+        columns = 57
+
+
+        for j in range(columns):
+            for i in range(rows):
+                var = big_array[i][j]
+                #sprint(var)
+                Label(frame, text=var).grid(row=j,column=i)
+            for i in range(rows):
+                var = big_array[i][j]
+
+    master = Tk()
+    Label(master, text="Class Name").grid(row=0)
+    
+    e1 = Entry(master)
+    
+    e1.grid(row=0, column=1)
+    Button(master, text='Quit', command=master.quit).grid(row=3, column=0, sticky=W, pady=4)
+    Button(master, text='Search', command=search).grid(row=3, column=1, sticky=W, pady=4)
+
+
+
+    mainloop( )
 
     root.mainloop()
     #root2.mainloop
