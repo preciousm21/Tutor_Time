@@ -39,6 +39,10 @@ def find_csv_number1():
             print (filename)#"I got %d bytes from this file." % len(filename)
             find_course_name(filename, keyword2)
             find_csv_number2()
+#note 3: Text input becomes keyword2. Make user open file 1, move to find_course_name
+#Variables: keyword2, filename.
+#note5: After finishing find_course_name, go to find_csv_number2
+#Variables: list_need2
 
 
 
@@ -51,6 +55,10 @@ def find_csv_number2():
         print (filename2)#"I got %d bytes from this file." % len(filename)
         find_course_times(filename2)
         create_table()
+#note6: Make the user open file 2, jump to find_course_times
+#Variables: list_need2, filename2
+#note 9: After finishing find_course_times, go to create_table.
+#Variables: big_array, total_array
 
 
 
@@ -62,14 +70,20 @@ def create_table():
             this_label = Label(frame, text=var)
             this_label.grid(row=j,column=i)
 
+    reset_data()
+
     button2 = Button(frame, text="Clear", command=callback2)
     button2.grid(row=3, column = 9)
 
-    
+#note 10: Use big_array to create a grid. Make a new button, Clear. On click, go to callback2.
+#Variables: None
+
 
 def callback2():
     for widget in frame.winfo_children():
         widget.destroy()
+#note 11: Make the entire screen blank.
+#Variables: None
     
 
 if __name__ == "__main__":
@@ -103,8 +117,31 @@ if __name__ == "__main__":
 
 
     def callback():
+        X = []
+        word_list = []
+        list_need = []
+        list_need2 = []
+        temp_list = []
+        temp_string = ""
+        marker = 0
+        dict_time = []
+        num_students = 0
+        subjects = []
+        course_number = []
+        section_number = []
+        meeting_times = []
+        days_string = ""
+        start_string = ""
+        end_string = ""
+        days_array = []
+        start_array = []
+        end_array = []
+        start_conversion = []
+        end_conversion = []
+        temp_conversion = 0
         find_csv_number1()
     #note 2: Move to find_csv_number1
+    #Variables: text input
     
     global text_entry
     text_entry = Entry(frame)
@@ -117,3 +154,4 @@ if __name__ == "__main__":
 
     root.mainloop()
     #note 1: Create canvas with textbar and button. On click, move to callback.
+    #Variables: text input
