@@ -24,48 +24,6 @@ class MainApplication(tk.Frame):
         self.parent = parent
 
 
-        #scrollbar = Scrollbar(root, orient=VERTICAL)
-        #crollbar2 = Scrollbar(root, orient=HORIZONTAL)
-
-
-        
-
-
-
-
-        #listbox = Listbox(root, yscrollcommand=scrollbar.set, xscrollcommand=scrollbar2.set)
-        #scrollbar.config(command=listbox.yview)
-        #scrollbar2.config(command=listbox.xview)
-
-    
-        #scrollbar.pack(side=RIGHT, fill=Y)
-        #scrollbar2.pack(side=RIGHT, fill=Y)
-
-        #listbox.pack(fill=BOTH, expand=1)
-
-        #listbox.insert(END, "\n")
-
-    
- 
-        
-        #for item in big_array:
-        #    listbox.insert(END, item)
-         #   listbox.insert(END, "\n")
-
-    
-
-# bind listbox to scrollbar
-#listbox.config(yscrollcommand=scrollbar.set)
-#scrollbar.config(command=listbox.yview)
-#     #find_course_name()
-    #print("Test")
-    #msg = tk.Message(root, text=list_need2)
-    #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-    #msg.pack()
-
-    #find_course_times()
-    #<create the rest of your GUI here>
-
 def find_csv_number1():
     global filename
     global keyword2
@@ -78,11 +36,6 @@ def find_csv_number1():
         print(type(filename))
     #print(filename)
         if filename != None:
-        #data = file.read()
-        #msg = tk.Message(root, text=data)
-        #msg.config(bg='red', font=('times', 12, 'italic'))
-        #msg.pack()
-        #file.close()
             print (filename)#"I got %d bytes from this file." % len(filename)
             find_course_name(filename, keyword2)
             find_csv_number2()
@@ -95,11 +48,6 @@ def find_csv_number2():
     filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
     #print(filename2)
     if filename2 != None:
-        #data = file.read()
-        #msg = tk.Message(root, text=data)
-        #msg.config(bg='red', font=('times', 12, 'italic'))
-        #msg.pack()
-        #file.close()
         print (filename2)#"I got %d bytes from this file." % len(filename)
         find_course_times(filename2)
         create_table()
@@ -113,8 +61,6 @@ def create_table():
             #sprint(var)
             this_label = Label(frame, text=var)
             this_label.grid(row=j,column=i)
-        #for i in range(rows):
-        #    var = big_array[i][j]
 
     button2 = Button(frame, text="Clear", command=callback2)
     button2.grid(row=3, column = 9)
@@ -126,24 +72,9 @@ def callback2():
         widget.destroy()
     
 
-    
-
-
-#def callback():
-#    global keyword2
- #   keyword2 = text_entry.get()
- #   find_csv_number1()
- #   find_csv_number2()
-
-
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Tutor Time")
-
-    
-
-    #find_csv_number1()
-    #find_csv_number2()
  
     canvas = Canvas(root, height=200) # a canvas in the parent object
     frame = Frame(canvas) # a frame in the canvas
@@ -171,28 +102,9 @@ if __name__ == "__main__":
     columns = 57
 
 
-    #for j in range(columns):
-    #    for i in range(rows):
-     #       var = total_array[i][j]
-     #       #sprint(var)
-     #       Label(frame, text=var).grid(row=j,column=i)
-     #   for i in range(rows):
-     #       var = big_array[i][j]
-
-
-    #myvar = StringVar()
-
     def callback():
         find_csv_number1()
-    
-  
-
-        
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# STARTING HERE REPLACE EVERYTHING WITH A WAY TO UPDATE THE WINDOW WE ALREADY HAVE
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    
-
+    #note 2: Move to find_csv_number1
     
     global text_entry
     text_entry = Entry(frame)
@@ -200,15 +112,8 @@ if __name__ == "__main__":
 
     text_entry.focus_set()
 
-    
-    
     button = Button(frame, text="Enter", command=callback)
     button.grid(row=3, column = 8)
 
-    
-    
-
-    #mainloop( )
-
     root.mainloop()
-    #root2.mainloop
+    #note 1: Create canvas with textbar and button. On click, move to callback.

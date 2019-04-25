@@ -30,15 +30,6 @@ big_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", "9
    0, 0, 0, 0, 0, 0, ]]
 
 
-
-
-
-#root = Tk()
-#root.title("Tutor Time")
-
-
-
-
 X=[]
 word_list = []
 list_need = []
@@ -51,23 +42,6 @@ marker = 0
 dict_time = []
 num_students = 0
 total_array = big_array[:]
-
-
-
-#def callback():
-    #    global keyword
-#   keyword = text_entry.get()
- #  print keyword
-    #    find_csv_number1()
-    #    find_csv_number2()
-    #    for j in range(columns):
-    #        for i in range(rows):
-    #            var = total_array[i][j]
-    #            #sprint(var)
-    #            Label(frame, text=var).grid(row=j,column=i)
-    #        for i in range(rows):
-    #            var = big_array[i][j]
-
 
 
 def find_course_name(f_n1, ky22):
@@ -116,9 +90,6 @@ def find_course_name(f_n1, ky22):
             if word not in X:
                X.append(word)
 
-   #for w in X:
-   #  print w
-
    for i in list_need:
       for j in i:
          if j == ",":
@@ -128,16 +99,6 @@ def find_course_name(f_n1, ky22):
          else:
             temp_string += j
 
-   
-   # msg = tk.Message(root, text=list_need2)
-   #msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-   #msg.pack()
-          
-      
-      
-
-#for w in X:
-#  print w
 def find_course_times(f_n2):
    global marker
    columns = defaultdict(list) # each value in each column is appended to a list
@@ -192,12 +153,6 @@ def find_course_times(f_n2):
       days_string = ""
       start_string = ""
       end_string = ""
-
-
-
-   #print (days_array)
-   #print (start_array)
-   #print (end_array)
 
    start_conversion = []
    end_conversion = []
@@ -350,57 +305,3 @@ big_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", "9
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
    0, 0, 0, 0, 0, 0, ]]
 print (big_array)
-
-
-
-
-   #print keyword2  
-
-
-
-   #print (dict_time)
-#find_course_name()
-#find_course_times()
-
-#class Application(Frame):
-#  def __init__(self, master= None):
-#     self.master=master
-#       frame = Frame(master)
-#frame.pack()
-# msg = tkinter.Message(root, text=list_need2)
-# msg.config(bg='lightgreen', font=('times', 12, 'italic'))
-# msg.pack()
-   #def open_file():
-   #  result = filedialog.askopenfile(intialdir="/", title="select file", filetypes=("test files", ".csv")
-      #print (result) 
-      #for c in result:
-      #print(c) 
-   #button = Button(root, text= "open file", command=open_file)
-   #root.geometry ("300x300")
-   #root.title("Tutor Time")
-   #app = Application()
-   #app.mainloop
-   
-   #tkinter.mainloop()
-#root = Tk()
-#root.title("Tutor Time")
-#find_course_name()
-#find_course_times()
-#tk.mainloop()
-
-
-
-
-#def main(): 
-#app = Application()
-#root.title("Tutor Time")
-#find_course_name()
-#find_course_times()
-#app.mainloop()
-#if __name__ == '__main__':
-#   main()
-
-
-#BUGS:
-#only takes the first class without caring about sections
-#Doesn't work for MAT* 330 cuz it doesnt appear for the spreadsheet
