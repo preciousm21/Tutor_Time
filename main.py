@@ -3,6 +3,7 @@ import Tkinter as tk
 import tkFileDialog
 import csv
 import sys
+import os
 from collections import defaultdict
 import re
 from array import *
@@ -69,8 +70,11 @@ def create_table():
     
 
 def callback2():
-    for widget in frame.winfo_children():
-        widget.destroy()
+    """Restarts the current program.
+    Note: this function does not return. Any cleanup action (like
+    saving data) must be done before calling this function."""
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
     
     
     
