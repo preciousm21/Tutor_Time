@@ -64,12 +64,15 @@ def create_table():
 
     button2 = Button(frame, text="Clear", command=callback2)
     button2.grid(row=3, column = 9)
+    
 
     
 
 def callback2():
     for widget in frame.winfo_children():
         widget.destroy()
+    
+    
     
 
 if __name__ == "__main__":
@@ -114,6 +117,9 @@ if __name__ == "__main__":
 
     button = Button(frame, text="Enter", command=callback)
     button.grid(row=3, column = 8)
+
+    
+
 
     root.mainloop()
     #note 1: Create canvas with textbar and button. On click, move to callback.

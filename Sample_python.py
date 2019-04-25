@@ -57,6 +57,8 @@ def find_course_name(f_n1, ky22):
    global num_students
    global total_array
 
+   
+
 
 
    with open(f_n1, 'r') as infile:    
