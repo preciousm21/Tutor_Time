@@ -410,19 +410,7 @@ class MainApplication(tk.Frame):
 def find_csv_number1():
     keyword2 = text_entry.get()
     if keyword2 != '':
-        
-        print(keyword2)
-        filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
-        #keyword2 = text_entry.get()
-        print(type(filename))
-        #print(filename)
-        if filename != None:
-            print (filename)#"I got %d bytes from this file." % len(filename)
-            filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
-        #print(filename2)
-            if filename2 != None:
-                print (filename2)#"I got %d bytes from this file." % len(filename)
-                create_table(find_course_times(filename2, *find_course_name(filename, keyword2)))
+        create_table(find_course_times(filename2, *find_course_name(filename, keyword2)))
                 
                 
             
@@ -502,6 +490,21 @@ if __name__ == "__main__":
 #Variables: text input
     
 global text_entry
+global filename
+global filename2
+
+filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+#keyword2 = text_entry.get()
+print(type(filename))
+#print(filename)
+if filename != None:
+    print (filename)#"I got %d bytes from this file." % len(filename)
+    filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+#print(filename2)
+    if filename2 != None:
+        print (filename2)#"I got %d bytes from this file." % len(filename)        
+
+
 text_entry = Entry(frame)
 text_entry.grid(row = 1, column = 8)
 
