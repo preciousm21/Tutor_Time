@@ -15,11 +15,6 @@ from collections import defaultdict
 import re
 from array import *
 
-
-
-
-
-
 def find_course_name(f_n1, ky22):
     marker = 0
     list_need = []
@@ -410,6 +405,7 @@ class MainApplication(tk.Frame):
 def find_csv_number1():
     keyword2 = text_entry.get()
     if keyword2 != '':
+        root.title = "Tutor Time " + keyword2
         create_table(find_course_times(filename2, *find_course_name(filename, keyword2)))
                 
                 
