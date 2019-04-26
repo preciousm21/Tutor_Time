@@ -23,19 +23,14 @@ filename2 = ''
 keyword2 = 'MATH 340'
 #int num = 1
 #keyword = "MATH 340"
-global keyword
 keyword = "MATH 340"
 X=[]
 word_list = []
-list_need = []
-list_need2 = []
 #argumentList = sys.argv 
 #keyword = sys.argv[1] + " " + sys.argv[2]
-temp_list = []
 temp_string = ""
 marker = 0
 dict_time = []
-num_students = 0
 
 big_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", "9:15AM", "9:30AM", \
    "9:45AM", "10:00AM", "10:15AM", "10:30AM", "10:45AM", "11:00AM", "11:15AM", "11:30AM", "11:45AM", \
@@ -73,23 +68,14 @@ total_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", 
 
 
 def find_course_name(f_n1, ky22):
-   
-   global X
-   global word_list 
-   global list_need 
-   global list_need2 
-   #global keyword
-   global temp_list 
-   global temp_string 
-   global marker  
-   global num_students
-   global total_array
+    marker = 0
+    list_need = []
+    list_need2 = []
+    num_students = 0
+    temp_list = []
+    temp_string = ""
 
-   
-
-
-
-   with open(f_n1, 'r') as infile:    
+    with open(f_n1, 'r') as infile:    
       for line in infile:
          if marker == 1:
             if "Total For" not in line:
@@ -120,7 +106,7 @@ def find_course_name(f_n1, ky22):
             if word not in X:
                X.append(word)
 
-   for i in list_need:
+    for i in list_need:
       for j in i:
          if j == ",":
                list_need2.append(temp_string)
@@ -128,12 +114,13 @@ def find_course_name(f_n1, ky22):
                break
          else:
             temp_string += j
+    print ("so far so good")
+    return (list_need2, num_students)
    #note 4: Open the first file and use it and the keyword to create list_need2, then go back into find_csv_number1
    #Variables: keyword2, list_need2
    
 
-def find_course_times(f_n2):
-   global marker
+def find_course_times(f_n2, list_need2, num_students):
    columns = defaultdict(list) # each value in each column is appended to a list
 
    with open(f_n2) as f:
@@ -141,12 +128,7 @@ def find_course_times(f_n2):
       for row in reader: # read a row as {column1: value1, column2: value2,...}
          for (k,v) in row.items(): # go over each column name and value 
                columns[k].append(v) # append the value into the appropriate list
-                                    # based on column name k
-   global subjects
-   global course_number
-   global section_number
-   global meeting_times
-   
+                                    # based on column name k   
    subjects = []
    course_number = []
    section_number = []
@@ -165,13 +147,11 @@ def find_course_times(f_n2):
          if (subjects[j] + " " + course_number[j] + " - " + section_number[j]) in i:
             dict_time.append(meeting_times[j])
             break
-   
-   convert_times()
+    
+   print ("still going well")
 #note 7: Open file 2, harvest subject, course number, section number, and meeting times.
 #Compare that stuff to list_need2 to get dict_time.
 #Variables: list_need2, dict_time
-
-def convert_times():
 
    marker = 0
    days_string = ""
@@ -451,8 +431,6 @@ class MainApplication(tk.Frame):
 
 
 def find_csv_number1():
-    global filename
-    global keyword2
     keyword2 = text_entry.get()
     if keyword2 != '':
         
@@ -460,31 +438,26 @@ def find_csv_number1():
         filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
         #keyword2 = text_entry.get()
         print(type(filename))
-    #print(filename)
+        #print(filename)
         if filename != None:
             print (filename)#"I got %d bytes from this file." % len(filename)
-            find_course_name(filename, keyword2)
-            find_csv_number2()
+            filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+        #print(filename2)
+            if filename2 != None:
+                print (filename2)#"I got %d bytes from this file." % len(filename)
+                find_course_times(filename2, *find_course_name(filename, keyword2))
+                create_table()
+                
+            
 #note 3: Text input becomes keyword2. Make user open file 1, move to find_course_name
 #Variables: keyword2, filename.
-#note5: After finishing find_course_name, go to find_csv_number2
-#Variables: list_need2
-
-
-
-
-def find_csv_number2():
-    global filename2
-    filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
-    #print(filename2)
-    if filename2 != None:
-        print (filename2)#"I got %d bytes from this file." % len(filename)
-        find_course_times(filename2)
-        create_table()
-#note6: Make the user open file 2, jump to find_course_times
+#note 5,6: Make the user open file 2, jump to find_course_times
 #Variables: list_need2, filename2
 #note 9: After finishing find_course_times, go to create_table.
 #Variables: big_array, total_array
+
+
+
 
 
 
@@ -514,30 +487,6 @@ def callback2():
     os.execl(python, python, * sys.argv)
     
 def callback():
-    X = []
-    word_list = []
-    list_need = []
-    list_need2 = []
-    temp_list = []
-    temp_string = ""
-    marker = 0
-    dict_time = []
-    num_students = 0
-    subjects = []
-    course_number = []
-    section_number = []
-    meeting_times = []
-    days_string = ""
-    start_string = ""
-    end_string = ""
-    days_array = []
-    start_array = []
-    end_array = []
-    start_conversion = []
-    end_conversion = []
-    temp_conversion = 0
-
-
     find_csv_number1()
     
     
