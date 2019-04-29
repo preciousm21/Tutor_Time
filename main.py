@@ -23,9 +23,28 @@ def find_course_name(f_n1, ky22):
    temp_list = []
    temp_string = ""
    X = []    
+   temp_student = ""
+   student_array = []
+   marker2 = 0
 
    with open(f_n1, 'r') as infile:    
       for line in infile:
+         if "Student Type:" in line:
+            temp_student = ""
+            for i in line:
+               if marker2 == 1:
+                  if i == ",":
+                     break
+                  else:
+                     temp_student += i
+               elif marker2 == 0:
+                  if i == ",":
+                     marker2 = 1
+            marker2 = 0
+         #If "Student Type:" is in the line, that means that line has the student ID, followed by the student
+         #name, followed by other information. The marker starts at 0, and when it hits the comma (after the
+         # student ID is finished), it changes to 1, which means it starts reading from the line into temp_student.
+         #When it hits another comma, it breaks out of the function, setting marker2 back to 0 and moving on.
          if marker == 1:
             if "Total For" not in line:
                list_need.append(line)
@@ -37,6 +56,7 @@ def find_course_name(f_n1, ky22):
             list_need.append(line)
             marker = 1
             num_students += 1
+            student_array.append(temp_student)
          if "Course Subj/Number" in line:
             temp_list[:] = []
          if "Course Subj/Number" not in line:
@@ -55,6 +75,9 @@ def find_course_name(f_n1, ky22):
             if word not in X:
                X.append(word)
 
+
+   print (student_array)
+   
    for i in list_need:
       for j in i:
          if j == ",":
@@ -63,7 +86,6 @@ def find_course_name(f_n1, ky22):
             break
          else:
             temp_string += j
-   print ("so far so good")
    return (list_need2, num_students)
    #note 4: Open the first file and use it and the keyword to create list_need2, then go back into find_csv_number1
    #Variables: keyword2, list_need2
@@ -133,7 +155,6 @@ def find_course_times(f_n2, list_need2, num_students):
             dict_time.append(meeting_times[j])
             break
     
-   print ("still going well")
    #note 7: Open file 2, harvest subject, course number, section number, and meeting times.
    #Compare that stuff to list_need2 to get dict_time.
    #Variables: list_need2, dict_time
@@ -301,7 +322,6 @@ def find_course_times(f_n2, list_need2, num_students):
          else:
             total_array[i][j] = (big_array[i][j])
    #Create total_array, which is basically big_array except with percentages.
-   print (total_array)
    return (total_array)
 
 
@@ -369,31 +389,6 @@ def reset_data():
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["Fri", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
    0, 0, 0, 0, 0, 0, ]]
-
-   print ("Data Reset")
-
-   print (X)
-   print (word_list)
-   print (list_need)
-   print (list_need2)
-   print (temp_list)
-   print (temp_string)
-   print (marker)
-   print (dict_time)
-   print (num_students)
-   print (subjects)
-   print (course_number)
-   print (section_number)
-   print (meeting_times)
-   print (days_string)
-   print (start_string)
-   print (end_string)
-   print (days_array)
-   print (start_array)
-   print (end_array)
-   print (start_conversion)
-   print (end_conversion)
-   print (temp_conversion)
 
 
 class MainApplication(tk.Frame):
