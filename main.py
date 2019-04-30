@@ -444,17 +444,23 @@ def drop_down():
    filewin = Toplevel(root)
    button = Button(filewin, text="sample button")
    button.pack()
-def New():
+def new_window():
     popup = Toplevel(root)
     popup.grab_set() 
-      
-#def Save():
+
+def file_save():
+    f = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
+    if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
+        return
+    text2save = str(text.get(1.0, END))
+    f.write(text2save)
+    f.close() # `()` was missing.
 
 menubar = Menu(root)
 
 filemenu = Menu(menubar, tearoff=0)
-filemenu.add_command(label="New", command=New)
-filemenu.add_command(label="Save", command="")
+filemenu.add_command(label="New", command=new_window)
+filemenu.add_command(label="Save", command= file_save)
 filemenu.add_command(label="Save as...", command="")
 
 filemenu.add_separator()
