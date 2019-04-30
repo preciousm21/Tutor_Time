@@ -247,8 +247,6 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
             if i in line:
                temp_student = i
                marker = 1
-      print (dict_subject)
-      print (dict_student)
                
 
    for i in range(0,len(start_array)):
@@ -273,7 +271,6 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
             big_array[5][j] += 1
             final_student_array[5][j] += dict_student[i]
    #Increment big_array based on the start and end times and the days.
-   print (final_student_array)
          
    
 
@@ -284,7 +281,7 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
          else:
             total_array[i][j] = (big_array[i][j])
    #Create total_array, which is basically big_array except with percentages.
-   return (total_array)
+   return (total_array, final_student_array)
 
 #note 8: Use the information in dict_time to create big_array and total array, then go back into find_csv_number2.
 #Variable: big_array, total_array
@@ -413,7 +410,7 @@ def find_csv_number1():
    keyword2 = text_entry.get()
    if keyword2 != '':
       root.title = "Tutor Time " + keyword2
-      create_table(find_course_times(filename2, *find_course_name(filename, keyword2)))
+      create_table(*find_course_times(filename2, *find_course_name(filename, keyword2)))
                 
                 
             
@@ -424,7 +421,11 @@ def find_csv_number1():
 #note 9: After finishing find_course_times, go to create_table.
 #Variables: big_array, total_array
 
-def create_table(total_array):
+def create_table(total_array, final_student_array):
+
+   global day_entry
+   global time_entry
+
    for j in range(columns):
       for i in range(rows):
          var = total_array[i][j]
@@ -432,12 +433,44 @@ def create_table(total_array):
          this_label = Label(frame, text=var)
          this_label.grid(row=j,column=i)
 
+
    button2 = Button(frame, text="Clear", command=callback2)
-   button2.grid(row=3, column = 9)
+   button2.grid(row=5, column = 9)
+
+   day_entry = Entry(frame)
+   day_entry.grid(row = 2, column = 8)
+   day_entry.focus_set()
+
+   time_entry = Entry(frame)
+   time_entry.grid(row = 3, column = 8)
+   time_entry.focus_set()
+
+   button3 = Button(frame, text="More Details", command=lambda : more_details(final_student_array))
+   button3.grid(row=5, column = 11)
     
 
 #note 10: Use big_array to create a grid. Make a new button, Clear. On click, go to callback2.
 #Variables: None
+
+def more_details(final_student_array):
+   i = 0
+   j = 0
+   if day_entry.get() == "Mon":
+      i = 1
+   if day_entry.get() == "Tues":
+      i = 2
+   if day_entry.get() == "Wed":
+      i = 3
+   if day_entry.get() == "Thurs":
+      i = 4
+   if day_entry.get() == "Fri":
+      i = 5
+   j = ((convert_times(str(time_entry.get())) - 450) / 15)
+   print (final_student_array[i][j])
+
+
+
+
 
 
 def callback2():
@@ -543,7 +576,7 @@ text_entry.grid(row = 1, column = 8)
 text_entry.focus_set()
 
 button = Button(frame, text="Enter", command=callback)
-button.grid(row=3, column = 8)
+button.grid(row=4, column = 8)
 
 root.mainloop()
 #note 1: Create canvas with textbar and button. On click, move to callback.
