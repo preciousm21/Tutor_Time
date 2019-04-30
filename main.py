@@ -520,7 +520,30 @@ def drop_down():
 def new_window():
     popup = Toplevel(root)
     popup.grab_set() 
-#def open_window():
+def open_app():
+   global text_entry
+   global filename
+   global filename2
+
+   filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+   #keyword2 = text_entry.get()
+   print(type(filename))
+   #print(filename)
+   if filename != None:
+      print (filename)#"I got %d bytes from this file." % len(filename)
+      filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+   #print(filename2)
+      if filename2 != None:
+         print (filename2)#"I got %d bytes from this file." % len(filename)        
+
+
+   # text_entry = Entry(frame)
+   # text_entry.grid(row = 1, column = 8)
+
+   # text_entry.focus_set()
+
+   # button = Button(frame, text="Enter", command=callback)
+   # button.grid(row=4, column = 8)
    
 
 def file_save():
@@ -533,7 +556,7 @@ def file_save():
 menubar = Menu(root)
 
 filemenu = Menu(menubar, tearoff=0)
-#filemenu.add_command(label="Open ", command=open_window)
+filemenu.add_command(label="Open ", command=open_app)
 filemenu.add_command(label="New", command=new_window)
 filemenu.add_command(label="Save", command= file_save)
 filemenu.add_command(label="Save as...", command="")
@@ -545,6 +568,7 @@ menubar.add_cascade(label="File", menu=filemenu)
 
 
 helpmenu = Menu(menubar, tearoff=0)
+
 helpmenu.add_command(label="Help Index", command="")
 helpmenu.add_command(label="About...", command="")
 menubar.add_cascade(label="Help", menu="")
@@ -554,20 +578,20 @@ root.config(menu=menubar)
 #note 2: Move to find_csv_number1
 #Variables: text input
     
-global text_entry
-global filename
-global filename2
+# global text_entry
+# global filename
+# global filename2
 
-filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
-#keyword2 = text_entry.get()
-print(type(filename))
-#print(filename)
-if filename != None:
-   print (filename)#"I got %d bytes from this file." % len(filename)
-   filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
-#print(filename2)
-   if filename2 != None:
-      print (filename2)#"I got %d bytes from this file." % len(filename)        
+# filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+# #keyword2 = text_entry.get()
+# print(type(filename))
+# #print(filename)
+# if filename != None:
+# print (filename)#"I got %d bytes from this file." % len(filename)
+# filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+# #print(filename2)
+# if filename2 != None:
+# print (filename2)#"I got %d bytes from this file." % len(filename)        
 
 
 text_entry = Entry(frame)
