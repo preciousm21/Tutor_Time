@@ -458,31 +458,25 @@ def drop_down():
    filewin = Toplevel(root)
    button = Button(filewin, text="sample button")
    button.pack()
-        
+def New():
+    popup = Toplevel(root)
+    popup.grab_set() 
+      
+#def Save():
+
 menubar = Menu(root)
+
 filemenu = Menu(menubar, tearoff=0)
-filemenu.add_command(label="New", command="")
-filemenu.add_command(label="Open", command="")
+filemenu.add_command(label="New", command=New)
 filemenu.add_command(label="Save", command="")
 filemenu.add_command(label="Save as...", command="")
-filemenu.add_command(label="Close", command="")
 
 filemenu.add_separator()
 
 filemenu.add_command(label="Exit", command=root.quit)
 menubar.add_cascade(label="File", menu=filemenu)
-editmenu = Menu(menubar, tearoff=0)
-editmenu.add_command(label="Undo", command="")
 
-editmenu.add_separator()
 
-editmenu.add_command(label="Cut", command="")
-editmenu.add_command(label="Copy", command="")
-editmenu.add_command(label="Paste", command="")
-editmenu.add_command(label="Delete", command="")
-editmenu.add_command(label="Select All", command="")
-
-menubar.add_cascade(label="Edit", menu=editmenu)
 helpmenu = Menu(menubar, tearoff=0)
 helpmenu.add_command(label="Help Index", command="")
 helpmenu.add_command(label="About...", command="")
