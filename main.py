@@ -102,6 +102,8 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
 
    dict_time = []
    dict_subject = []
+   dict_student = []
+   marker = 0
    big_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", "9:15AM", "9:30AM", \
    "9:45AM", "10:00AM", "10:15AM", "10:30AM", "10:45AM", "11:00AM", "11:15AM", "11:30AM", "11:45AM", \
    "12:00PM", "12:15PM", "12:30PM", "12:45PM", "1:00PM", "1:15PM", "1:30PM", "1:45PM", "2:00PM", \
@@ -199,6 +201,7 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
    days_array = []
    start_array = []
    end_array = []
+   temp_student = ""
    for i in dict_time:
       for j in i:
          if j.isdigit() == False and marker == 0:
@@ -228,24 +231,49 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
    for i in end_array:
       end_conversion.append(convert_times(i))
    #Convert both start and end times to actual numbers, which are easier to use.
-   
+
+   for i in range(0, len(dict_time)):
+      dict_student.append("")
+
+   with open(filename, 'r') as infile:
+      for line in infile:
+         if marker == 1:
+            for j in range(0, len(dict_subject)):
+               if dict_subject[j] in line:
+                  dict_student[j] += temp_student + ","
+         if "Total For" in line:
+            marker = 0
+         for i in student_array:
+            if i in line:
+               temp_student = i
+               marker = 1
+      print (dict_subject)
+      print (dict_student)
+               
+
    for i in range(0,len(start_array)):
       if "M" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) +1):
             big_array[1][j] += 1
+            final_student_array[1][j] += dict_student[i]
       if "T" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[2][j] += 1
+            final_student_array[2][j] += dict_student[i]
       if "W" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[3][j] += 1
+            final_student_array[3][j] += dict_student[i]
       if "R" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[4][j] += 1
+            final_student_array[4][j] += dict_student[i]
       if "F" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[5][j] += 1
+            final_student_array[5][j] += dict_student[i]
    #Increment big_array based on the start and end times and the days.
+   print (final_student_array)
          
    
 
@@ -403,8 +431,6 @@ def create_table(total_array):
          #sprint(var)
          this_label = Label(frame, text=var)
          this_label.grid(row=j,column=i)
-
-   reset_data()
 
    button2 = Button(frame, text="Clear", command=callback2)
    button2.grid(row=3, column = 9)
