@@ -447,18 +447,20 @@ def drop_down():
 def new_window():
     popup = Toplevel(root)
     popup.grab_set() 
+#def open_window():
+   
 
 def file_save():
-    f = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
-    if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
-        return
-    text2save = str(text.get(1.0, END))
-    f.write(text2save)
-    f.close() # `()` was missing.
+   f = tkFileDialog.asksaveasfile(mode='w', defaultextension=".png")
+   if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
+      return
+   f.write(create_table)
+   f.close() # `()` was missing.
 
 menubar = Menu(root)
 
 filemenu = Menu(menubar, tearoff=0)
+#filemenu.add_command(label="Open ", command=open_window)
 filemenu.add_command(label="New", command=new_window)
 filemenu.add_command(label="Save", command= file_save)
 filemenu.add_command(label="Save as...", command="")
@@ -502,9 +504,6 @@ text_entry.focus_set()
 
 button = Button(frame, text="Enter", command=callback)
 button.grid(row=3, column = 8)
-
-    
-
 
 root.mainloop()
 #note 1: Create canvas with textbar and button. On click, move to callback.
