@@ -90,17 +90,20 @@ def find_course_name(f_n1, ky22):
             break
          else:
             temp_string += j
-   return (list_need2, num_students)
+   return (list_need2, num_students, student_array)
    #All this stuff does is essentially make list_need look more readable and renames it list_need2.
 
    #note 4: Open the first file and use it and the keyword to create list_need2, then go back into find_csv_number1
    #Variables: keyword2, list_need2
    
 
-def find_course_times(f_n2, list_need2, num_students):
+def find_course_times(f_n2, list_need2, num_students, student_array):
 
 
    dict_time = []
+   dict_subject = []
+   dict_student = []
+   marker = 0
    big_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", "9:15AM", "9:30AM", \
    "9:45AM", "10:00AM", "10:15AM", "10:30AM", "10:45AM", "11:00AM", "11:15AM", "11:30AM", "11:45AM", \
    "12:00PM", "12:15PM", "12:30PM", "12:45PM", "1:00PM", "1:15PM", "1:30PM", "1:45PM", "2:00PM", \
@@ -134,7 +137,28 @@ def find_course_times(f_n2, list_need2, num_students):
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["Fri", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
    0, 0, 0, 0, 0, 0, ]] 
+
+   final_student_array = [["", "7:45AM", "8:00AM", "8:15AM", "8:30AM", "8:45AM", "9:00AM", "9:15AM", "9:30AM", \
+   "9:45AM", "10:00AM", "10:15AM", "10:30AM", "10:45AM", "11:00AM", "11:15AM", "11:30AM", "11:45AM", \
+   "12:00PM", "12:15PM", "12:30PM", "12:45PM", "1:00PM", "1:15PM", "1:30PM", "1:45PM", "2:00PM", \
+   "2:15PM", "2:30PM", "2:45PM", "3:00PM", "3:15PM", "3:30PM", "3:45PM", "4:00PM", "4:15PM", "4:30PM", \
+   "4:45PM", "5:00PM", "5:15PM", "5:30PM", "5:45PM", "6:00PM", "6:15PM", "6:30PM", "6:45PM", "7:00PM",\
+   "7:15PM", "7:30PM", "7:45PM", "8:00PM", "8:15PM", "8:30PM", "8:45PM", "9:00PM", "9:15PM", "9:30PM"], \
+   ["Mon", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", \
+   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""], ["Tues", "", "", "", \
+   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", \
+   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""], ["Wed", "", "", "", \
+   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", \
+   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""], ["Thurs", "", "", "", \
+   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", \
+   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""], ["Fri", "", "", "", \
+   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", \
+   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", \
+   ]]
+
    columns = defaultdict(list) # each value in each column is appended to a list
+
+
 
    with open(f_n2) as f:
       reader = csv.DictReader(f) # read rows into a dictionary format
@@ -160,10 +184,12 @@ def find_course_times(f_n2, list_need2, num_students):
       for j in range(0,len(subjects)):
          if (subjects[j] + " " + course_number[j] + " - " + section_number[j]) in i:
             dict_time.append(meeting_times[j])
+            dict_subject.append(subjects[j] + " " + course_number[j] + " - " + section_number[j])
             break
    #Basically add the information for every class, then compare it to list_need2. If the class's information is
    #in list_need2, get its meeting times and add it to meeting_times.
     
+
    #note 7: Open file 2, harvest subject, course number, section number, and meeting times.
    #Compare that stuff to list_need2 to get dict_time.
    #Variables: list_need2, dict_time
@@ -175,6 +201,7 @@ def find_course_times(f_n2, list_need2, num_students):
    days_array = []
    start_array = []
    end_array = []
+   temp_student = ""
    for i in dict_time:
       for j in i:
          if j.isdigit() == False and marker == 0:
@@ -193,11 +220,10 @@ def find_course_times(f_n2, list_need2, num_students):
       days_string = ""
       start_string = ""
       end_string = ""
-      # Do a bunch of string manipulation stuff to break meeting_times into into days, start time, and end time.
+      #Do a bunch of string manipulation stuff to break meeting_times into into days, start time, and end time.
 
    start_conversion = []
    end_conversion = []
-   temp_conversion = 0
 
    for i in start_array:
       start_conversion.append(convert_times(i))
@@ -205,24 +231,49 @@ def find_course_times(f_n2, list_need2, num_students):
    for i in end_array:
       end_conversion.append(convert_times(i))
    #Convert both start and end times to actual numbers, which are easier to use.
-   
+
+   for i in range(0, len(dict_time)):
+      dict_student.append("")
+
+   with open(filename, 'r') as infile:
+      for line in infile:
+         if marker == 1:
+            for j in range(0, len(dict_subject)):
+               if dict_subject[j] in line:
+                  dict_student[j] += temp_student + ","
+         if "Total For" in line:
+            marker = 0
+         for i in student_array:
+            if i in line:
+               temp_student = i
+               marker = 1
+      print (dict_subject)
+      print (dict_student)
+               
+
    for i in range(0,len(start_array)):
       if "M" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) +1):
             big_array[1][j] += 1
+            final_student_array[1][j] += dict_student[i]
       if "T" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[2][j] += 1
+            final_student_array[2][j] += dict_student[i]
       if "W" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[3][j] += 1
+            final_student_array[3][j] += dict_student[i]
       if "R" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[4][j] += 1
+            final_student_array[4][j] += dict_student[i]
       if "F" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[5][j] += 1
+            final_student_array[5][j] += dict_student[i]
    #Increment big_array based on the start and end times and the days.
+   print (final_student_array)
          
    
 
@@ -234,8 +285,6 @@ def find_course_times(f_n2, list_need2, num_students):
             total_array[i][j] = (big_array[i][j])
    #Create total_array, which is basically big_array except with percentages.
    return (total_array)
-
-
 
 #note 8: Use the information in dict_time to create big_array and total array, then go back into find_csv_number2.
 #Variable: big_array, total_array
@@ -291,8 +340,6 @@ def convert_times(i):
    if "PM" in i and "12:" not in i:
       temp_conversion += 720
    return (temp_conversion)
-
-
 
 def reset_data():
    X = []
@@ -377,11 +424,6 @@ def find_csv_number1():
 #note 9: After finishing find_course_times, go to create_table.
 #Variables: big_array, total_array
 
-
-
-
-
-
 def create_table(total_array):
    for j in range(columns):
       for i in range(rows):
@@ -389,8 +431,6 @@ def create_table(total_array):
          #sprint(var)
          this_label = Label(frame, text=var)
          this_label.grid(row=j,column=i)
-
-   reset_data()
 
    button2 = Button(frame, text="Clear", command=callback2)
    button2.grid(row=3, column = 9)
