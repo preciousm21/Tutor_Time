@@ -559,7 +559,6 @@ filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="Open ", command=open_app)
 filemenu.add_command(label="New", command=new_window)
 filemenu.add_command(label="Save", command= file_save)
-filemenu.add_command(label="Save as...", command="")
 
 filemenu.add_separator()
 
