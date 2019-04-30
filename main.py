@@ -61,6 +61,12 @@ def find_course_name(f_n1, ky22):
             temp_list[:] = []
          if "Course Subj/Number" not in line:
             temp_list.append(line)
+         #Start with the "Course Subj/Number" line, which empties temp_list. Then you have a few random classes,
+         #which get added to temp_list. If you never see the keyworded class, temp_list just gets deleted. If you
+         #do see that class, you append temp_list to list_need. You also append the actual keyword class. Then you
+         #set marker to 1, so that the remaining classes get immediately added to list_need until you reach the 
+         #"Total For" line, which sets marker to 0 so you can start again. Also, when you reach the keyworded class,
+         #You also increment the number of students and keep track of all of their names.
             
          
          # Split on comma first
@@ -76,8 +82,6 @@ def find_course_name(f_n1, ky22):
                X.append(word)
 
 
-   print (student_array)
-   
    for i in list_need:
       for j in i:
          if j == ",":
@@ -87,6 +91,8 @@ def find_course_name(f_n1, ky22):
          else:
             temp_string += j
    return (list_need2, num_students)
+   #All this stuff does is essentially make list_need look more readable and renames it list_need2.
+
    #note 4: Open the first file and use it and the keyword to create list_need2, then go back into find_csv_number1
    #Variables: keyword2, list_need2
    
@@ -148,12 +154,15 @@ def find_course_times(f_n2, list_need2, num_students):
       section_number.append(i)
    for i in columns['Meeting Times']:
       meeting_times.append(i)
+   
 
    for i in list_need2:
       for j in range(0,len(subjects)):
          if (subjects[j] + " " + course_number[j] + " - " + section_number[j]) in i:
             dict_time.append(meeting_times[j])
             break
+   #Basically add the information for every class, then compare it to list_need2. If the class's information is
+   #in list_need2, get its meeting times and add it to meeting_times.
     
    #note 7: Open file 2, harvest subject, course number, section number, and meeting times.
    #Compare that stuff to list_need2 to get dict_time.
@@ -184,116 +193,18 @@ def find_course_times(f_n2, list_need2, num_students):
       days_string = ""
       start_string = ""
       end_string = ""
-      #Break the stuff from dict_time into days, start time, and end time
+      # Do a bunch of string manipulation stuff to break meeting_times into into days, start time, and end time.
 
    start_conversion = []
    end_conversion = []
    temp_conversion = 0
 
    for i in start_array:
-      if "12:" in i:
-         temp_conversion += 720
-      elif "11:" in i:
-         temp_conversion += 660
-      elif "10:" in i:
-         temp_conversion += 600
-      elif "9:" in i:
-         temp_conversion += 540
-      elif "8:" in i:
-         temp_conversion += 480
-      elif "7:" in i:
-         temp_conversion += 420
-      elif "6:" in i:
-         temp_conversion += 360
-      elif "5:" in i:
-         temp_conversion += 300
-      elif "4:" in i:
-         temp_conversion += 240
-      elif "3:" in i:
-         temp_conversion += 180
-      elif "2:" in i:
-         temp_conversion += 120
-      elif "1:" in i:
-         temp_conversion += 60
-      if ":05" in i:
-         temp_conversion += 5
-      if ":10" in i:
-         temp_conversion += 10
-      if ":15" in i:
-         temp_conversion += 15
-      if ":20" in i:
-         temp_conversion += 20
-      if ":25" in i:
-         temp_conversion += 25
-      if ":30" in i:
-         temp_conversion += 30
-      if ":35" in i:
-         temp_conversion += 35
-      if ":40" in i:
-         temp_conversion += 40
-      if ":45" in i:
-         temp_conversion += 45
-      if ":50" in i:
-         temp_conversion += 50
-      if ":55" in i:
-         temp_conversion += 55
-      if "PM" in i and "12:" not in i:
-         temp_conversion += 720
-      start_conversion.append(temp_conversion)
-      temp_conversion = 0
+      start_conversion.append(convert_times(i))
 
    for i in end_array:
-      if "12:" in i:
-         temp_conversion += 720
-      elif "11:" in i:
-         temp_conversion += 660
-      elif "10:" in i:
-         temp_conversion += 600
-      elif "9:" in i:
-         temp_conversion += 540
-      elif "8:" in i:
-         temp_conversion += 480
-      elif "7:" in i:
-         temp_conversion += 420
-      elif "6:" in i:
-         temp_conversion += 360
-      elif "5:" in i:
-         temp_conversion += 300
-      elif "4:" in i:
-         temp_conversion += 240
-      elif "3:" in i:
-         temp_conversion += 180
-      elif "2:" in i:
-         temp_conversion += 120
-      elif "1:" in i:
-         temp_conversion += 60
-      if ":05" in i:
-         temp_conversion += 5
-      if ":10" in i:
-         temp_conversion += 10
-      if ":15" in i:
-         temp_conversion += 15
-      if ":20" in i:
-         temp_conversion += 20
-      if ":25" in i:
-         temp_conversion += 25
-      if ":30" in i:
-         temp_conversion += 30
-      if ":35" in i:
-         temp_conversion += 35
-      if ":40" in i:
-         temp_conversion += 40
-      if ":45" in i:
-         temp_conversion += 45
-      if ":50" in i:
-         temp_conversion += 50
-      if ":55" in i:
-         temp_conversion += 55
-      if "PM" in i and "12:" not in i:
-         temp_conversion += 720
-      end_conversion.append(temp_conversion)
-      temp_conversion = 0
-   #Convert both start and end times to actual numbers.
+      end_conversion.append(convert_times(i))
+   #Convert both start and end times to actual numbers, which are easier to use.
    
    for i in range(0,len(start_array)):
       if "M" in days_array[i]:
@@ -311,7 +222,7 @@ def find_course_times(f_n2, list_need2, num_students):
       if "F" in days_array[i]:
          for j in range((start_conversion[i] - 450) / 15, ((end_conversion[i] - 450) / 15) + 1):
             big_array[5][j] += 1
-   #Increment big_array based on the start and end times.
+   #Increment big_array based on the start and end times and the days.
          
    
 
@@ -328,6 +239,60 @@ def find_course_times(f_n2, list_need2, num_students):
 
 #note 8: Use the information in dict_time to create big_array and total array, then go back into find_csv_number2.
 #Variable: big_array, total_array
+
+def convert_times(i):
+   temp_conversion = 0
+   if "12:" in i:
+      temp_conversion += 720
+   elif "11:" in i:
+      temp_conversion += 660
+   elif "10:" in i:
+      temp_conversion += 600
+   elif "9:" in i:
+      temp_conversion += 540
+   elif "8:" in i:
+      temp_conversion += 480
+   elif "7:" in i:
+      temp_conversion += 420
+   elif "6:" in i:
+      temp_conversion += 360
+   elif "5:" in i:
+      temp_conversion += 300
+   elif "4:" in i:
+      temp_conversion += 240
+   elif "3:" in i:
+      temp_conversion += 180
+   elif "2:" in i:
+      temp_conversion += 120
+   elif "1:" in i:
+      temp_conversion += 60
+   if ":05" in i:
+      temp_conversion += 5
+   if ":10" in i:
+      temp_conversion += 10
+   if ":15" in i:
+      temp_conversion += 15
+   if ":20" in i:
+      temp_conversion += 20
+   if ":25" in i:
+      temp_conversion += 25
+   if ":30" in i:
+      temp_conversion += 30
+   if ":35" in i:
+      temp_conversion += 35
+   if ":40" in i:
+      temp_conversion += 40
+   if ":45" in i:
+      temp_conversion += 45
+   if ":50" in i:
+      temp_conversion += 50
+   if ":55" in i:
+      temp_conversion += 55
+   if "PM" in i and "12:" not in i:
+      temp_conversion += 720
+   return (temp_conversion)
+
+
 
 def reset_data():
    X = []
