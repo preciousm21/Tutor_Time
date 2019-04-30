@@ -517,9 +517,13 @@ def drop_down():
    filewin = Toplevel(root)
    button = Button(filewin, text="sample button")
    button.pack()
+
 def new_window():
-    popup = Toplevel(root)
-    popup.grab_set() 
+   root2 = tk.Tk()
+   root2.title("Tutor Time 2")
+   MainApplication(root).pack(side="top", fill="both", expand=True)
+   #need more here 
+   
 def open_app():
    global text_entry
    global filename
@@ -602,5 +606,6 @@ button = Button(frame, text="Enter", command=callback)
 button.grid(row=4, column = 8)
 
 root.mainloop()
+root2.mainloop  
 #note 1: Create canvas with textbar and button. On click, move to callback.
 #Variables: text input
