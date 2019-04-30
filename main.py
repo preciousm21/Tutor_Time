@@ -484,12 +484,14 @@ if __name__ == "__main__":
     rows = 6
 
     columns = 57
+
 def drop_down():
     filewin = Toplevel(root)
     button = Button(filewin, text="sample button")
     button.pack()
         
 menubar = Menu(root)
+
 filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="New", command="")
 filemenu.add_command(label="Open", command="")
