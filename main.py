@@ -240,7 +240,7 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
          if marker == 1:
             for j in range(0, len(dict_subject)):
                if dict_subject[j] in line:
-                  dict_student[j] += temp_student + ","
+                  dict_student[j] += temp_student + ", "
          if "Total For" in line:
             marker = 0
          for i in student_array:
