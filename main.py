@@ -524,6 +524,8 @@ def drop_down():
    button.pack()
 
 def new_window():
+   top = Toplevel()
+   top.mainloop()
    root2 = tk.Tk()
    root2.title("Tutor Time 2")
    MainApplication(root).pack(side="top", fill="both", expand=True)
