@@ -522,6 +522,7 @@ if __name__ == "__main__":
    rows = 6
 
    columns = 57
+   root.resizable(width=True, height=True) 
 def drop_down():
    filewin = Toplevel(root)
    button = Button(filewin, text="sample button")
