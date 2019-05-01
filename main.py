@@ -13,6 +13,7 @@ from collections import defaultdict
 import re
 
 
+
 def find_course_name(f_n1, *args):
    list_need2 = []
    num_students = 0
@@ -563,12 +564,94 @@ def drop_down():
    button.pack()
 
 def new_window():
-   top = Toplevel()
-   top.mainloop()
-   root2 = tk.Tk()
-   root2.title("Tutor Time 2")
-   MainApplication(root).pack(side="top", fill="both", expand=True)
-   #need more here 
+   root = tk.Tk()
+   root.title("Tutor Time")
+ 
+   canvas = Canvas(root, height=200) # a canvas in the parent object
+   frame = Frame(canvas) # a frame in the canvas
+   scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
+    
+    
+   canvas.configure(yscrollcommand=scrollbar.set)
+   scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
+   canvas.pack(side="left", fill="both", expand=True) # pack the canvas
+   # make the frame a window in the canvas
+    
+    
+   canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
+   # bind the frame to the scrollbar
+    
+    
+   frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
+   root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
+   root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
+   # bind the mousewheel to scroll up/down
+   root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
+
+   rows = 6
+
+   columns = 57
+
+   menubar = Menu(root)
+
+   filemenu = Menu(menubar, tearoff=0)
+   filemenu.add_command(label="Open ", command=open_app)
+   filemenu.add_command(label="New", command=new_window)
+   filemenu.add_command(label="Save", command= file_save)
+
+   filemenu.add_separator()
+
+   filemenu.add_command(label="Exit", command=root.quit)
+   menubar.add_cascade(label="File", menu=filemenu)
+
+
+   helpmenu = Menu(menubar, tearoff=0)
+
+   helpmenu.add_command(label="Help Index", command="")
+   helpmenu.add_command(label="About...", command="")
+   menubar.add_cascade(label="Help", menu="")
+
+   root.config(menu=menubar)
+
+   #note 2: Move to find_csv_number1
+   #Variables: text input
+      
+   # global text_entry
+   # global filename
+   # global filename2
+
+   # filename = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+   # #keyword2 = text_entry.get()
+   # print(type(filename))
+   # #print(filename)
+   # if filename != None:
+   # print (filename)#"I got %d bytes from this file." % len(filename)
+   # filename2 = tkFileDialog.askopenfilename(filetypes=[("csv files","*.csv")])
+   # #print(filename2)
+   # if filename2 != None:
+   # print (filename2)#"I got %d bytes from this file." % len(filename)        
+
+
+   class_args = []
+
+   text_entry = Entry(frame)
+   text_entry.grid(row = 1, column = 8)
+
+   text_entry.focus_set()
+
+   button = Button(frame, text="Enter", command=lambda : callback(1))
+   button.grid(row=4, column = 8)
+
+   button4 = Button(frame, text="Add Another Class", command=lambda : callback(0))
+   button4.grid(row = 5, column = 8)
+
+   root.mainloop()
+   #root2.mainloop  
+   #note 1: Create canvas with textbar and button. On click, move to callback.
+   #Variables: text input
+
+
+
 
 def open_app():
    global text_entry
@@ -598,16 +681,16 @@ def open_app():
 
 def file_save():
     num_space = 0
-    fout = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
-    fout.write("      ")
+    f_out = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
+    f_out.write("      ")
     for i in range(len(new_array)):
         if num_space%6 == 0:
-            fout.write("\n")
+            f_out.write("\n")
         num_space += 1
         text2save = str(new_array[i])
-        fout.write(text2save)
-        fout.write("        ")
-    fout.close()
+        f_out.write(text2save)
+        f_out.write("        ")
+    f_out.close()
 
 menubar = Menu(root)
 
@@ -660,8 +743,8 @@ text_entry.focus_set()
 button = Button(frame, text="Enter", command=lambda : callback(1))
 button.grid(row=4, column = 8)
 
-button4 = Button(frame, text="Add Another Class", command=lambda : callback(0))
-button4.grid(row = 5, column = 8)
+#button4 = Button(frame, text="Add Another Class", command=lambda : callback(0))
+#button4.grid(row = 5, column = 8)
 
 root.mainloop()
 #root2.mainloop  
