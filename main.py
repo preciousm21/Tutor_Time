@@ -5,92 +5,95 @@ import sys
 from collections import defaultdict
 import re
 from array import *
-from Tkinter import *
-import Tkinter as tk 
 import tkFileDialog
 import csv
 import sys
 import os
 from collections import defaultdict
 import re
-from array import *
+
 
 def find_course_name(f_n1, *args):
-   marker = 0
-   list_need = []
    list_need2 = []
    num_students = 0
-   temp_list = []
-   temp_string = ""
-   X = []    
-   temp_student = ""
    student_array = []
-   marker2 = 0
-
-   with open(f_n1, 'r') as infile:    
-      for line in infile:
-         if "Student Type:" in line:
-            temp_student = ""
-            for i in line:
-               if marker2 == 1:
-                  if i == ",":
-                     break
-                  else:
-                     temp_student += i
-               elif marker2 == 0:
-                  if i == ",":
-                     marker2 = 1
-            marker2 = 0
-         #If "Student Type:" is in the line, that means that line has the student ID, followed by the student
-         #name, followed by other information. The marker starts at 0, and when it hits the comma (after the
-         # student ID is finished), it changes to 1, which means it starts reading from the line into temp_student.
-         #When it hits another comma, it breaks out of the function, setting marker2 back to 0 and moving on.
-         if marker == 1:
-            if "Total For" not in line:
-               list_need.append(line)
-            else:
-               marker = 0
-         for arg in args:
+   for arg in args:
+      marker = 0
+      list_need = []
+      temp_list = []
+      temp_string = ""
+      X = []    
+      temp_student = ""
+      marker2 = 0
+      marker3 = 0
+      with open(f_n1, 'r') as infile:    
+         for line in infile:
+            if "Student Type:" in line:
+               temp_student = ""
+               for i in line:
+                  if marker2 == 1:
+                     if i == ",":
+                        break
+                     else:
+                        temp_student += i
+                  elif marker2 == 0:
+                     if i == ",":
+                        marker2 = 1
+               marker2 = 0
+            #If "Student Type:" is in the line, that means that line has the student ID, followed by the student
+            #name, followed by other information. The marker starts at 0, and when it hits the comma (after the
+            # student ID is finished), it changes to 1, which means it starts reading from the line into temp_student.
+            #When it hits another comma, it breaks out of the function, setting marker2 back to 0 and moving on.
+            if marker == 1:
+               if "Total For" not in line:
+                  list_need.append(line)
+               else:
+                  marker = 0
             if arg in line:
-               for i in range (len(temp_list)):
-                  list_need.append(temp_list[i])
-               list_need.append(line)
-               marker = 1
-               num_students += 1
-               student_array.append(temp_student)
-         if "Course Subj/Number" in line:
-            temp_list[:] = []
-         if "Course Subj/Number" not in line:
-            temp_list.append(line)
-         #Start with the "Course Subj/Number" line, which empties temp_list. Then you have a few random classes,
-         #which get added to temp_list. If you never see the keyworded class, temp_list just gets deleted. If you
-         #do see that class, you append temp_list to list_need. You also append the actual keyword class. Then you
-         #set marker to 1, so that the remaining classes get immediately added to list_need until you reach the 
-         #"Total For" line, which sets marker to 0 so you can start again. Also, when you reach the keyworded class,
-         #You also increment the number of students and keep track of all of their names.
+               for k in student_array:
+                  if temp_student == k:
+                     marker3 = 1
+               if marker3 == 0:
+                  for i in range (len(temp_list)):
+                     list_need.append(temp_list[i])
+                  list_need.append(line)
+                  marker = 1
+                  num_students += 1
+                  student_array.append(temp_student)
+               marker3 = 0
+            if "Course Subj/Number" in line:
+               temp_list[:] = []
+            if "Course Subj/Number" not in line:
+               temp_list.append(line)
+            #Start with the "Course Subj/Number" line, which empties temp_list. Then you have a few random classes,
+            #which get added to temp_list. If you never see the keyworded class, temp_list just gets deleted. If you
+            #do see that class, you append temp_list to list_need. You also append the actual keyword class. Then you
+            #set marker to 1, so that the remaining classes get immediately added to list_need until you reach the 
+            #"Total For" line, which sets marker to 0 so you can start again. Also, when you reach the keyworded class,
+            #You also increment the number of students and keep track of all of their names.
+               
             
-         
-         # Split on comma first
-         cols = [x.strip() for x in line.split(',')]
+            # Split on comma first
+            cols = [x.strip() for x in line.split(',')]
 
-         # Grab 2nd "column"
-         col2 = cols[0]
+            # Grab 2nd "column"
+            col2 = cols[0]
 
-         # Split on spaces
-         words = [x.strip() for x in col2.split(' ')]
-         for word in words:     
-            if word not in X:
-               X.append(word)
+            # Split on spaces
+            words = [x.strip() for x in col2.split(' ')]
+            for word in words:     
+               if word not in X:
+                  X.append(word)
 
 
-   for i in list_need:
-      for j in i:
-         if j == ",":
-            list_need2.append(temp_string)
-            temp_string = ""
-            break
-         else:
-            temp_string += j
+      for i in list_need:
+         for j in i:
+            if j == ",":
+               list_need2.append(temp_string)
+               temp_string = ""
+               break
+            else:
+               temp_string += j
    return (list_need2, num_students, student_array)
    #All this stuff does is essentially make list_need look more readable and renames it list_need2.
 
@@ -249,7 +252,6 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
             if i in line:
                temp_student = i
                marker = 1
-   print (dict_subject)
                
 
    for i in range(0,len(start_array)):
@@ -409,7 +411,7 @@ class MainApplication(tk.Frame):
       self.parent = parent
 
 
-def find_csv_number1():
+def find_csv_number1(x):
    if class_args != []:
       create_table(*find_course_times(filename2, *find_course_name(filename, *class_args)))
                 
@@ -491,20 +493,18 @@ def on_focusout_time(event):
 def more_details(final_student_array):
    i = 0
    j = 0
-   if day_entry.get() == "Mon":
+   if (day_entry.get().lower() == "m") or (day_entry.get().lower() == "mon") or (day_entry.get().lower() == "monday"):
       i = 1
-   if day_entry.get() == "Tues":
+   if (day_entry.get().lower() == "t") or (day_entry.get().lower() == "tues") or (day_entry.get().lower() == "tuesday"):
       i = 2
-   if day_entry.get() == "Wed":
+   if (day_entry.get().lower() == "w") or (day_entry.get().lower() == "wed") or (day_entry.get().lower() == "wednesday"):
       i = 3
-   if day_entry.get() == "Thurs":
+   if (day_entry.get().lower() == "h") or (day_entry.get().lower() == "thurs") or (day_entry.get().lower() == "thursday"):
       i = 4
-   if day_entry.get() == "Fri":
+   if (day_entry.get().lower() == "f") or (day_entry.get().lower() == "fri") or (day_entry.get().lower() == "friday"):
       i = 5
    j = ((convert_times(str(time_entry.get())) - 450) / 15)
    print (final_student_array[i][j])
-
-
 
 
 
@@ -517,10 +517,15 @@ def callback2():
    os.execl(python, python, * sys.argv)
     
 def callback(x):
-   class_args.append(text_entry.get())
-   if x == 1:
-      print (class_args)
-      find_csv_number1()
+   if filename != None and filename2 != None:
+      class_args.append(text_entry.get())
+      pre_label = Label(frame, text=class_args)
+      pre_label.grid(row=7, column=8)
+      if x == 1:
+         new_label = Label(frame, text=class_args)
+         new_label.grid(row=7,column=8)
+         print (class_args)
+         find_csv_number1(x)
     
     
 
@@ -659,6 +664,6 @@ button4 = Button(frame, text="Add Another Class", command=lambda : callback(0))
 button4.grid(row = 5, column = 8)
 
 root.mainloop()
-root2.mainloop  
+#root2.mainloop  
 #note 1: Create canvas with textbar and button. On click, move to callback.
 #Variables: text input
