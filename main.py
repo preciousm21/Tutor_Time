@@ -13,6 +13,7 @@ from collections import defaultdict
 import re
 
 
+
 def find_course_name(f_n1, *args):
    list_need2 = []
    num_students = 0
@@ -556,8 +557,8 @@ def open_app():
 
 def file_save():
     num_space = 0
-    fout = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
-    fout.write("      ")
+    f_out = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
+    f_out.write("      ")
     for i in range(len(new_array)):
         if num_space%6 == 0:
             fout.write("\n")
@@ -565,7 +566,7 @@ def file_save():
         text2save = str(new_array[i])
         fout.write(text2save)
         fout.write("        ")
-    fout.close()
+    f_out.close()
 
 menubar = Menu(root)
 
