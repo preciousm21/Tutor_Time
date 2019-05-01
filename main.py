@@ -567,11 +567,11 @@ def file_save():
     f_out.write("      ")
     for i in range(len(new_array)):
         if num_space%6 == 0:
-            fout.write("\n")
+            f_out.write("\n")
         num_space += 1
         text2save = str(new_array[i])
-        fout.write(text2save)
-        fout.write("        ")
+        f_out.write(text2save)
+        f_out.write("        ")
     f_out.close()
 
 menubar = Menu(root)
