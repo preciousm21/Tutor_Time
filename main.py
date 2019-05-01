@@ -438,19 +438,51 @@ def create_table(total_array, final_student_array):
          this_label.grid(row=j,column=i)
 
 
+
    button2 = Button(frame, text="Clear", command=callback2)
    button2.grid(row=5, column = 9)
 
-   day_entry = Entry(frame)
+   day_entry = Entry(frame, bd=1)
+   day_entry.insert(0, 'Enter day: "Mon" "Tues" ')
+   day_entry.bind('<FocusIn>', on_entry_click)
+   day_entry.bind('<FocusOut>', on_focusout)
+   day_entry.config(fg = 'grey')
    day_entry.grid(row = 2, column = 8)
    day_entry.focus_set()
 
-   time_entry = Entry(frame)
+   time_entry = Entry(frame, bd=1)
+   time_entry.insert(0, 'Enter time: "9:30AM" ')
+   time_entry.bind('<FocusIn>', on_entry_click_time)
+   time_entry.bind('<FocusOut>', on_focusout_time)
+   time_entry.config(fg = 'grey')
    time_entry.grid(row = 3, column = 8)
    time_entry.focus_set()
 
    button3 = Button(frame, text="More Details", command=lambda : more_details(final_student_array))
    button3.grid(row=5, column = 11)
+
+
+def on_entry_click(event):
+    """function that gets called whenever entry is clicked"""
+    if day_entry.get() == 'Enter day: "Mon" "Tues" ':
+       day_entry.delete(0, "end") # delete all the text in the entry
+       day_entry.insert(0, '') #Insert blank for user input
+       day_entry.config(fg = 'black')
+def on_focusout(event):
+    if day_entry.get() == '':
+        day_entry.insert(0, 'Enter day: "Mon" "Tues" ')
+        day_entry.config(fg = 'grey')
+
+def on_entry_click_time(event):
+    """function that gets called whenever entry is clicked"""
+    if time_entry.get() == 'Enter time: "9:30AM" ':
+        time_entry.delete(0, "end") # delete all the text in the entry
+        time_entry.insert(0, '') #Insert blank for user input
+        time_entry.config(fg = 'black')
+def on_focusout_time(event):
+    if time_entry.get() == '':
+        time_entry.insert(0, 'Enter time: "9:30AM" ')
+        time_entry.config(fg = 'grey')
     
 
 #note 10: Use big_array to create a grid. Make a new button, Clear. On click, go to callback2.
