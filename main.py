@@ -287,7 +287,7 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
          else:
             total_array[i][j] = (big_array[i][j])
    #Create total_array, which is basically big_array except with percentages.
-   return (total_array, final_student_array, num_students, big_array)
+   return (total_array, final_student_array)
 
 #note 8: Use the information in dict_time to create big_array and total array, then go back into find_csv_number2.
 #Variable: big_array, total_array
@@ -425,36 +425,19 @@ def find_csv_number1(x):
 #note 9: After finishing find_course_times, go to create_table.
 #Variables: big_array, total_array
 
-def create_table(total_array, final_student_array, num_students, big_array):
+def create_table(total_array, final_student_array):
 
    global day_entry
    global time_entry
    global new_array
    new_array = []
-   color = ""
 
    for j in range(columns):
       for i in range(rows):
          var = total_array[i][j]
-         if (i > 0) and (j > 0):
-            if (big_array[i][j] * 100 / num_students) <= 25:
-               color = "green"
-            if (25 < big_array[i][j] * 100 / num_students and big_array[i][j] * 100 / num_students < 75):
-               color = "yellow"
-            if big_array[i][j] * 100 / num_students >= 75:
-               color = "red"
-         else:
-            color = "black"
          new_array.append(var)
          #sprint(var)
-         if color == "green":
-            this_label = Label(frame, text=var, fg = "green")
-         if color == "yellow":
-            this_label = Label(frame, text=var, fg = "yellow")
-         if color == "red":
-            this_label = Label(frame, text=var, fg = "red")
-         if color == "black":
-            this_label = Label(frame, text=var, fg = "black")
+         this_label = Label(frame, text=var)
          this_label.grid(row=j,column=i)
 
 
@@ -546,30 +529,30 @@ def drop_down():
    button.pack()
 
 #def new_window():
-   root = tk.Tk()
-   root.title("Tutor Time")
+   # root = tk.Tk()
+   # root.title("Tutor Time")
       
  
-   canvas = Canvas(root, height=200) # a canvas in the parent object
-   frame = Frame(canvas) # a frame in the canvas
-   scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
+   # canvas = Canvas(root, height=200) # a canvas in the parent object
+   # frame = Frame(canvas) # a frame in the canvas
+   # scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
     
     
-   canvas.configure(yscrollcommand=scrollbar.set)
-   scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
-   canvas.pack(side="left", fill="both", expand=True) # pack the canvas
-   # make the frame a window in the canvas
+   # canvas.configure(yscrollcommand=scrollbar.set)
+   # scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
+   # canvas.pack(side="left", fill="both", expand=True) # pack the canvas
+   # # make the frame a window in the canvas
     
     
-   canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
-   # bind the frame to the scrollbar
+   # canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
+   # # bind the frame to the scrollbar
     
     
-   frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
-   root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
-   root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
-   # bind the mousewheel to scroll up/down
-   root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
+   # frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
+   # root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
+   # root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
+   # # bind the mousewheel to scroll up/down
+   # root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
 
    rows = 6
 
@@ -677,7 +660,7 @@ menubar = Menu(root)
 
 filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="Open ", command=open_app)
-filemenu.add_command(label="New", command=new_window)
+#filemenu.add_command(label="New", command=new_window)
 filemenu.add_command(label="Save", command= file_save)
 
 filemenu.add_separator()
