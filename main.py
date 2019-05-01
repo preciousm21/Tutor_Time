@@ -660,7 +660,7 @@ def drop_down():
 
    helpmenu = Menu(menubar, tearoff=0)
 
-   helpmenu.add_command(label="Help Index", command="")
+   helpmenu.add_command(label="Instruction", command="")
    helpmenu.add_command(label="About...", command="")
    menubar.add_cascade(label="Help", menu=helpmenu)
 
@@ -744,7 +744,15 @@ def file_save():
     f_out.close()
 
 def help_window():
-   help_essay = "asdf"
+   help_essay = "1) Click file, then click open in the drop down menu. \n 2) When the first window pops up, select the StudentsAndCourses file. \
+   \n 3) When the second window pops up, select the CourseList file. \n 4) Type in the class you are interested in and click enter. \n \
+   4a) The table will show the numbers and percentages of students busy during each day and time. \n \
+   5) If you are interested in any additional classes, type a new one into the first line and click enter. \n \
+   5a) The text under the buttons shows what classes the table is showing. \n 6) To search for a new set of classes, click clear. \
+   \n 7) To see the specific students that are busy each hour, type the day into \n \
+   the second textbox, type the time into the third textbox, and click More Details. \n \
+   8) To save the file, click file, then click save in the drop down menu."
+
    root = tk.Tk()
    root.title("Help")
  
@@ -801,7 +809,7 @@ menubar.add_cascade(label="File", menu=filemenu)
 
 helpmenu = Menu(menubar, tearoff=0)
 
-helpmenu.add_command(label="Help Index", command=help_window)
+helpmenu.add_command(label="Instructions", command=help_window)
 helpmenu.add_command(label="About...", command=about_window)
 helpmenu.add_separator()
 menubar.add_cascade(label="Help", menu=helpmenu)
