@@ -50,14 +50,13 @@ def find_course_name(f_n1, *args):
                list_need.append(line)
             else:
                marker = 0
-         for arg in args:
-            if arg in line:
-               for i in range (len(temp_list)):
-                  list_need.append(temp_list[i])
-               list_need.append(line)
-               marker = 1
-               num_students += 1
-               student_array.append(temp_student)
+         if arg in line:
+            for i in range (len(temp_list)):
+               list_need.append(temp_list[i])
+            list_need.append(line)
+            marker = 1
+            num_students += 1
+            student_array.append(temp_student)
          if "Course Subj/Number" in line:
             temp_list[:] = []
          if "Course Subj/Number" not in line:
@@ -249,7 +248,6 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
             if i in line:
                temp_student = i
                marker = 1
-   print (dict_subject)
                
 
    for i in range(0,len(start_array)):
@@ -409,7 +407,7 @@ class MainApplication(tk.Frame):
       self.parent = parent
 
 
-def find_csv_number1():
+def find_csv_number1(x):
    if class_args != []:
       create_table(*find_course_times(filename2, *find_course_name(filename, *class_args)))
                 
@@ -467,8 +465,6 @@ def more_details(final_student_array):
    if day_entry.get() == "Fri":
       i = 5
    j = ((convert_times(str(time_entry.get())) - 450) / 15)
-   print (final_student_array[i][j])
-
 
 
 
@@ -482,10 +478,11 @@ def callback2():
    os.execl(python, python, * sys.argv)
     
 def callback(x):
-   class_args.append(text_entry.get())
-   if x == 1:
-      print (class_args)
-      find_csv_number1()
+   if filename != None and filename2 != None:
+      class_args.append(text_entry.get())
+      if x == 1:
+         print (class_args)
+         find_csv_number1(x)
     
     
 
@@ -616,6 +613,6 @@ button4 = Button(frame, text="Add Another Class", command=lambda : callback(0))
 button4.grid(row = 5, column = 8)
 
 root.mainloop()
-root2.mainloop  
+#root2.mainloop  
 #note 1: Create canvas with textbar and button. On click, move to callback.
 #Variables: text input
