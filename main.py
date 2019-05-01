@@ -287,7 +287,7 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
          else:
             total_array[i][j] = (big_array[i][j])
    #Create total_array, which is basically big_array except with percentages.
-   return (total_array, final_student_array)
+   return (total_array, final_student_array, num_students, big_array)
 
 #note 8: Use the information in dict_time to create big_array and total array, then go back into find_csv_number2.
 #Variable: big_array, total_array
@@ -425,35 +425,79 @@ def find_csv_number1(x):
 #note 9: After finishing find_course_times, go to create_table.
 #Variables: big_array, total_array
 
-def create_table(total_array, final_student_array):
+def create_table(total_array, final_student_array, num_students, big_array):
 
    global day_entry
    global time_entry
    global new_array
    new_array = []
+   color = ""
 
    for j in range(columns):
       for i in range(rows):
          var = total_array[i][j]
+         if i > 0 and j > 0:
+            if big_array[i][j] == 0:
+               color = "blue"
+            elif big_array[i][j] * 100 / num_students < 25:
+               color = "green"
+            elif big_array[i][j] * 100 / num_students < 75:
+               color = "orange"
+            elif big_array[i][j] * 100 / num_students <= 100:
+               color = "red"
+         else:
+            color = "black"
          new_array.append(var)
          #sprint(var)
-         this_label = Label(frame, text=var)
+         this_label = Label(frame, text=var, fg = color)
          this_label.grid(row=j,column=i)
+
 
 
    button2 = Button(frame, text="Clear", command=callback2)
    button2.grid(row=5, column = 9)
 
-   day_entry = Entry(frame)
+   day_entry = Entry(frame, bd=1)
+   day_entry.insert(0, 'Enter day: "Mon" "Tues" ')
+   day_entry.bind('<FocusIn>', on_entry_click)
+   day_entry.bind('<FocusOut>', on_focusout)
+   day_entry.config(fg = 'grey')
    day_entry.grid(row = 2, column = 8)
    day_entry.focus_set()
 
-   time_entry = Entry(frame)
+   time_entry = Entry(frame, bd=1)
+   time_entry.insert(0, 'Enter time: "9:30AM" ')
+   time_entry.bind('<FocusIn>', on_entry_click_time)
+   time_entry.bind('<FocusOut>', on_focusout_time)
+   time_entry.config(fg = 'grey')
    time_entry.grid(row = 3, column = 8)
    time_entry.focus_set()
 
    button3 = Button(frame, text="More Details", command=lambda : more_details(final_student_array))
    button3.grid(row=5, column = 11)
+
+
+def on_entry_click(event):
+    """function that gets called whenever entry is clicked"""
+    if day_entry.get() == 'Enter day: "Mon" "Tues" ':
+       day_entry.delete(0, "end") # delete all the text in the entry
+       day_entry.insert(0, '') #Insert blank for user input
+       day_entry.config(fg = 'black')
+def on_focusout(event):
+    if day_entry.get() == '':
+        day_entry.insert(0, 'Enter day: "Mon" "Tues" ')
+        day_entry.config(fg = 'grey')
+
+def on_entry_click_time(event):
+    """function that gets called whenever entry is clicked"""
+    if time_entry.get() == 'Enter time: "9:30AM" ':
+        time_entry.delete(0, "end") # delete all the text in the entry
+        time_entry.insert(0, '') #Insert blank for user input
+        time_entry.config(fg = 'black')
+def on_focusout_time(event):
+    if time_entry.get() == '':
+        time_entry.insert(0, 'Enter time: "9:30AM" ')
+        time_entry.config(fg = 'grey')
     
 
 #note 10: Use big_array to create a grid. Make a new button, Clear. On click, go to callback2.
@@ -488,7 +532,11 @@ def callback2():
 def callback(x):
    if filename != None and filename2 != None:
       class_args.append(text_entry.get().upper())
+      pre_label = Label(frame, text=class_args)
+      pre_label.grid(row=7, column=8)
       if x == 1:
+         new_label = Label(frame, text=class_args)
+         new_label.grid(row=7,column=8)
          print (class_args)
          find_csv_number1(x)
     
@@ -709,8 +757,8 @@ text_entry.focus_set()
 button = Button(frame, text="Enter", command=lambda : callback(1))
 button.grid(row=4, column = 8)
 
-button4 = Button(frame, text="Add Another Class", command=lambda : callback(0))
-button4.grid(row = 5, column = 8)
+#button4 = Button(frame, text="Add Another Class", command=lambda : callback(0))
+#button4.grid(row = 5, column = 8)
 
 root.mainloop()
 #root2.mainloop  
