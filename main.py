@@ -748,7 +748,7 @@ def help_window():
    help_essay = "1) Select file, then select open in the drop down menu. \n 2) When the first window generates, select the StudentsAndCourses file. \
    \n 3) When the second window generates, select the CourseList file. \n 4) Type in the class you are interested in and click enter. For example 'math 340' or 'Math 340' \n \
    4a) The table will show the numbers and percentages of students busy during each day and time. \n \
-  5) To save the current table: Select file, select save and name your .txt file. \n \ 5a) A text file is now exported and will be saved in the destination you saved it in. \n \
+  5) To save the current table: Select file, select save and name your .txt file. \n  5a) A text file is now exported and will be saved in the destination you saved it in. \n \
    6) If you are interested in any additional classes, type a new one into the first line and click enter. \n \
    6a) The text under the buttons shows what classes the table is showing. \n 7) To search for a new set of classes, click clear. \
    \n 8) To see the specific students that are busy each hour, type the day into \n \
