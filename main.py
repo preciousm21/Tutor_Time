@@ -637,9 +637,9 @@ def drop_down():
    # # bind the mousewheel to scroll up/down
    # root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
 
-   rows = 6
+   # rows = 6
 
-   columns = 57
+   # columns = 57
 
    menubar = Menu(root)
 
@@ -739,6 +739,18 @@ def file_save():
         f_out.write("        ")
     f_out.close()
 
+def help_window():
+   r = Toplevel()
+   r.title("Help")
+
+def about_window():
+   r = Toplevel()
+   r.title("About")
+   # about_info = "Tutor Time is an application that compares the schedules of all students. \n Created by Angel Flores, Precious Martinez, Gregor Radovic, original implementation by Emily Hill"
+   # msg = tk.Message(root, text = about_info)
+   # msg.config(bg='white', font=('times', 18, 'italic'))
+   # msg.pack()
+   
 menubar = Menu(root)
 
 filemenu = Menu(menubar, tearoff=0)
@@ -754,8 +766,8 @@ menubar.add_cascade(label="File", menu=filemenu)
 
 helpmenu = Menu(menubar, tearoff=0)
 
-helpmenu.add_command(label="Help Index", command="")
-helpmenu.add_command(label="About...", command="")
+helpmenu.add_command(label="Help Index", command=help_window)
+helpmenu.add_command(label="About...", command=about_window)
 helpmenu.add_separator()
 menubar.add_cascade(label="Help", menu=helpmenu)
 
