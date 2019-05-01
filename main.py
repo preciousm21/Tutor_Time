@@ -455,7 +455,7 @@ def create_table(total_array, final_student_array, num_students, big_array):
 
 
    button2 = Button(frame, text="Clear", command=callback2)
-   button2.grid(row=5, column = 8)
+   button2.grid(row=5, column = 9)
 
    day_entry = Entry(frame, bd=1)
    day_entry.insert(0, 'Enter day: "Mon" "Tues" ')
@@ -474,7 +474,7 @@ def create_table(total_array, final_student_array, num_students, big_array):
    time_entry.focus_set()
 
    button3 = Button(frame, text="More Details", command=lambda : more_details(final_student_array))
-   button3.grid(row=6, column = 8)
+   button3.grid(row=5, column = 11)
 
 
 def on_entry_click(event):
@@ -498,7 +498,6 @@ def on_focusout_time(event):
     if time_entry.get() == '':
         time_entry.insert(0, 'Enter time: "9:30AM" ')
         time_entry.config(fg = 'grey')
-    
     
 
 #note 10: Use big_array to create a grid. Make a new button, Clear. On click, go to callback2.
@@ -610,10 +609,8 @@ if __name__ == "__main__":
    rows = 6
 
    columns = 57
-   root.resizable(width=True, height=True) 
-   root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
-   root.focus_set()  # <-- move focus to this widget
-   root.bind("<Escape>", lambda e: e.widget.quit())
+   root.resizable(width=True, height=True)
+
 def drop_down():
    filewin = Toplevel(root)
    button = Button(filewin, text="sample button")
@@ -735,30 +732,27 @@ def open_app():
    
 
 def file_save():
-   for i in range(0, len(new_array)):
-      for j in range(14 - len(new_array[i])):
-         new_array[i] += " "
-   num_space = 0
-   f_out = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
-   f_out.write("      ")
-   for i in range(len(new_array)):
-      if num_space%6 == 0:
-         f_out.write("\n")
-      num_space += 1
-      text2save = str(new_array[i])
-      f_out.write(text2save)
-      f_out.write("        ")
-   f_out.close()
+    num_space = 0
+    f_out = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
+    f_out.write("      ")
+    for i in range(len(new_array)):
+        if num_space%6 == 0:
+            f_out.write("\n")
+        num_space += 1
+        text2save = str(new_array[i])
+        f_out.write(text2save)
+        f_out.write("        ")
+    f_out.close()
 
 def help_window():
-   help_essay = "1) Click file, then click open in the drop down menu. \n 2) When the first window pops up, select the StudentsAndCourses file. \
-   \n 3) When the second window pops up, select the CourseList file. \n 4) Type in the class you are interested in and click enter. \n \
+   help_essay = "1) Select file, then select open in the drop down menu. \n 2) When the first window generates, select the StudentsAndCourses file. \
+   \n 3) When the second window generates, select the CourseList file. \n 4) Type in the class you are interested in and click enter. For example 'math 340' or 'Math 340' \n \
    4a) The table will show the numbers and percentages of students busy during each day and time. \n \
-   5) If you are interested in any additional classes, type a new one into the first line and click enter. \n \
-   5a) The text under the buttons shows what classes the table is showing. \n 6) To search for a new set of classes, click clear. \
-   \n 7) To see the specific students that are busy each hour, type the day into \n \
-   the second textbox, type the time into the third textbox, and click More Details. \n \
-   8) To save the file, click file, then click save in the drop down menu."
+  5) To save the current table: Select file, select save and name your .txt file. \n \ 5a) A text file is now exported and will be saved in the destination you saved it in. \n \
+   6) If you are interested in any additional classes, type a new one into the first line and click enter. \n \
+   6a) The text under the buttons shows what classes the table is showing. \n 7) To search for a new set of classes, click clear. \
+   \n 8) To see the specific students that are busy each hour, type the day into \n \
+   the second textbox, type the time into the third textbox, and selecr More Details."
 
    root = tk.Tk()
    root.title("Help")
@@ -794,41 +788,12 @@ def help_window():
 
 
 def about_window():
-   about_essay = "Tutor Time is an application that compares the schedules of all students. \n \
-   This is the perfect application for scheduling tutors or office hours when the smallest amount of your students are busy. \n \
-   Created by Angel Flores, Precious Martinez, Gregor Radovic, original implementation by Emily Hill "
-   
-   root = tk.Tk()
-   root.title("About")
- 
-   canvas = Canvas(root, height=200) # a canvas in the parent object
-   frame = Frame(canvas) # a frame in the canvas
-   scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
-    
-    
-   canvas.configure(yscrollcommand=scrollbar.set)
-   scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
-   canvas.pack(side="left", fill="both", expand=True) # pack the canvas
-   # make the frame a window in the canvas
-    
-    
-   canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
-   # bind the frame to the scrollbar
-    
-    
-   frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
-   root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
-   root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
-   # bind the mousewheel to scroll up/down
-   root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
-
-   rows = 6
-
-   columns = 57
-   root.resizable(width=True, height=True) 
-
-   new_label = Label(frame, text=about_essay)
-   new_label.pack(side = "left")
+   r = Toplevel()
+   r.title("About")
+   # about_info = "Tutor Time is an application that compares the schedules of all students. \n Created by Angel Flores, Precious Martinez, Gregor Radovic, original implementation by Emily Hill"
+   # msg = tk.Message(root, text = about_info)
+   # msg.config(bg='white', font=('times', 18, 'italic'))
+   # msg.pack()
    
 menubar = Menu(root)
 
