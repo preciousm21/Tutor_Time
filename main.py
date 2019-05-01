@@ -443,7 +443,7 @@ def create_table(total_array, final_student_array, num_students, big_array):
                color = "green"
             elif big_array[i][j] * 100 / num_students < 75:
                color = "orange"
-            elif big_array[i][j] * 100 / num_students <= 100:
+            elif big_array[i][j] * 100 / num_students <= 75:
                color = "red"
          else:
             color = "black"
@@ -523,11 +523,14 @@ def more_details(final_student_array):
 
 
 def callback2():
-   """Restarts the current program.
-   Note: this function does not return. Any cleanup action (like
-   saving data) must be done before calling this function."""
-   python = sys.executable
-   os.execl(python, python, * sys.argv)
+   global class_args
+   class_args = []
+   print (class_args)
+   # """Restarts the current program.
+   # Note: this function does not return. Any cleanup action (like
+   # saving data) must be done before calling this function."""
+   # python = sys.executable
+   # os.execl(python, python, * sys.argv)
     
 def callback(x):
    if filename != None and filename2 != None:
