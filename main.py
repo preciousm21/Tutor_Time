@@ -15,7 +15,7 @@ from collections import defaultdict
 import re
 from array import *
 
-def find_course_name(f_n1, ky22):
+def find_course_name(f_n1, *args):
    marker = 0
    list_need = []
    list_need2 = []
@@ -50,13 +50,14 @@ def find_course_name(f_n1, ky22):
                list_need.append(line)
             else:
                marker = 0
-         if ky22 in line:
-            for i in range (len(temp_list)):
-               list_need.append(temp_list[i])
-            list_need.append(line)
-            marker = 1
-            num_students += 1
-            student_array.append(temp_student)
+         for arg in args:
+            if arg in line:
+               for i in range (len(temp_list)):
+                  list_need.append(temp_list[i])
+               list_need.append(line)
+               marker = 1
+               num_students += 1
+               student_array.append(temp_student)
          if "Course Subj/Number" in line:
             temp_list[:] = []
          if "Course Subj/Number" not in line:
@@ -409,10 +410,8 @@ class MainApplication(tk.Frame):
 
 
 def find_csv_number1():
-   keyword2 = text_entry.get()
-   if keyword2 != '':
-      root.title = "Tutor Time " + keyword2
-      create_table(*find_course_times(filename2, *find_course_name(filename, keyword2)))
+   if class_args != []:
+      create_table(*find_course_times(filename2, *find_course_name(filename, *class_args)))
                 
                 
             
