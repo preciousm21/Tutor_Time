@@ -287,7 +287,7 @@ def find_course_times(f_n2, list_need2, num_students, student_array):
          else:
             total_array[i][j] = (big_array[i][j])
    #Create total_array, which is basically big_array except with percentages.
-   return (total_array, final_student_array)
+   return (total_array, final_student_array, num_students, big_array)
 
 #note 8: Use the information in dict_time to create big_array and total array, then go back into find_csv_number2.
 #Variable: big_array, total_array
@@ -425,19 +425,36 @@ def find_csv_number1(x):
 #note 9: After finishing find_course_times, go to create_table.
 #Variables: big_array, total_array
 
-def create_table(total_array, final_student_array):
+def create_table(total_array, final_student_array, num_students, big_array):
 
    global day_entry
    global time_entry
    global new_array
    new_array = []
+   color = ""
 
    for j in range(columns):
       for i in range(rows):
          var = total_array[i][j]
+         if (i > 0) and (j > 0):
+            if (big_array[i][j] * 100 / num_students) <= 25:
+               color = "green"
+            if (25 < big_array[i][j] * 100 / num_students and big_array[i][j] * 100 / num_students < 75):
+               color = "yellow"
+            if big_array[i][j] * 100 / num_students >= 75:
+               color = "red"
+         else:
+            color = "black"
          new_array.append(var)
          #sprint(var)
-         this_label = Label(frame, text=var)
+         if color == "green":
+            this_label = Label(frame, text=var, fg = "green")
+         if color == "yellow":
+            this_label = Label(frame, text=var, fg = "yellow")
+         if color == "red":
+            this_label = Label(frame, text=var, fg = "red")
+         if color == "black":
+            this_label = Label(frame, text=var, fg = "black")
          this_label.grid(row=j,column=i)
 
 
