@@ -528,9 +528,10 @@ def drop_down():
    button = Button(filewin, text="sample button")
    button.pack()
 
-def new_window():
+#def new_window():
    root = tk.Tk()
    root.title("Tutor Time")
+      
  
    canvas = Canvas(root, height=200) # a canvas in the parent object
    frame = Frame(canvas) # a frame in the canvas
@@ -561,7 +562,7 @@ def new_window():
 
    filemenu = Menu(menubar, tearoff=0)
    filemenu.add_command(label="Open ", command=open_app)
-   filemenu.add_command(label="New", command=new_window)
+   #filemenu.add_command(label="New", command=lambda: MainApplication().show_frame("New")
    filemenu.add_command(label="Save", command= file_save)
 
    filemenu.add_separator()
@@ -574,7 +575,7 @@ def new_window():
 
    helpmenu.add_command(label="Help Index", command="")
    helpmenu.add_command(label="About...", command="")
-   menubar.add_cascade(label="Help", menu="")
+   menubar.add_cascade(label="Help", menu=helpmenu)
 
    root.config(menu=menubar)
 
@@ -614,8 +615,6 @@ def new_window():
    #root2.mainloop  
    #note 1: Create canvas with textbar and button. On click, move to callback.
    #Variables: text input
-
-
 
 
 def open_app():
@@ -674,9 +673,11 @@ helpmenu = Menu(menubar, tearoff=0)
 
 helpmenu.add_command(label="Help Index", command="")
 helpmenu.add_command(label="About...", command="")
-menubar.add_cascade(label="Help", menu="")
+helpmenu.add_separator()
+menubar.add_cascade(label="Help", menu=helpmenu)
 
 root.config(menu=menubar)
+
 
 #note 2: Move to find_csv_number1
 #Variables: text input
