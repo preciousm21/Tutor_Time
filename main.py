@@ -482,8 +482,11 @@ def callback2():
    python = sys.executable
    os.execl(python, python, * sys.argv)
     
-def callback():
-   find_csv_number1()
+def callback(x):
+   class_args.append(text_entry.get())
+   if x == 1:
+      print (class_args)
+      find_csv_number1()
     
     
 
@@ -599,13 +602,19 @@ root.config(menu=menubar)
 # print (filename2)#"I got %d bytes from this file." % len(filename)        
 
 
+global class_args
+class_args = []
+
 text_entry = Entry(frame)
 text_entry.grid(row = 1, column = 8)
 
 text_entry.focus_set()
 
-button = Button(frame, text="Enter", command=callback)
+button = Button(frame, text="Enter", command=lambda : callback(1))
 button.grid(row=4, column = 8)
+
+button4 = Button(frame, text="Add Another Class", command=lambda : callback(0))
+button4.grid(row = 5, column = 8)
 
 root.mainloop()
 root2.mainloop  
