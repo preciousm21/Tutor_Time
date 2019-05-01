@@ -487,7 +487,7 @@ def callback2():
     
 def callback(x):
    if filename != None and filename2 != None:
-      class_args.append(text_entry.get())
+      class_args.append(text_entry.get().upper())
       if x == 1:
          print (class_args)
          find_csv_number1(x)
