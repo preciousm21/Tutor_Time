@@ -440,9 +440,9 @@ def create_table(total_array, final_student_array, num_students, big_array):
             if big_array[i][j] == 0:
                color = "blue"
             elif big_array[i][j] * 100 / num_students < 25:
-               color = "green"
+               color = "dark green"
             elif big_array[i][j] * 100 / num_students < 75:
-               color = "orange"
+               color = "dark orange"
             elif big_array[i][j] * 100 / num_students >= 75:
                color = "red"
          else:
