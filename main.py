@@ -5,15 +5,13 @@ import sys
 from collections import defaultdict
 import re
 from array import *
-from Tkinter import *
-import Tkinter as tk 
 import tkFileDialog
 import csv
 import sys
 import os
 from collections import defaultdict
 import re
-from array import *
+
 
 def find_course_name(f_n1, *args):
    marker = 0
