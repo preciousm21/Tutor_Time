@@ -527,7 +527,7 @@ def new_window():
    root2.title("Tutor Time 2")
    MainApplication(root).pack(side="top", fill="both", expand=True)
    #need more here 
-   
+
 def open_app():
    global text_entry
    global filename
