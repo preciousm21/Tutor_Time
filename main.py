@@ -424,10 +424,13 @@ def create_table(total_array, final_student_array):
 
    global day_entry
    global time_entry
+   global new_array
+   new_array = []
 
    for j in range(columns):
       for i in range(rows):
          var = total_array[i][j]
+         new_array.append(var)
          #sprint(var)
          this_label = Label(frame, text=var)
          this_label.grid(row=j,column=i)
@@ -520,6 +523,8 @@ def drop_down():
    button.pack()
 
 def new_window():
+   top = Toplevel()
+   top.mainloop()
    root2 = tk.Tk()
    root2.title("Tutor Time 2")
    MainApplication(root).pack(side="top", fill="both", expand=True)
@@ -552,11 +557,17 @@ def open_app():
    
 
 def file_save():
-   f = tkFileDialog.asksaveasfile(mode='w', defaultextension=".png")
-   if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
-      return
-   f.write(create_table)
-   f.close() # `()` was missing.
+    num_space = 0
+    fout = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
+    fout.write("      ")
+    for i in range(len(new_array)):
+        if num_space%6 == 0:
+            fout.write("\n")
+        num_space += 1
+        text2save = str(new_array[i])
+        fout.write(text2save)
+        fout.write("        ")
+    fout.close()
 
 menubar = Menu(root)
 
