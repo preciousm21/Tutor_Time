@@ -558,35 +558,37 @@ if __name__ == "__main__":
    rows = 6
 
    columns = 57
+   root.resizable(width=True, height=True) 
 def drop_down():
    filewin = Toplevel(root)
    button = Button(filewin, text="sample button")
    button.pack()
 
-def new_window():
-   root = tk.Tk()
-   root.title("Tutor Time")
+#def new_window():
+   # root = tk.Tk()
+   # root.title("Tutor Time")
+      
  
-   canvas = Canvas(root, height=200) # a canvas in the parent object
-   frame = Frame(canvas) # a frame in the canvas
-   scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
+   # canvas = Canvas(root, height=200) # a canvas in the parent object
+   # frame = Frame(canvas) # a frame in the canvas
+   # scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
     
     
-   canvas.configure(yscrollcommand=scrollbar.set)
-   scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
-   canvas.pack(side="left", fill="both", expand=True) # pack the canvas
-   # make the frame a window in the canvas
+   # canvas.configure(yscrollcommand=scrollbar.set)
+   # scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
+   # canvas.pack(side="left", fill="both", expand=True) # pack the canvas
+   # # make the frame a window in the canvas
     
     
-   canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
-   # bind the frame to the scrollbar
+   # canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
+   # # bind the frame to the scrollbar
     
     
-   frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
-   root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
-   root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
-   # bind the mousewheel to scroll up/down
-   root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
+   # frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
+   # root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
+   # root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
+   # # bind the mousewheel to scroll up/down
+   # root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
 
    rows = 6
 
@@ -596,7 +598,7 @@ def new_window():
 
    filemenu = Menu(menubar, tearoff=0)
    filemenu.add_command(label="Open ", command=open_app)
-   filemenu.add_command(label="New", command=new_window)
+   #filemenu.add_command(label="New", command=lambda: MainApplication().show_frame("New")
    filemenu.add_command(label="Save", command= file_save)
 
    filemenu.add_separator()
@@ -609,7 +611,7 @@ def new_window():
 
    helpmenu.add_command(label="Help Index", command="")
    helpmenu.add_command(label="About...", command="")
-   menubar.add_cascade(label="Help", menu="")
+   menubar.add_cascade(label="Help", menu=helpmenu)
 
    root.config(menu=menubar)
 
@@ -649,8 +651,6 @@ def new_window():
    #root2.mainloop  
    #note 1: Create canvas with textbar and button. On click, move to callback.
    #Variables: text input
-
-
 
 
 def open_app():
@@ -696,7 +696,7 @@ menubar = Menu(root)
 
 filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="Open ", command=open_app)
-filemenu.add_command(label="New", command=new_window)
+#filemenu.add_command(label="New", command=new_window)
 filemenu.add_command(label="Save", command= file_save)
 
 filemenu.add_separator()
@@ -709,9 +709,11 @@ helpmenu = Menu(menubar, tearoff=0)
 
 helpmenu.add_command(label="Help Index", command="")
 helpmenu.add_command(label="About...", command="")
-menubar.add_cascade(label="Help", menu="")
+helpmenu.add_separator()
+menubar.add_cascade(label="Help", menu=helpmenu)
 
 root.config(menu=menubar)
+
 
 #note 2: Move to find_csv_number1
 #Variables: text input
