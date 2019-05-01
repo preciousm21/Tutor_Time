@@ -16,80 +16,80 @@ import re
 from array import *
 
 def find_course_name(f_n1, *args):
-   marker = 0
-   list_need = []
    list_need2 = []
    num_students = 0
-   temp_list = []
-   temp_string = ""
-   X = []    
-   temp_student = ""
    student_array = []
-   marker2 = 0
-
-   with open(f_n1, 'r') as infile:    
-      for line in infile:
-         if "Student Type:" in line:
-            temp_student = ""
-            for i in line:
-               if marker2 == 1:
-                  if i == ",":
-                     break
-                  else:
-                     temp_student += i
-               elif marker2 == 0:
-                  if i == ",":
-                     marker2 = 1
-            marker2 = 0
-         #If "Student Type:" is in the line, that means that line has the student ID, followed by the student
-         #name, followed by other information. The marker starts at 0, and when it hits the comma (after the
-         # student ID is finished), it changes to 1, which means it starts reading from the line into temp_student.
-         #When it hits another comma, it breaks out of the function, setting marker2 back to 0 and moving on.
-         if marker == 1:
-            if "Total For" not in line:
+   for arg in args:
+      marker = 0
+      list_need = []
+      temp_list = []
+      temp_string = ""
+      X = []    
+      temp_student = ""
+      marker2 = 0
+      with open(f_n1, 'r') as infile:    
+         for line in infile:
+            if "Student Type:" in line:
+               temp_student = ""
+               for i in line:
+                  if marker2 == 1:
+                     if i == ",":
+                        break
+                     else:
+                        temp_student += i
+                  elif marker2 == 0:
+                     if i == ",":
+                        marker2 = 1
+               marker2 = 0
+            #If "Student Type:" is in the line, that means that line has the student ID, followed by the student
+            #name, followed by other information. The marker starts at 0, and when it hits the comma (after the
+            # student ID is finished), it changes to 1, which means it starts reading from the line into temp_student.
+            #When it hits another comma, it breaks out of the function, setting marker2 back to 0 and moving on.
+            if marker == 1:
+               if "Total For" not in line:
+                  list_need.append(line)
+               else:
+                  marker = 0
+            if arg in line:
+               for i in range (len(temp_list)):
+                  list_need.append(temp_list[i])
                list_need.append(line)
-            else:
-               marker = 0
-         if arg in line:
-            for i in range (len(temp_list)):
-               list_need.append(temp_list[i])
-            list_need.append(line)
-            marker = 1
-            num_students += 1
-            student_array.append(temp_student)
-         if "Course Subj/Number" in line:
-            temp_list[:] = []
-         if "Course Subj/Number" not in line:
-            temp_list.append(line)
-         #Start with the "Course Subj/Number" line, which empties temp_list. Then you have a few random classes,
-         #which get added to temp_list. If you never see the keyworded class, temp_list just gets deleted. If you
-         #do see that class, you append temp_list to list_need. You also append the actual keyword class. Then you
-         #set marker to 1, so that the remaining classes get immediately added to list_need until you reach the 
-         #"Total For" line, which sets marker to 0 so you can start again. Also, when you reach the keyworded class,
-         #You also increment the number of students and keep track of all of their names.
+               marker = 1
+               num_students += 1
+               student_array.append(temp_student)
+            if "Course Subj/Number" in line:
+               temp_list[:] = []
+            if "Course Subj/Number" not in line:
+               temp_list.append(line)
+            #Start with the "Course Subj/Number" line, which empties temp_list. Then you have a few random classes,
+            #which get added to temp_list. If you never see the keyworded class, temp_list just gets deleted. If you
+            #do see that class, you append temp_list to list_need. You also append the actual keyword class. Then you
+            #set marker to 1, so that the remaining classes get immediately added to list_need until you reach the 
+            #"Total For" line, which sets marker to 0 so you can start again. Also, when you reach the keyworded class,
+            #You also increment the number of students and keep track of all of their names.
+               
             
-         
-         # Split on comma first
-         cols = [x.strip() for x in line.split(',')]
+            # Split on comma first
+            cols = [x.strip() for x in line.split(',')]
 
-         # Grab 2nd "column"
-         col2 = cols[0]
+            # Grab 2nd "column"
+            col2 = cols[0]
 
-         # Split on spaces
-         words = [x.strip() for x in col2.split(' ')]
-         for word in words:     
-            if word not in X:
-               X.append(word)
+            # Split on spaces
+            words = [x.strip() for x in col2.split(' ')]
+            for word in words:     
+               if word not in X:
+                  X.append(word)
 
 
-   for i in list_need:
-      for j in i:
-         if j == ",":
-            list_need2.append(temp_string)
-            temp_string = ""
-            break
-         else:
-            temp_string += j
+      for i in list_need:
+         for j in i:
+            if j == ",":
+               list_need2.append(temp_string)
+               temp_string = ""
+               break
+            else:
+               temp_string += j
    return (list_need2, num_students, student_array)
    #All this stuff does is essentially make list_need look more readable and renames it list_need2.
 
