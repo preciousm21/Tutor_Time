@@ -443,7 +443,7 @@ def create_table(total_array, final_student_array, num_students, big_array):
                color = "green"
             elif big_array[i][j] * 100 / num_students < 75:
                color = "orange"
-            elif big_array[i][j] * 100 / num_students <= 75:
+            elif big_array[i][j] * 100 / num_students >= 75:
                color = "red"
          else:
             color = "black"
@@ -517,7 +517,39 @@ def more_details(final_student_array):
    if (day_entry.get().lower() == "f") or (day_entry.get().lower() == "fri") or (day_entry.get().lower() == "friday"):
       i = 5
    j = ((convert_times(str(time_entry.get())) - 450) / 15)
-   print (final_student_array[i][j])
+
+   root = tk.Tk()
+   root.title("Tutor Time")
+ 
+   canvas = Canvas(root, height=200) # a canvas in the parent object
+   frame = Frame(canvas) # a frame in the canvas
+   scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
+    
+    
+   canvas.configure(yscrollcommand=scrollbar.set)
+   scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
+   canvas.pack(side="left", fill="both", expand=True) # pack the canvas
+   # make the frame a window in the canvas
+    
+    
+   canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
+   # bind the frame to the scrollbar
+    
+    
+   frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
+   root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
+   root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
+   # bind the mousewheel to scroll up/down
+   root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
+
+   rows = 6
+
+   columns = 57
+   root.resizable(width=True, height=True) 
+
+   new_label = Label(frame, text=final_student_array[i][j])
+   new_label.grid(row=7,column=8)
+
 
 
 
@@ -609,9 +641,9 @@ def drop_down():
    # # bind the mousewheel to scroll up/down
    # root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
 
-   rows = 6
+   # rows = 6
 
-   columns = 57
+   # columns = 57
 
    menubar = Menu(root)
 
@@ -711,6 +743,18 @@ def file_save():
         f_out.write("        ")
     f_out.close()
 
+def help_window():
+   r = Toplevel()
+   r.title("Help")
+
+def about_window():
+   r = Toplevel()
+   r.title("About")
+   # about_info = "Tutor Time is an application that compares the schedules of all students. \n Created by Angel Flores, Precious Martinez, Gregor Radovic, original implementation by Emily Hill"
+   # msg = tk.Message(root, text = about_info)
+   # msg.config(bg='white', font=('times', 18, 'italic'))
+   # msg.pack()
+   
 menubar = Menu(root)
 
 filemenu = Menu(menubar, tearoff=0)
@@ -726,8 +770,8 @@ menubar.add_cascade(label="File", menu=filemenu)
 
 helpmenu = Menu(menubar, tearoff=0)
 
-helpmenu.add_command(label="Help Index", command="")
-helpmenu.add_command(label="About...", command="")
+helpmenu.add_command(label="Help Index", command=help_window)
+helpmenu.add_command(label="About...", command=about_window)
 helpmenu.add_separator()
 menubar.add_cascade(label="Help", menu=helpmenu)
 
