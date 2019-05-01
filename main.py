@@ -461,15 +461,15 @@ def create_table(total_array, final_student_array):
 def more_details(final_student_array):
    i = 0
    j = 0
-   if day_entry.get() == "Mon":
+   if (day_entry.get().lower() == "m") or (day_entry.get().lower() == "mon") or (day_entry.get().lower() == "monday"):
       i = 1
-   if day_entry.get() == "Tues":
+   if (day_entry.get().lower() == "t") or (day_entry.get().lower() == "tues") or (day_entry.get().lower() == "tuesday"):
       i = 2
-   if day_entry.get() == "Wed":
+   if (day_entry.get().lower() == "w") or (day_entry.get().lower() == "wed") or (day_entry.get().lower() == "wednesday"):
       i = 3
-   if day_entry.get() == "Thurs":
+   if (day_entry.get().lower() == "h") or (day_entry.get().lower() == "thurs") or (day_entry.get().lower() == "thursday"):
       i = 4
-   if day_entry.get() == "Fri":
+   if (day_entry.get().lower() == "f") or (day_entry.get().lower() == "fri") or (day_entry.get().lower() == "friday"):
       i = 5
    j = ((convert_times(str(time_entry.get())) - 450) / 15)
    print (final_student_array[i][j])
