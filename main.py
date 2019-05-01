@@ -27,6 +27,7 @@ def find_course_name(f_n1, *args):
       X = []    
       temp_student = ""
       marker2 = 0
+      marker3 = 0
       with open(f_n1, 'r') as infile:    
          for line in infile:
             if "Student Type:" in line:
@@ -51,12 +52,17 @@ def find_course_name(f_n1, *args):
                else:
                   marker = 0
             if arg in line:
-               for i in range (len(temp_list)):
-                  list_need.append(temp_list[i])
-               list_need.append(line)
-               marker = 1
-               num_students += 1
-               student_array.append(temp_student)
+               for k in student_array:
+                  if temp_student == k:
+                     marker3 = 1
+               if marker3 == 0:
+                  for i in range (len(temp_list)):
+                     list_need.append(temp_list[i])
+                  list_need.append(line)
+                  marker = 1
+                  num_students += 1
+                  student_array.append(temp_student)
+               marker3 = 0
             if "Course Subj/Number" in line:
                temp_list[:] = []
             if "Course Subj/Number" not in line:
@@ -468,7 +474,7 @@ def more_details(final_student_array):
    if day_entry.get() == "Fri":
       i = 5
    j = ((convert_times(str(time_entry.get())) - 450) / 15)
-
+   print (final_student_array[i][j])
 
 
 
