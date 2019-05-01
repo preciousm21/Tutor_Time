@@ -455,7 +455,7 @@ def create_table(total_array, final_student_array, num_students, big_array):
 
 
    button2 = Button(frame, text="Clear", command=callback2)
-   button2.grid(row=5, column = 9)
+   button2.grid(row=5, column = 8)
 
    day_entry = Entry(frame, bd=1)
    day_entry.insert(0, 'Enter day: "Mon" "Tues" ')
@@ -474,7 +474,7 @@ def create_table(total_array, final_student_array, num_students, big_array):
    time_entry.focus_set()
 
    button3 = Button(frame, text="More Details", command=lambda : more_details(final_student_array))
-   button3.grid(row=5, column = 11)
+   button3.grid(row=6, column = 8)
 
 
 def on_entry_click(event):
@@ -664,7 +664,7 @@ def drop_down():
 
    helpmenu = Menu(menubar, tearoff=0)
 
-   helpmenu.add_command(label="Help Index", command="")
+   helpmenu.add_command(label="Instruction", command="")
    helpmenu.add_command(label="About...", command="")
    menubar.add_cascade(label="Help", menu=helpmenu)
 
@@ -735,20 +735,31 @@ def open_app():
    
 
 def file_save():
-    num_space = 0
-    f_out = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
-    f_out.write("      ")
-    for i in range(len(new_array)):
-        if num_space%6 == 0:
-            f_out.write("\n")
-        num_space += 1
-        text2save = str(new_array[i])
-        f_out.write(text2save)
-        f_out.write("        ")
-    f_out.close()
+   for i in range(0, len(new_array)):
+      for j in range(14 - len(new_array[i])):
+         new_array[i] += " "
+   num_space = 0
+   f_out = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
+   f_out.write("      ")
+   for i in range(len(new_array)):
+      if num_space%6 == 0:
+         f_out.write("\n")
+      num_space += 1
+      text2save = str(new_array[i])
+      f_out.write(text2save)
+      f_out.write("        ")
+   f_out.close()
 
 def help_window():
-   help_essay = "asdf"
+   help_essay = "1) Click file, then click open in the drop down menu. \n 2) When the first window pops up, select the StudentsAndCourses file. \
+   \n 3) When the second window pops up, select the CourseList file. \n 4) Type in the class you are interested in and click enter. \n \
+   4a) The table will show the numbers and percentages of students busy during each day and time. \n \
+   5) If you are interested in any additional classes, type a new one into the first line and click enter. \n \
+   5a) The text under the buttons shows what classes the table is showing. \n 6) To search for a new set of classes, click clear. \
+   \n 7) To see the specific students that are busy each hour, type the day into \n \
+   the second textbox, type the time into the third textbox, and click More Details. \n \
+   8) To save the file, click file, then click save in the drop down menu."
+
    root = tk.Tk()
    root.title("Help")
  
@@ -834,7 +845,7 @@ menubar.add_cascade(label="File", menu=filemenu)
 
 helpmenu = Menu(menubar, tearoff=0)
 
-helpmenu.add_command(label="Help Index", command=help_window)
+helpmenu.add_command(label="Instructions", command=help_window)
 helpmenu.add_command(label="About...", command=about_window)
 helpmenu.add_separator()
 menubar.add_cascade(label="Help", menu=helpmenu)
