@@ -558,6 +558,11 @@ def callback2():
    global class_args
    class_args = []
    print (class_args)
+   i=0
+   while 1:
+       i=i+1
+       variable_label.set(str(class_args))
+       root.update()
    # """Restarts the current program.
    # Note: this function does not return. Any cleanup action (like
    # saving data) must be done before calling this function."""
@@ -567,11 +572,10 @@ def callback2():
 def callback(x):
    if filename != None and filename2 != None:
       class_args.append(text_entry.get().upper())
-      pre_label = Label(frame, text=class_args)
-      pre_label.grid(row=7, column=8)
+      variable_label.set(str(class_args))
+      
       if x == 1:
-         new_label = Label(frame, text=class_args)
-         new_label.grid(row=7,column=8)
+         
          print (class_args)
          find_csv_number1(x)
     
@@ -826,6 +830,13 @@ root.config(menu=menubar)
 
 global class_args
 class_args = []
+
+global variable_label
+
+variable_label = StringVar()
+
+new_label = Label(frame, textvariable = variable_label)
+new_label.grid(row=7,column=8)
 
 text_entry = Entry(frame)
 text_entry.grid(row = 1, column = 8)
