@@ -302,12 +302,21 @@ proc ::tk::MbPost {w {x {}} {y {}}} {
 		    set y [expr {[winfo rooty $w] - $mh}]
 		}
 		PostOverPoint $menu $x $y
+<<<<<<< HEAD
     	    }
     	    left {
     	    	set x [expr {[winfo rootx $w] - [winfo reqwidth $menu]}]
     	    	set y [expr {(2 * [winfo rooty $w] + [winfo height $w]) / 2}]
     	    	set entry [MenuFindName $menu [$w cget -text]]
 		if {[$w cget -indicatoron] && $entry ne ""} {
+=======
+	    }
+	    left {
+		set x [expr {[winfo rootx $w] - [winfo reqwidth $menu]}]
+		set y [expr {(2 * [winfo rooty $w] + [winfo height $w]) / 2}]
+		set entry [MenuFindName $menu [$w cget -text]]
+		if {[$w cget -indicatoron]} {
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
 		    if {$entry == [$menu index last]} {
 		    	incr y [expr {-([$menu yposition $entry] \
 			    	+ [winfo reqheight $menu])/2}]
@@ -321,6 +330,7 @@ proc ::tk::MbPost {w {x {}} {y {}}} {
 			&& [$menu entrycget $entry -state] ne "disabled"} {
     	    	    $menu activate $entry
 		    GenerateMenuSelect $menu
+<<<<<<< HEAD
     	    	}
     	    }
     	    right {
@@ -328,6 +338,15 @@ proc ::tk::MbPost {w {x {}} {y {}}} {
     	    	set y [expr {(2 * [winfo rooty $w] + [winfo height $w]) / 2}]
     	    	set entry [MenuFindName $menu [$w cget -text]]
 		if {[$w cget -indicatoron] && $entry ne ""} {
+=======
+		}
+	}
+	    right {
+		set x [expr {[winfo rootx $w] + [winfo width $w]}]
+		set y [expr {(2 * [winfo rooty $w] + [winfo height $w]) / 2}]
+		set entry [MenuFindName $menu [$w cget -text]]
+		if {[$w cget -indicatoron]} {
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
 		    if {$entry == [$menu index last]} {
 		    	incr y [expr {-([$menu yposition $entry] \
 			    	+ [winfo reqheight $menu])/2}]

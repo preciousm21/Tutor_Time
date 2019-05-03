@@ -738,12 +738,16 @@ proc ::tcl::Pkg::Create {args} {
     # Handle -load and -source specs
     foreach key {load source} {
 	foreach filespec $opts(-$key) {
+<<<<<<< HEAD
 	    foreach {filename proclist} {{} {}} {
 		break
 	    }
 	    foreach {filename proclist} $filespec {
 		break
 	    }
+=======
+	    lassign $filespec filename proclist
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
 	    
 	    if { [llength $proclist] == 0 } {
 		set cmd "\[list $key \[file join \$dir [list $filename]\]\]"

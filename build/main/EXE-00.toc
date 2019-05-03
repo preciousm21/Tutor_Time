@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ('/Users/angelflores/Github/Tutor_Time/build/main/main',
+=======
+('C:\\Users\\Henry\\Documents\\GitHub\\Tutor_Time\\build\\main\\main.exe',
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
  False,
  False,
  True,
@@ -10,6 +14,7 @@
  True,
  'main.pkg',
  [('PYZ-00.pyz',
+<<<<<<< HEAD
    '/Users/angelflores/Github/Tutor_Time/build/main/PYZ-00.pyz',
    'PYZ'),
   ('_struct',
@@ -43,4 +48,36 @@
  1556729272,
  [('runw',
    '/Users/angelflores/anaconda/lib/python2.7/site-packages/PyInstaller/bootloader/Darwin-64bit/runw',
+=======
+   'C:\\Users\\Henry\\Documents\\GitHub\\Tutor_Time\\build\\main\\PYZ-00.pyz',
+   'PYZ'),
+  ('struct', 'c:\\python27\\lib\\struct.pyc', 'PYMODULE'),
+  ('pyimod01_os_path',
+   'c:\\python27\\lib\\site-packages\\PyInstaller\\loader\\pyimod01_os_path.pyc',
+   'PYMODULE'),
+  ('pyimod02_archive',
+   'c:\\python27\\lib\\site-packages\\PyInstaller\\loader\\pyimod02_archive.pyc',
+   'PYMODULE'),
+  ('pyimod03_importers',
+   'c:\\python27\\lib\\site-packages\\PyInstaller\\loader\\pyimod03_importers.pyc',
+   'PYMODULE'),
+  ('pyiboot01_bootstrap',
+   'c:\\python27\\lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   'PYSOURCE'),
+  ('pyi_rth__tkinter',
+   'c:\\python27\\lib\\site-packages\\PyInstaller\\loader\\rthooks\\pyi_rth__tkinter.py',
+   'PYSOURCE'),
+  ('main',
+   'C:\\Users\\Henry\\Documents\\GitHub\\Tutor_Time\\main.py',
+   'PYSOURCE'),
+  ('main.exe.manifest',
+   'C:\\Users\\Henry\\Documents\\GitHub\\Tutor_Time\\build\\main\\main.exe.manifest',
+   'BINARY')],
+ [],
+ False,
+ False,
+ 1556729646L,
+ [('runw.exe',
+   'c:\\python27\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit\\runw.exe',
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
    'EXECUTABLE')])

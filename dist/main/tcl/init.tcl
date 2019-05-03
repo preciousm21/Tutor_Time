@@ -14,10 +14,18 @@
 # of this file, and for a DISCLAIMER OF ALL WARRANTIES.
 #
 
+<<<<<<< HEAD
 if {[info commands package] == ""} {
     error "version mismatch: library\nscripts expect Tcl version 7.5b1 or later but the loaded version is\nonly [info patchlevel]"
 }
 package require -exact Tcl 8.5.9
+=======
+# This test intentionally written in pre-7.5 Tcl 
+if {[info commands package] == ""} {
+    error "version mismatch: library\nscripts expect Tcl version 7.5b1 or later but the loaded version is\nonly [info patchlevel]"
+}
+package require -exact Tcl 8.5.15
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
 
 # Compute the auto path to use in this interpreter.
 # The values on the path come from several locations:
@@ -346,7 +354,11 @@ proc unknown args {
 	}
     }
 
+<<<<<<< HEAD
     if {([info level] == 1) && ([info script] eq "") \
+=======
+    if {([info level] == 1) && ([info script] eq "") 
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
 	    && [info exists tcl_interactive] && $tcl_interactive} {
 	if {![info exists auto_noexec]} {
 	    set new [auto_execok $name]
@@ -700,11 +712,22 @@ proc auto_execok name {
 	}
     }
 
+<<<<<<< HEAD
     foreach dir [split $path {;}] {
 	# Skip already checked directories
 	if {[info exists checked($dir)] || ($dir eq {})} { continue }
 	set checked($dir) {}
 	foreach ext $execExtensions {
+=======
+    foreach ext $execExtensions {
+	unset -nocomplain checked
+	foreach dir [split $path {;}] {
+	    # Skip already checked directories
+	    if {[info exists checked($dir)] || ($dir eq {})} {
+		continue
+	    }
+	    set checked($dir) {}
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
 	    set file [file join $dir ${name}${ext}]
 	    if {[file exists $file] && ![file isdirectory $file]} {
 		return [set auto_execs($name) [list $file]]

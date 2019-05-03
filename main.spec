@@ -4,7 +4,11 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
+<<<<<<< HEAD
              pathex=['/Users/angelflores/Github/Tutor_Time'],
+=======
+             pathex=['C:\\Users\\Henry\\Documents\\GitHub\\Tutor_Time'],
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
              binaries=[],
              datas=[],
              hiddenimports=[],

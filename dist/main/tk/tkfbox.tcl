@@ -1880,6 +1880,47 @@ proc ::tk::dialog::file::Done {w {selectFilePath ""}} {
     set Priv(selectFilePath) $selectFilePath
 }
 
+<<<<<<< HEAD
+=======
+proc ::tk::dialog::file::GlobFiltered {dir type {overrideFilter 0}} {
+    # $dir == where to search
+    # $type == what to look for ('d' or 'f b c l p s')
+    # $overrideFilter == whether to ignore the filter
+
+    variable showHiddenVar
+    upvar 1 data(filter) filter
+
+    if {$filter eq "*" || $overrideFilter} {
+	set patterns [list *]
+	if {$showHiddenVar} {
+	    lappend patterns .*
+	}
+    } elseif {[string is list $filter]} {
+	set patterns $filter
+    } else {
+	# Invalid list; assume we can use non-whitespace sequences as words
+	set patterns [regexp -inline -all {\S+} $filter]
+    }
+
+    set opts [list -tails -directory $dir -type $type -nocomplain]
+
+    set result {}
+    catch {
+	# We have a catch because we might have a really bad pattern (e.g.,
+	# with an unbalanced brace); even [glob -nocomplain] doesn't like it.
+	# Using a catch ensures that it just means we match nothing instead of
+	# throwing a nasty error at the user...
+	foreach f [glob {*}$opts -- {*}$patterns] {
+	    if {$f eq "." || $f eq ".."} {
+		continue
+	    }
+	    lappend result $f
+	}
+    }
+    return [lsort -dictionary -unique $result]
+}
+
+>>>>>>> 570e0bbcb5c32d03229a0c27839d62befc3fd00e
 proc ::tk::dialog::file::CompleteEnt {w} {
     upvar ::tk::dialog::file::[winfo name $w] data
     set f [$data(ent) get]
