@@ -455,7 +455,7 @@ def create_table(total_array, final_student_array, num_students, big_array):
 
 
    button2 = Button(frame, text="Clear", command=callback2)
-   button2.grid(row=5, column = 9)
+   button2.grid(row=5, column = 8)
 
    day_entry = Entry(frame, bd=1)
    day_entry.insert(0, 'Enter day: "Mon" "Tues" ')
@@ -474,7 +474,7 @@ def create_table(total_array, final_student_array, num_students, big_array):
    time_entry.focus_set()
 
    button3 = Button(frame, text="More Details", command=lambda : more_details(final_student_array))
-   button3.grid(row=5, column = 11)
+   button3.grid(row=6, column = 8)
 
 
 def on_entry_click(event):
