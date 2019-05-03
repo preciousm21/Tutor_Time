@@ -4,13 +4,15 @@
 # It implements a virtual path mecanism to hide the real pathnames from the
 # slave. It runs in a master interpreter and sets up data structure and
 # aliases that will be invoked when used from a slave interpreter.
-#
+# 
 # See the safe.n man page for details.
 #
 # Copyright (c) 1996-1997 Sun Microsystems, Inc.
 #
 # See the file "license.terms" for information on usage and redistribution of
 # this file, and for a DISCLAIMER OF ALL WARRANTIES.
+#
+# RCS: @(#) $Id: safe.tcl,v 1.16.4.8 2010/09/02 18:30:29 andreas_kupries Exp $
 
 #
 # The implementation is based on namespaces. These naming conventions are
@@ -36,7 +38,7 @@ proc ::safe::InterpStatics {} {
 	upvar $v $v
     }
     set flag [::tcl::OptProcArgGiven -noStatics]
-    if {$flag && (!$noStatics == !$statics)
+    if {$flag && (!$noStatics == !$statics) 
 	&& ([::tcl::OptProcArgGiven -statics])} {
 	return -code error\
 	    "conflicting values given for -statics and -noStatics"
@@ -57,7 +59,7 @@ proc ::safe::InterpNested {} {
     set flag [::tcl::OptProcArgGiven -nestedLoadOk]
     # note that the test here is the opposite of the "InterpStatics" one
     # (it is not -noNested... because of the wanted default value)
-    if {$flag && (!$nestedLoadOk != !$nested)
+    if {$flag && (!$nestedLoadOk != !$nested) 
 	&& ([::tcl::OptProcArgGiven -nested])} {
 	return -code error\
 	    "conflicting values given for -nested and -nestedLoadOk"
@@ -238,7 +240,7 @@ proc ::safe::interpConfigure {args} {
 #
 # Returns the slave name.
 #
-# Optional Arguments :
+# Optional Arguments : 
 # + slave name : if empty, generated name will be used
 # + access_path: path list controlling where load/source can occur,
 #                if empty: the master auto_path will be used.
@@ -249,7 +251,7 @@ proc ::safe::interpConfigure {args} {
 
 # use the full name and no indent so auto_mkIndex can find us
 proc ::safe::InterpCreate {
-			   slave
+			   slave 
 			   access_path
 			   staticsok
 			   nestedok
@@ -424,7 +426,7 @@ proc ::safe::interpAddToAccessPath {slave path} {
 # interpreter. It is useful when you want to install the safe base aliases
 # into a preexisting safe interpreter.
 proc ::safe::InterpInit {
-			 slave
+			 slave 
 			 access_path
 			 staticsok
 			 nestedok
@@ -490,10 +492,9 @@ proc ::safe::InterpInit {
     # Sync the paths used to search for Tcl modules. This can be done only
     # now, after tm.tcl was loaded.
     namespace upvar ::safe S$slave state
-    if {[llength $state(tm_path_slave)] > 0} {
-	::interp eval $slave [list \
-		::tcl::tm::add {*}[lreverse $state(tm_path_slave)]]
-    }
+    ::interp eval $slave [list \
+	      ::tcl::tm::add {*}$state(tm_path_slave)]
+
     return $slave
 }
 
@@ -563,7 +564,7 @@ proc ::safe::interpDelete {slave} {
     return
 }
 
-# Set (or get) the logging mecanism
+# Set (or get) the logging mecanism 
 
 proc ::safe::setLogCmd {args} {
     variable Log
@@ -671,9 +672,9 @@ proc ::safe::AliasGlob {slave args} {
     }
 
     if {$::tcl_platform(platform) eq "windows"} {
-	set dirPartRE {^(.*)[\\/]([^\\/]*)$}
+	set dirPartRE {^(.*)[\\/]}
     } else {
-	set dirPartRE {^(.*)/([^/]*)$}
+	set dirPartRE {^(.*)/}
     }
 
     set dir        {}
@@ -726,10 +727,11 @@ proc ::safe::AliasGlob {slave args} {
 	    DirInAccessPath $slave $dir
 	} msg]} {
 	    Log $slave $msg
-	    if {$got(-nocomplain)} {
+	    if {!$got(-nocomplain)} {
+		return -code error "permission denied"
+	    } else {
 		return
 	    }
-	    return -code error "permission denied"
 	}
 	lappend cmd -directory $dir
     }
@@ -741,32 +743,19 @@ proc ::safe::AliasGlob {slave args} {
 
     # Process remaining pattern arguments
     set firstPattern [llength $cmd]
-    foreach opt [lrange $args $at end] {
-	if {![regexp $dirPartRE $opt -> thedir thefile]} {
-	    set thedir .
-	}
-	if {$thedir eq "*"} {
-	    set mapped 0
-	    foreach d [glob -directory [TranslatePath $slave $virtualdir] \
-			   -types d -tails *] {
-		catch {
-		    DirInAccessPath $slave \
-			[TranslatePath $slave [file join $virtualdir $d]]
-		    if {$thefile eq "pkgIndex.tcl" || $thefile eq "*.tm"} {
-			lappend cmd [file join $d $thefile]
-			set mapped 1
-		    }
-		}
-	    }
-	    if {$mapped} continue
-	}
-	if {[catch {
+    while {$at < [llength $args]} {
+	set opt [lindex $args $at]
+	incr at
+	if {[regexp $dirPartRE $opt -> thedir] && [catch {
 	    set thedir [file join $virtualdir $thedir]
 	    DirInAccessPath $slave [TranslatePath $slave $thedir]
 	} msg]} {
 	    Log $slave $msg
-	    if {$got(-nocomplain)} continue
-	    return -code error "permission denied"
+	    if {$got(-nocomplain)} {
+		continue
+	    } else {
+		return -code error "permission denied"
+	    }
 	}
 	lappend cmd $opt
     }
@@ -783,7 +772,7 @@ proc ::safe::AliasGlob {slave args} {
 	return -code error "script error"
     }
 
-    Log $slave "GLOB < $msg" NOTICE
+    Log $slave "GLOB @ $msg" NOTICE
 
     # Translate path back to what the slave should see.
     set res {}
@@ -795,7 +784,7 @@ proc ::safe::AliasGlob {slave args} {
 	lappend res $p
     }
 
-    Log $slave "GLOB > $res" NOTICE
+    Log $slave "GLOB @ $res" NOTICE
     return $res
 }
 
@@ -823,7 +812,7 @@ proc ::safe::AliasSource {slave args} {
 	return -code error $msg
     }
     set file [lindex $args $at]
-
+    
     # get the real path from the virtual one.
     if {[catch {
 	set realfile [TranslatePath $slave $file]
@@ -831,7 +820,7 @@ proc ::safe::AliasSource {slave args} {
 	Log $slave $msg
 	return -code error "permission denied"
     }
-
+    
     # check that the path is in the access path of that slave
     if {[catch {
 	FileInAccessPath $slave $realfile

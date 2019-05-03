@@ -4,6 +4,8 @@
 # can be used by non-unix systems that do not have built-in support
 # for shells.
 #
+# RCS: @(#) $Id$
+#
 # Copyright (c) 1995-1997 Sun Microsystems, Inc.
 # Copyright (c) 1998-2000 Ajuba Solutions.
 # Copyright (c) 2007 Daniel A. Steffen <das@users.sourceforge.net>
@@ -97,6 +99,11 @@ proc ::tk::ConsoleInit {} {
         -accel "$mod++" -command {event generate .console <<Console_FontSizeIncr>>}
     AmpMenuArgs .menubar.edit add command -label [mc "&Decrease Font Size"] \
         -accel "$mod+-" -command {event generate .console <<Console_FontSizeDecr>>}
+
+    if {[tk windowingsystem] eq "aqua"} {
+	.menubar add cascade -label [mc Window] -menu [menu .menubar.window]
+	.menubar add cascade -label [mc Help] -menu [menu .menubar.help]
+    }
 
     . configure -menu .menubar
 

@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\Greg\\Github\\Tutor_Time'],
+             pathex=['/Users/angelflores/Github/Tutor_Time'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -34,3 +34,7 @@ coll = COLLECT(exe,
                strip=False,
                upx=True,
                name='main')
+app = BUNDLE(coll,
+             name='main.app',
+             icon=None,
+             bundle_identifier=None)
