@@ -732,17 +732,19 @@ def open_app():
    
 
 def file_save():
-    num_space = 0
-    f_out = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
-    f_out.write("      ")
-    for i in range(len(new_array)):
-        if num_space%6 == 0:
-            f_out.write("\n")
-        num_space += 1
-        text2save = str(new_array[i])
-        f_out.write(text2save)
-        f_out.write("        ")
-    f_out.close()
+   num_space = 0
+   f_out = tkFileDialog.asksaveasfile(mode='w', defaultextension=".txt")
+   f_out.write("      ")
+   for i in range(len(new_array)):
+      for j in range(14 - len(new_array[i])):
+         new_array[i] += " "
+      if num_space%6 == 0:
+         f_out.write("\n")
+      num_space += 1
+      text2save = str(new_array[i])
+      f_out.write(text2save)
+      f_out.write("        ")
+   f_out.close()
 
 def help_window():
    help_essay = "1) Select file, then select open in the drop down menu. \n 2) When the first window generates, select the StudentsAndCourses file. \
