@@ -788,12 +788,43 @@ def help_window():
 
 
 def about_window():
-   r = Toplevel()
-   r.title("About")
-   # about_info = "Tutor Time is an application that compares the schedules of all students. \n Created by Angel Flores, Precious Martinez, Gregor Radovic, original implementation by Emily Hill"
+   about_info = "Tutor Time is an application that compares the schedules of all students. \n Created by Angel Flores, Precious Martinez, Gregor Radovic, original implementation by Emily Hill"
    # msg = tk.Message(root, text = about_info)
    # msg.config(bg='white', font=('times', 18, 'italic'))
    # msg.pack()
+   
+   root = tk.Tk()
+   root.title("About")
+ 
+   canvas = Canvas(root, height=200) # a canvas in the parent object
+   frame = Frame(canvas) # a frame in the canvas
+   scrollbar = Scrollbar(root, orient="vertical", command=canvas.yview)
+    
+    
+   canvas.configure(yscrollcommand=scrollbar.set)
+   scrollbar.pack(side="right", fill="y") # comment out this line to hide the scrollbar
+   canvas.pack(side="left", fill="both", expand=True) # pack the canvas
+   # make the frame a window in the canvas
+    
+    
+   canvas.create_window((4,4), window=frame, anchor="nw", tags="frame")
+   # bind the frame to the scrollbar
+    
+    
+   frame.bind("<Configure>", lambda x: canvas.configure(scrollregion=canvas.bbox("all")))
+   root.bind("<Down>", lambda x: canvas.yview_scroll(3, 'units')) # bind "Down" to scroll down
+   root.bind("<Up>", lambda x: canvas.yview_scroll(-3, 'units')) # bind "Up" to scroll up
+   # bind the mousewheel to scroll up/down
+   root.bind("<MouseWheel>", lambda x: canvas.yview_scroll(int(-1*(x.delta/40)), "units"))
+
+   rows = 6
+
+   columns = 57
+   root.resizable(width=True, height=True) 
+
+   new_label = Label(frame, text=about_info)
+   new_label.grid(row=7,column=8)
+
    
 menubar = Menu(root)
 
