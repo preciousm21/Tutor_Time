@@ -610,6 +610,10 @@ if __name__ == "__main__":
 
    columns = 57
    root.resizable(width=True, height=True)
+   
+   root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
+   root.focus_set()  # <-- move focus to this widget
+   root.bind("<Escape>", lambda e: e.widget.quit())
 
 def drop_down():
    filewin = Toplevel(root)
